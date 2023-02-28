@@ -1,5 +1,6 @@
 <?php
-
+	include '../connections.php';	
+	include 'sessions.php';
 ?>
 
 <HTML>
@@ -20,9 +21,10 @@
 			<H2>Room Reservations</H2>
 			<TABLE>
 				<TR>
-					<TD>
-
-					</TD>
+					<TH SCOPE="COL">Room No.</TH>
+					<TH SCOPE="COL">Type</TH>
+					<TH SCOPE="COL">Time</TH>
+					<TH SCOPE="COL">Status</TH>
 				</TR>
 			</TABLE>
 		</DIV>
@@ -30,7 +32,12 @@
 		<DIV>
 			<H2>Equipment Reservations</H2>
 			<TABLE>
-
+				<TR>
+					<TH SCOPE="COL">Item Code</TH>
+					<TH SCOPE="COL">Category</TH>
+					<TH SCOPsE="COL">Time</TH>
+					<TH SCOPE="COL">Status</TH>
+				</TR>
 			</TABLE>
 		</DIV>
 	</BODY>
