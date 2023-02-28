@@ -41,7 +41,7 @@
 								<TD>" . $row["category"]. "</TD>
 								<TD>" . $row["total"]. "</TD>
 								<TD>" . $row["available"]. "</TD>
-								<TD><A HREF='borrow-eq.php'>Borrow</A></TD>
+								<TD><A HREF='borrow.php?id=".$row["id"]."'>Borrow</A></TD>
 							</TR>";
 						}
 					} else {

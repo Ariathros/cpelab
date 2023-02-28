@@ -41,7 +41,7 @@
 							<TD>" . $row["room_type"]. "</TD>
 							<TD>" . $row["seat_count"]. "</TD>
 							<TD>" . $row["room_status"]. "</TD>
-							<TD><A HREF='reserve.php'>Reserve</A></TD>
+							<TD><A HREF='reserve.php?id=".$row["id"]."'>Reserve</A></TD>
 							</TR>";
 						}
 					} else {
