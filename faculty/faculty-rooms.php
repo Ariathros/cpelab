@@ -40,8 +40,8 @@
 								<TD>" . $row["borrower"]. "</TD>
 								<TD>" . $row["time_start"]."". $row["time_end"]."</TD>
 								<TD>
-									<A HREF='reserve-action.php?id=".$row["id"]."&action=approve'>Approve</A>
-									<A HREF='reserve-action.php?id=".$row["id"]."&action=decline'>Decline</A>
+									<A HREF='reserve-action.php?id=".$row["id"]."&action=approved'>Approve</A>
+									<A HREF='reserve-action.php?id=".$row["id"]."&action=declined'>Decline</A>
 								</TD>
 							</TR>";
 						}

@@ -25,7 +25,7 @@
 
 				// Select from SQL
 				$sql = "SELECT password, usertype FROM useraccounts 
-				WHERE (username='$username' OR email='$username' OR id_num='$username')";
+				WHERE username='$username'";
 				$result = cpeQuery($sql, $conn);
 
 				if ($result->num_rows > 0) { //ACCOUNT EXIST

@@ -41,7 +41,7 @@
 				// Insert to SQL
 				$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
 				VALUES ('$f_name', '$l_name', '$id_no', '$username', '$email', '$password', 'user')";
-				cpeQuery($sql,$conn);
+				$conn->query($sql);
 				$_SESSION['username']=$username;
 				$_SESSION['usertype']='student';
 				header('Location: student/student-dashboard.php');
