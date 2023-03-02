@@ -28,7 +28,7 @@
 				</TR>
 				
 				<?php
-					$sql = "SELECT * FROM room_man";
+					$sql = "SELECT * FROM room_man WHERE status= 'pending'";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -40,14 +40,16 @@
 								<TD>" . $row["borrower"]. "</TD>
 								<TD>" . $row["time_start"]."". $row["time_end"]."</TD>
 								<TD>
-									<A HREF='approve.php?id=".$row["id"]."'></A>
-									<A HREF='decline.php?id=".$row["id"]."'></A>
+									<A HREF='reserve-action.php?id=".$row["id"]."&action=approve'>Approve</A>
+									<A HREF='reserve-action.php?id=".$row["id"]."&action=decline'>Decline</A>
 								</TD>
 							</TR>";
 						}
 					} else {
-						echo "<TR><TD>0 results</TD></TR>";
+						echo "<TR><TD>No reservations needed actions at this moment.</TD></TR>";
 					}
+
+					// insert to logs
 				?>
 			</TABLE>
 		</DIV>

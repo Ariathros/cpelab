@@ -29,6 +29,7 @@
 					<TH SCOPE="COL">Category</TH>
 					<TH SCOPE="COL">Total</TH>
 					<TH SCOPE="COL">Available</TH>
+					<TH SCOPE="COL">Actions</TH>
 				</TR>
 				
 				<?php
@@ -44,6 +45,10 @@
 								<TD>" . $row["category"]. "</TD>
 								<TD>" . $row["total"]. "</TD>
 								<TD>" . $row["available"]. "</TD>
+								<TD>
+									<A HREF='equip-edit.php?id=".$row["id"]."&action=edit'>Edit</A>
+									<A HREF='equip-edit.php?id=".$row["id"]."&action=delete'>Delete</A>
+								</TD>
 							</TR>";
 						}
 					} else {

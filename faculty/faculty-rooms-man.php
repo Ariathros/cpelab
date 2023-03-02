@@ -29,6 +29,7 @@
 					<TH SCOPE="COL">Type</TH>
 					<TH SCOPE="COL">Seat Count</TH>
 					<TH SCOPE="COL">Status</TH>
+					<TH SCOPE="COL">Action</TH>
 				</TR>
 				
 				<?php
@@ -44,6 +45,10 @@
 							<TD>" . $row["room_type"]. "</TD>
 							<TD>" . $row["seat_count"]. "</TD>
 							<TD>" . $row["room_status"]. "</TD>
+							<TD>
+							<A HREF='room-edit.php?id=".$row["id"]."&action=edit'>Edit</A>
+							<A HREF='room-edit.php?id=".$row["id"]."&action=delete'>Delete</A>
+						</TD>
 							</TR>";
 						}
 					} else {
