@@ -18,10 +18,11 @@
 		</DIV>
 		
 		<?php
-			$username = htmlentities($_POST['username']);
-			$password = htmlentities($_POST['password']);
-			
 			if (isset($_POST['bLogin'])){
+
+				$username = htmlentities($_POST['username']);
+				$password = htmlentities($_POST['password']);
+
 				// Select from SQL
 				$sql = "SELECT password, usertype FROM useraccounts 
 				WHERE (username='$username' OR email='$username' OR id_num='$username')";
@@ -54,6 +55,10 @@
 				}
 			}
 		?>
+
+		<DIV>
+			<A HREF="register.php">Register</A>
+		</DIV>
 		
 	</BODY>
 </HTML>

@@ -20,7 +20,6 @@
 		</DIV>
 		
 		<DIV>
-		
 			<?php
 				$id = intval($_GET['id']);
 				
@@ -52,16 +51,17 @@
 		</DIV>
 		
 		<?php
-		
-			$firstname = $_POST['firstname'];
-			$lastname = $_POST['lastname'];
-			$id_num = $_POST['id_num'];
-			$username = $_POST['username'];
-			$email = $_POST['email'];
-			$password = $_POST['password'];
-			$usertype = $_POST['usertype'];
 			
 			if (isset($_POST['bUpdate'])){
+
+				$firstname = $_POST['firstname'];
+				$lastname = $_POST['lastname'];
+				$id_num = $_POST['id_num'];
+				$username = $_POST['username'];
+				$email = $_POST['email'];
+				$password = $_POST['password'];
+				$usertype = $_POST['usertype'];
+
 				$sql = "UPDATE useraccounts
 				SET 
 					firstname='$firstname',

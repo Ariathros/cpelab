@@ -23,22 +23,22 @@
 				Equipment Name: <INPUT NAME="equip_name" TYPE='TEXT'><BR>
 				Category: <INPUT NAME="category" TYPE='TEXT'><BR>
 				Total: <INPUT NAME="total" TYPE='NUMBER'><BR>
-				Available: <INPUT NAME="available" TYPE='NUMBER'><BR>
 				<INPUT NAME="bAdd" TYPE='SUBMIT'>
 			</FORM>
 		</DIV>
 		
 		<?php
-			$equip_code = htmlentities($_POST['equip_code']);
-			$equip_name = htmlentities($_POST['equip_name']);
-			$category = htmlentities($_POST['category']);
-			$total = htmlentities($_POST['total']);
-			$available = htmlentities($_POST['available']);
 			
 			if (isset($_POST['bAdd'])){
+
+				$equip_code = htmlentities($_POST['equip_code']);
+				$equip_name = htmlentities($_POST['equip_name']);
+				$category = htmlentities($_POST['category']);
+				$total = htmlentities($_POST['total']);
+
 				// Insert to SQL
 				$sql = "INSERT INTO equipments (equip_code, equip_name, category, total, available)
-					VALUES ('$equip_code', '$equip_name', '$category', $total, $available)";
+					VALUES ('$equip_code', '$equip_name', '$category', $total, $total)";
 				if ($conn->query($sql) === TRUE) {
 					echo "New record created successfully";
 				} else {

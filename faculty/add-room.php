@@ -28,12 +28,14 @@
 		</DIV>
 		
 		<?php
+			
+			if (isset($_POST['bAdd'])){
+				
 			$room_no = htmlentities($_POST['room_no']);
 			$room_type = htmlentities($_POST['room_type']);
 			$seat_count = htmlentities(intval($_POST['seat_count']));
 			$room_status = htmlentities($_POST['room_status']);
-			
-			if (isset($_POST['bAdd'])){
+
 				// Insert to SQL
 				$sql = "INSERT INTO rooms (room_no, room_type, seat_count, room_status)
 					VALUES ('$room_no', '$room_type', $seat_count, '$room_status')";

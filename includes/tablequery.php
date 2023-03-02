@@ -60,8 +60,10 @@
 			room_no VARCHAR(30),
 			room_type VARCHAR(50),
 			borrower VARCHAR(50),
+			reason VARCHAR(255),
 			time_start TIME,
-			time_end TIME
+			time_end TIME,
+			status VARCHAR(50)
 			)";
 	createTable($tablequery, $conn);
 	
@@ -70,7 +72,9 @@
 			code VARCHAR(30),
 			category VARCHAR(50),
 			borrower VARCHAR(50),
+			reason VARCHAR(255),
 			time_start TIME,
-			time_end TIME
+			time_end TIME,
+			status VARCHAR(50)
 			)";
 	createTable($tablequery, $conn);
