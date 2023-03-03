@@ -23,10 +23,12 @@
 			<TABLE>
 				<TR>
 					<TH SCOPE="COL">ID</TH>
-					<TH SCOPE="COL">ID Number</TH>
 					<TH SCOPE="COL">Name</TH>
+					<TH SCOPE="COL">Type</TH>
+					<TH SCOPE="COL">Category</TH>
 					<TH SCOPE="COL">Action</TH>
-					<TH SCOPE="COL">Code</TH>
+					<TH SCOPE="COL">Action By</TH>
+					<TH SCOPE="COL">Student</TH>
 					<TH SCOPE="COL">Date</TH>
 					<TH SCOPE="COL">Time</TH>
 				</TR>
@@ -41,10 +43,12 @@
 							while($row = $result->fetch_assoc()) {
 								echo "
 								<TD>" . $row["id"]. "</TD>
-								<TD>" . $row["id_num"]. "</TD>
 								<TD>" . $row["name"]. "</TD>
+								<TD>" . $row["type"]. "</TD>
+								<TD>" . $row["category"]. "</TD>
 								<TD>" . $row["action"]. "</TD>
-								<TD>" . $row["code"]. "</TD>
+								<TD>" . $row["faculty"]. "</TD>
+								<TD>" . $row["student"]. "</TD>
 								<TD>" . $row["date"]. "</TD>
 								<TD>" . $row["time_start"]. "-" . $row["time_end"]. "</TD>
 								";
