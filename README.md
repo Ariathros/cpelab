@@ -1,5 +1,5 @@
 # cpelab
 
-AYAW Q SA LARAVEL
+No Laravel required
 
 CPE LAB ROOM AND EQUIPMENT MANAGEMENT SYSTEM
