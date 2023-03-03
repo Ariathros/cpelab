@@ -58,7 +58,7 @@
 				$sql = "INSERT INTO eq_man (name, category, borrower, reason, time_start, time_end, status)
 					VALUES ('$equip_name - $qty', '$category', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
 				if ($conn->query($sql) === TRUE) {
-					echo "Borrowed item pending.";
+					header('Location: student-dashboard.php');
 				} else {
 					echo "Error: " . $sql . "<br>" . $conn->error;
 				}

@@ -38,7 +38,7 @@
 				Room Type: <?php echo $room_type;?><BR>
 				Seat Count: <?php echo $seat_count;?><BR>
 				Status: <?php echo $room_status;?><BR>
-				Time: <INPUT NAME="time_start" TYPE='TIME'>-<INPUT NAME="time_end" TYPE='TIME'><BR>
+				Time: <INPUT NAME="time_start" TYPE='TIME' REQUIRED>-<INPUT NAME="time_end" TYPE='TIME' REQUIRED><BR>
 				Reason: <INPUT NAME="reason" TYPE='TEXT'><BR>
 				<INPUT NAME="bReserve" TYPE='SUBMIT'>
 			</FORM>
@@ -54,11 +54,26 @@
 				// Insert to SQL
 				$sql = "INSERT INTO room_man (room_no, room_type, borrower, reason, time_start, time_end, status)
 					VALUES ('$room_no', '$room_type', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
-				if ($conn->query($sql) === TRUE) {
-					echo "Room reservation pending.";
-				} else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
+				if ($conn->query($sql) === FALSE) {
+
+					// CONDITIONS START HERE
+					// if(condition here){
+					// 	mga error output
+					//  return;
+					// }
+
+					// if (condition here){
+					// 	mga error output
+					//  return;
+					// }
+
+					// MGA CONDITIONS (PWEDE DAGDAGAN)
+					// - mas maaga time end sa time start
+					// - room already used (need db query)
+
+
 				}
+				header('Location: student-dashboard.php');
 			}
 		?>
 	</BODY>

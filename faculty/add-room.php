@@ -31,19 +31,15 @@
 			
 			if (isset($_POST['bAdd'])){
 				
-			$room_no = htmlentities($_POST['room_no']);
-			$room_type = htmlentities($_POST['room_type']);
-			$seat_count = htmlentities(intval($_POST['seat_count']));
-			$room_status = htmlentities($_POST['room_status']);
+				$room_no = htmlentities($_POST['room_no']);
+				$room_type = htmlentities($_POST['room_type']);
+				$seat_count = htmlentities(intval($_POST['seat_count']));
+				$room_status = htmlentities($_POST['room_status']);
 
 				// Insert to SQL
 				$sql = "INSERT INTO rooms (room_no, room_type, seat_count, room_status)
 					VALUES ('$room_no', '$room_type', $seat_count, '$room_status')";
-				if ($conn->query($sql) === TRUE) {
-					echo "New record created successfully";
-				} else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
-				}
+				$conn->query($sql);
 			}
 		?>
 	</BODY>

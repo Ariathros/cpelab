@@ -39,13 +39,18 @@
 		
 			<FORM METHOD="POST">
 				ID: <?php echo $id; ?><BR>
-				First Name:<INPUT NAME="firstname" TYPE="TEXT" VALUE="<?php echo $firstname; ?>"><BR>
-				Last Name:<INPUT NAME="lastname" TYPE="TEXT" VALUE="<?php echo $lastname; ?>"><BR>
-				ID No.:<INPUT NAME="id_num" TYPE="TEXT" VALUE="<?php echo $id_num; ?>"><BR>
-				Username:<INPUT NAME="username" TYPE="TEXT" VALUE="<?php echo $username; ?>"><BR>
-				Email:<INPUT NAME="email" TYPE="TEXT" VALUE="<?php echo $email; ?>"><BR>
-				Password:<INPUT NAME="password" TYPE="TEXT" VALUE="<?php echo $password; ?>"><BR>
-				User Type:<INPUT NAME="usertype" TYPE="TEXT" VALUE="<?php echo $usertype; ?>"><BR>
+				First Name:<INPUT NAME="firstname" TYPE="TEXT" VALUE="<?php echo $firstname; ?>" REQUIRED><BR>
+				Last Name:<INPUT NAME="lastname" TYPE="TEXT" VALUE="<?php echo $lastname; ?>" REQUIRED><BR>
+				ID No.:<INPUT NAME="id_num" TYPE="TEXT" VALUE="<?php echo $id_num; ?>" REQUIRED><BR>
+				Username:<INPUT NAME="username" TYPE="TEXT" VALUE="<?php echo $username; ?>" REQUIRED><BR>
+				Email:<INPUT NAME="email" TYPE="TEXT" VALUE="<?php echo $email; ?>" REQUIRED><BR>
+				Password:<INPUT NAME="password" TYPE="TEXT" VALUE="<?php echo $password; ?>" REQUIRED><BR>
+				User Type:    <input list="browsers" name="usertype" VALUE="<?php echo $usertype; ?>">
+					<datalist id="browsers">
+						<option value="user">
+						<option value="faculty">
+						<option value="admin">
+					</datalist><BR>
 				<INPUT NAME="bUpdate" TYPE="SUBMIT" VALUE="Update">
 			</FORM>
 		</DIV>

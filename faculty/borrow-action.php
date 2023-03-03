@@ -30,10 +30,11 @@
     // INSERT INTO LOGS
     $sql = "INSERT INTO logs (name, type, category, action, faculty, student, time_start, time_end) 
     VALUES ('$room_no', 'equipment', '$room_type', '$status', '$faculty', '$student', '$time_start', '$time_end')";
-    if ($conn->query($sql) === TRUE) {
-        echo "Log inserted.";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    $conn->query($sql);
 
-    // subtract qty
+    // ALERT ACTION
+    // echo "<script>alert('Room $status.');</script>";
+
+    header('Location: faculty-equip.php');
+
+    // SUBTRACT QTY

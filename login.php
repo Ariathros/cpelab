@@ -1,4 +1,5 @@
 <?php
+	// LOGIN PAGE
 	include 'connections.php';
 	include 'sessions.php';
 ?>
@@ -11,13 +12,14 @@
 	<BODY>
 		<DIV>
 			<FORM METHOD="POST">
-				<INPUT NAME="username" TYPE="TEXT" PLACEHOLDER="Username/Email/ID No."><BR>
-				<INPUT NAME="password" TYPE="PASSWORD" PLACEHOLDER="Password"><BR>
+				<INPUT NAME="username" TYPE="TEXT" PLACEHOLDER="Username/Email/ID No." REQUIRED><BR>
+				<INPUT NAME="password" TYPE="PASSWORD" PLACEHOLDER="Password" REQUIRED><BR>
 				<INPUT NAME="bLogin" TYPE="SUBMIT" VALUE="Login">
 			</FORM>
 		</DIV>
 		
 		<?php
+			// IF BUTTON IS CLICKED
 			if (isset($_POST['bLogin'])){
 
 				$username = htmlentities($_POST['username']);
@@ -28,30 +30,34 @@
 				WHERE username='$username'";
 				$result = cpeQuery($sql, $conn);
 
-				if ($result->num_rows > 0) { //ACCOUNT EXIST
+				// IF MAY RESULTS
+				if ($result->num_rows > 0) {
 					$row = $result->fetch_assoc();
-						if($row["password"]===$password){
-							echo "Logged in!";
-							$_SESSION['username']=$username;
-							if($row["usertype"]==="admin"){
-								header('Location: admin/admin-logs.php');
-								$_SESSION['usertype']='admin';
-							}
-							elseif($row["usertype"]==="faculty"){
-								header('Location: faculty/faculty-rooms.php');
-								$_SESSION['usertype']='faculty';
-							}
-							else{
-								header('Location: student/student-dashboard.php');
-								$_SESSION['usertype']='student';
-							}
-						}
-						else{ //ACCOUNT NOT EXIST
-							echo "Wrong Password!";
-						}
+
+					if($row["password"]!=$password){
+						// WRONG PASSWORD CONDITION
+						echo "Wrong Password!";
+						return;
+					}
 						
+					// USERTYPE CHECKER
+					$_SESSION['username']=$username;
+					if($row["usertype"]==="admin"){
+						$_SESSION['usertype']='admin';
+						header('Location: admin/admin-logs.php');
+					}
+					elseif($row["usertype"]==="faculty"){
+						$_SESSION['usertype']='faculty';
+						header('Location: faculty/faculty-rooms.php');
+					}
+					else{
+						
+						$_SESSION['usertype']='student';
+						header('Location: student/student-dashboard.php');
+					}
+					
 				} else { 
-					echo "Account didn't exist!";
+					echo "Username doesn't exist!";
 				}
 			}
 		?>
