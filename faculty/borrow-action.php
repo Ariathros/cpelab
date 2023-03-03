@@ -20,7 +20,7 @@
     $sql = "SELECT * FROM eq_man WHERE id= '$id'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $room_no = $row["code"];
+    $room_no = $row["name"];
     $room_type = $row["category"];
     $student = $row["borrower"];
     $time_start = $row["time_start"];

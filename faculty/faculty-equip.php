@@ -35,7 +35,7 @@
 						// output data of each row
 						while($row = $result->fetch_assoc()) {
 							echo "<TR>
-								<TD>" . $row["code"]. "</TD>
+								<TD>" . $row["name"]. "</TD>
 								<TD>" . $row["category"]. "</TD>
 								<TD>" . $row["borrower"]. "</TD>
 								<TD>" . $row["time_start"]."". $row["time_end"]."</TD>

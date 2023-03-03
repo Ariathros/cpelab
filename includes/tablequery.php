@@ -71,7 +71,7 @@
 	
 	$tablequery = "eq_man (
 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			code VARCHAR(30),
+			name VARCHAR(30),
 			category VARCHAR(50),
 			borrower VARCHAR(50),
 			reason VARCHAR(255),

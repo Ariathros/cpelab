@@ -41,7 +41,7 @@
 						if ($result->num_rows > 0) {
 							// output data of each row
 							while($row = $result->fetch_assoc()) {
-								echo "
+								echo "<TR>
 								<TD>" . $row["id"]. "</TD>
 								<TD>" . $row["name"]. "</TD>
 								<TD>" . $row["type"]. "</TD>
@@ -51,7 +51,7 @@
 								<TD>" . $row["student"]. "</TD>
 								<TD>" . $row["date"]. "</TD>
 								<TD>" . $row["time_start"]. "-" . $row["time_end"]. "</TD>
-								";
+								</TR>";
 							}
 						} else {
 							echo "<TR><TD>0 results</TD></TR>";

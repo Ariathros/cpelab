@@ -48,15 +48,15 @@
 		<?php
 			if (isset($_POST['bBorrow'])){
 
-				$equip_code = $code;
-				$category = htmlentities($_POST['qty']);
+				// Add quantity column
+				$qty = htmlentities($_POST['qty']);
 				$time_start = htmlentities($_POST['time_start']);
 				$time_end = htmlentities($_POST['time_end']);
 				$reason = htmlentities($_POST['reason']);
 
 				// Insert to SQL
-				$sql = "INSERT INTO eq_man (code, category, borrower, reason, time_start, time_end, status)
-					VALUES ('$equip_code', '$category', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
+				$sql = "INSERT INTO eq_man (name, category, borrower, reason, time_start, time_end, status)
+					VALUES ('$equip_name - $qty', '$category', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
 				if ($conn->query($sql) === TRUE) {
 					echo "Borrowed item pending.";
 				} else {

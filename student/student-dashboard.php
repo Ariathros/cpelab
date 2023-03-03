@@ -55,7 +55,7 @@
 			<H2>Equipment Reservations</H2>
 			<TABLE>
 				<TR>
-					<TH SCOPE="COL">Item Code</TH>
+					<TH SCOPE="COL">Item Name</TH>
 					<TH SCOPE="COL">Reason</TH>
 					<TH SCOPE="COL">Category</TH>
 					<TH SCOPsE="COL">Time</TH>
@@ -71,7 +71,7 @@
 						// output data of each row
 						while($row = $result->fetch_assoc()) {
 							echo "<TR>
-								<TD>" . $row["code"]. "</TD>
+								<TD>" . $row["name"]. "</TD>
 								<TD>" . $row["reason"]. "</TD>
 								<TD>" . $row["category"]. "</TD>
 								<TD>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
