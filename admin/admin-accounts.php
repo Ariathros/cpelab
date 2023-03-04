@@ -18,6 +18,10 @@
 		<DIV>
 			<H1>Accounts</H1>
 		</DIV>
+
+		<DIV>
+			<A CLASS="btn btn-primary" HREF='create.php?ID="id"'>Add</A>
+		</DIV>
 		
 		<DIV>
 			<TABLE>

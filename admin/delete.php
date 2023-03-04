@@ -1,6 +1,7 @@
 <HTML>
 	<BODY>
             <?php
+                // add waring prompt for deleting user
                 if(isset($_GET['id'])) {
                     $id = $_GET['id'];
                 
@@ -13,14 +14,14 @@
 
                     $sql = "DELETE FROM useraccounts WHERE id=$id"; // table name should not be enclosed in quotes
                     
-                    // executed but not shown, should be set as banner messge instead
+                    // executed but not shown, should be set as flash messge instead
                     if ($connection->query($sql)) {
                         echo "Record updated successfully";
                     } else {
                         echo "Error updating record: " . mysqli_error($conn);
                     }
                 }
-            // bring back to Accounts after delete
+            // bring back to Admin Accounts after delete
             header("location: /cpelab/admin/admin-accounts.php");
             exit;
             ?>
