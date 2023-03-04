@@ -53,6 +53,7 @@
 									<TD>" . $row["usertype"]. "</TD>
 									<TD>
 										<A HREF='edit.php?id=".$row["id"]."' class='btnEdit'>Edit</button>
+										<A HREF='delete.php?id=".$row["id"]."' class='btnDelete'>Delete</button>
 									</TD>
 								</TR>
 								";
