@@ -73,7 +73,7 @@
 
 
 				}
-				header('Location: student-dashboard.php');
+				header('Location: student-index.php');
 			}
 		?>
 	</BODY>
