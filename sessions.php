@@ -12,6 +12,6 @@
 			header("Location: faculty/faculty-rooms.php");
 		}
 		else{
-			header("Location: student/student-dashboard.php");
+			header("Location: student/student-index.php");
 		}
 	}

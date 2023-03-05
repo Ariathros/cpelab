@@ -1,0 +1,279 @@
+*{
+    font-family: 'Inter', sans-serif;
+    color: black;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+/*login page*/
+.bg{
+    background-image: url("images/pup.jpg");
+    width: 67%;
+    background-size: cover;
+    height: 100%;
+    position: fixed;
+}
+.col-md-4{
+    background-color: white;
+    margin-top: 50px;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+.col-md-4 h2{
+    padding-top: 10px;
+}
+.col-md-4 a{
+    padding-bottom: 50px;
+}
+.index_menu a.btn{
+    width: 300px;
+    padding: 10px 16px;
+    margin-bottom: 12px ;
+    font-size: larger;
+    font-weight: bold;
+    border-width: 0;
+}
+.index_menu a.btn:nth-child(1){
+    background-color: #006BCE;
+}
+.index_menu a.btn:nth-child(2){
+    background-color: #CE0000;
+}
+.index_menu a.btn:hover{
+    color: black;
+    border-width: 3px;
+    border-color: black;
+}
+
+/* for login pages */
+form{
+    width: 350px;
+}
+input.form-control{
+    width: 350px;
+}
+form button{
+    width: 350px;
+    font-weight: bold;
+}
+#forgotPass{
+    color:red; 
+    padding-top: 10px; 
+    font-weight: bold; 
+    font-size: smaller;
+}
+
+/* for header */
+.header{
+    height: 110px;
+}
+.align-baseline{
+    height:85px;
+    font-size: 50px; 
+    padding-top:30px; 
+    padding-left:24px; 
+    font-weight: bold;
+}
+hr{
+    height:10px; 
+    background-color:#800000; 
+    border-width:0;
+}
+
+/* ------------ STUDENT PAGES ------------ */
+
+/* for sidebar */
+.sidebar{
+    background-color: #800000;
+    padding-top: 30px;
+    width: 25%;
+    height: 100%;
+    position: fixed;
+}
+.sidebar .side-header{
+    text-align: center;
+}
+.sidebar .menu{
+    display: flexbox;
+    padding-top: 30px;
+    text-align: left;
+}
+.sidebar .menu .btn{
+    font-size: 30px;
+    display: inline-flex;
+    text-align: justify;
+    width: 100%;
+    padding-left: 40px;
+}
+.menu_icon i{
+    width: 40px;
+    color: white;
+}
+.menu_text{
+    margin-left: 20px;
+    color: white;
+}
+.sidebar .menu .btn:hover{
+    background-color: #CC3D3D;
+    color: black;
+    font-weight: bold;
+}
+.logout{
+    padding-top: 50%;
+    padding-bottom: 30%;
+    text-align: right;
+}
+.logout .btn{
+    font-size: 20px;
+    display: inline-flex;
+    text-align: justify;
+    width: 100%;
+    padding-left: 40px;
+}
+.logout .btn:hover{
+    background-color: #CC3D3D;
+    color:black;
+    font-weight: bold;
+}
+.logout .btn .menu_icon{
+    width: 20px;
+}
+.logout .btn .menu_text{
+    margin-left: 5px;
+}
+
+/* for dashboard */
+.dashboard{
+    padding-left:24px; 
+    padding-right:24px;
+}
+.dashboard .dash_title{
+    padding-top:15px; 
+    font-size:30px; 
+    font-weight:bold;
+}
+.dashboard .dash_title u{
+    text-decoration-color:#CC0000; 
+    text-decoration-thickness:5px;
+}
+.dashboard .reservations{
+    text-align:center;
+    margin-bottom: 10px;
+}
+.dashboard .reservations .table-holder{
+    background-color: white;
+    padding: 10px;
+}
+.dashboard .reservations .table-holder .table-title{
+    background-color:#952D2D; 
+    color:white; 
+    font-size:40px; 
+    font-weight:bold;
+}
+.dashboard .reservations .table-holder .table-rsrv{
+    padding:20px;
+}
+.table-rsrv table{
+    background-color:#D9D9D9;       
+}
+.table-rsrv table thead tr th{
+    border: solid 1px black;
+}
+.table-rsrv table tbody tr td{
+    border: solid 1px black;
+}
+
+/* for rooms */
+.student_rooms{
+    padding-top:15px; 
+    padding-left:24px; 
+    padding-right:24px; 
+    font-weight:bold;
+}
+.student_rooms .row .col-8 .title{
+    padding-top:15px; 
+    font-size:30px; 
+    font-weight:bold;
+    text-decoration: underline;
+    text-decoration-color:#CC0000; 
+    text-decoration-thickness:5px;
+}
+.student_rooms .row .col-3 button.btn{
+    font-size:20px;
+    margin-top:10px;
+    cursor: pointer; 
+    border-radius: 10px;
+    background-color: #800000;
+    color: white;
+    border-width: 0px;
+    width: 80%;
+}
+.student_rooms .date_time{
+    align-items:center; 
+    text-align:center;
+}
+.student_rooms .date_time .row{
+    padding-left:44px;
+    padding-right:44px;
+}
+.student_rooms .date_time .row .col-6{
+    background-color: white;
+}
+.student_rooms .date_time .row .col-6 .calendar_title{
+    width:100%; 
+    background-color: #952D2D; 
+    color: white; 
+    font-size: 25px;
+}
+.student_rooms .date_time .row .col-5{
+    background-color: white; 
+    text-align:center;
+}
+.student_rooms .date_time .row .col-5 .time_title{
+    background-color: #952D2D; 
+    color: white; 
+    font-size: 25px;
+}
+.student_rooms .date_time .row .col-5 .row{
+    padding:5px;
+}
+.student_rooms .date_time .row .col-5 .row .col-6 button{
+    font-size:16px;
+    margin-bottom:5px; 
+    cursor:pointer; 
+    border-radius:10px; 
+}
+.student_rooms .accordion{
+    padding:20px;
+}
+.student_rooms .accordion .accordion-item .accordion-collapse .accordion-body{
+    text-align:center;
+}
+
+/* for equipment */
+.student_equipment{
+    padding-left:24px; 
+    padding-right:24px;
+}
+.student_equipment .navbar .container-fluid .navbar-brand{
+    padding-top:15px; 
+    font-size:30px; 
+    font-weight:bold;
+    text-decoration: underline;
+    text-decoration-color:#CC0000; 
+    text-decoration-thickness:5px;
+}
+.student_equipment .navbar .container-fluid .d-flex input{
+    font-size:15px;
+    width: fit-content;
+}
+.student_equipment .d-flex{
+    text-align:center;
+}
+.student_equipment .d-flex .card{
+    width: 15rem;
+}
