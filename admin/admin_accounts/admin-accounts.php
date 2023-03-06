@@ -17,7 +17,7 @@
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-		<title>Document</title>
+		<title>Admin Account Management - CPE Lab Room and Equipment Management System</title>
 	</head>
 	<body>
 		<?php

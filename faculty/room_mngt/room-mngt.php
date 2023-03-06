@@ -1,63 +1,85 @@
 <?php
-	include "../../connections.php";
-    include '../sessions.php';
+	//include "../../connections.php";
+    //include '../sessions.php';
 ?>
 
-<HTML>
-	<HEAD>
-		<TITLE>Room Management - CPE Lab Room and Equipment Management System</TITLE>
-	</HEAD>
-	
-	<BODY>
-		<DIV>
-			<?php include '../sidebar.php'; ?>
-		</DIV>
-		
-		<DIV>
-			<H1>Room Reservations</H1>
-		</DIV>
-		
-		<DIV>
-			<A HREF="create.php">Add Room</A>
-		</DIV>
-		
-		<DIV>
-			<TABLE>
-				<TR>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<title>Faculty Room Management - CPE Lab Room and Equipment Management System</title>
+	</head>
+	<body>
+		<?php
+			include "../sidebar.php";
+		?>
+
+		<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+            Room Management
+        </nav>
+
+		<div class="container">
+			<?php
+				if(isset($_GET['msg'])) {
+					$msg = $_GET['msg'];
+					echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					'.$msg.'
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				  </div>';
+				}
+			?>
+
+			<a href="create.php" class="btn btn-dark mb-3">Add New</a>
+
+			<table class="table table-hover text-center">
+				<thead class="table-dark">
+					<tr>
 					<TH SCOPE="COL">ID</TH>
 					<TH SCOPE="COL">Room Number</TH>
 					<TH SCOPE="COL">Type</TH>
 					<TH SCOPE="COL">Seat Count</TH>
 					<TH SCOPE="COL">Status</TH>
 					<TH SCOPE="COL">Action</TH>
-				</TR>
-				
-				<?php
-					$sql = "SELECT * FROM rooms";
-					$result = $conn->query($sql);
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						include '../../connections.php';
+						include '../sessions.php';
 
-					if ($result->num_rows > 0) {
-						// output data of each row
-						while($row = $result->fetch_assoc()) {
-							echo "<TR>
-							<TD>" . $row["id"]. "</TD>
-							<TD>" . $row["room_no"]. "</TD>
-							<TD>" . $row["room_type"]. "</TD>
-							<TD>" . $row["seat_count"]. "</TD>
-							<TD>" . $row["room_status"]. "</TD>
-							<TD>
-							<A HREF='edit.php?id=".$row["id"]."&action=edit'>Edit</A>
-							<A HREF='delete.php?id=".$row["id"]."&action=delete'>Delete</A> 
-						</TD>
-							</TR>";
+						$sql = "SELECT * FROM rooms";
+						$result = mysqli_query($conn, $sql);
+						// This will get all data from our database
+						while ($row = mysqli_fetch_assoc($result)) {
+							?>
+							<tr>
+								<td><?php echo $row['id']?></td>
+								<td><?php echo $row['room_no']?></td>
+								<td><?php echo $row['room_type']?></td>
+								<td><?php echo $row['seat_count']?></td>
+								<td><?php echo $row['room_status']?></td>
+								<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
+									<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
+							</tr>
+							<?php
 						}
-					} else {
-						echo "<TR><TD>0 results</TD></TR>";
-					}
-				?>
-				<!-- Add warning when delete button is pressed -->
-			</TABLE>
-		</DIV>
-		
-	</BODY>
-</HTML>
+					?>
+				</tbody>
+			</table>
+		</div>
+		<!-- Bootstrap -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
+	</body>
+</html>
