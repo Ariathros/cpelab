@@ -44,7 +44,7 @@
 					$_SESSION['username']=$username;
 					if($row["usertype"]==="admin"){
 						$_SESSION['usertype']='admin';
-						header('Location: admin/admin-logs.php');
+						header('Location: admin/admin_logs/admin-logs.php');
 					}
 					elseif($row["usertype"]==="faculty"){
 						$_SESSION['usertype']='faculty';
