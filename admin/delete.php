@@ -16,14 +16,14 @@
                     
                     // executed but not shown, should be set as flash messge instead
                     if ($connection->query($sql)) {
-                        echo "Record updated successfully"; // header("location: admin/admin-accounts.php?msg=User has been deleted");
+                        echo "Record updated successfully";
                     } else {
                         echo "Error updating record: " . mysqli_error($conn);
                     }
                 }
             // bring back to Admin Accounts after delete
-            //header("location: /cpelab/admin/admin-accounts.php");
-            //exit;
+            header("location: /cpelab/admin/admin-accounts.php");
+            exit;
             ?>
         </DIV>
     </BODY>
