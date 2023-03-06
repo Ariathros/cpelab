@@ -1,6 +1,6 @@
 <?php
-	include '../connections.php';	
-	include 'sessions.php';
+	include '../../connections.php';
+	include '../sessions.php';
 ?>
 
 <HTML>
@@ -11,12 +11,16 @@
 	<BODY>
 		<DIV>
 			<?php
-				include 'sidebar.php';
+				include '../sidebar.php';
 			?>
 		</DIV>
 		
 		<DIV>
 			<H1>Accounts</H1>
+		</DIV>
+
+		<DIV>
+			<A CLASS="btn btn-primary" HREF='create.php?ID="id"'>Add</A>
 		</DIV>
 		
 		<DIV>
@@ -53,6 +57,7 @@
 									<TD>" . $row["usertype"]. "</TD>
 									<TD>
 										<A HREF='edit.php?id=".$row["id"]."' class='btnEdit'>Edit</button>
+										<A HREF='delete.php?id=".$row["id"]."' class='btnDelete'>Delete</button>
 									</TD>
 								</TR>
 								";

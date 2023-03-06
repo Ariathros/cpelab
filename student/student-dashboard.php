@@ -76,7 +76,7 @@
 										<TD>" . $row["reason"]. "</TD>
 										<TD>" . $row["category"]. "</TD>
 										<TD>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
-										TD>" . $row["status"]. "</TD>
+										<TD>" . $row["status"]. "</TD>
 									</TR>";
 								}
 							} else {

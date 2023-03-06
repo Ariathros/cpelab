@@ -26,7 +26,7 @@
 
 				<FORM METHOD="POST">
 					<div class="input-group mb-3">
-						<INPUT NAME="username" TYPE="TEXT" PLACEHOLDER="Username/Email/ID No." class="form-control" REQUIRED>
+						<INPUT NAME="username" TYPE="TEXT" PLACEHOLDER="Username" class="form-control" REQUIRED>
 					</div>
 					<div class="input-group mb-3">
 						<INPUT NAME="password" TYPE="PASSWORD" PLACEHOLDER="Password" class="form-control" REQUIRED>
