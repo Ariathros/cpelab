@@ -21,7 +21,7 @@
 		cpeQuery($sql,$conn);
 	}
 	else{
-		echo "Superadmin exists.";
+		//echo "Superadmin exists.";
 	}
 	
 	$tablequery = "logs (

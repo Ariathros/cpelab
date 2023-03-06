@@ -27,7 +27,7 @@
                     }
                 }
             // bring back to Admin Accounts after delete
-            header("location: /cpelab/admin/admin-accounts.php");
+            header("location: /cpelab/admin/admin_accounts/admin-accounts.php");
             exit;
             ?>
         </DIV>
