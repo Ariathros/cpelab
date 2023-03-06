@@ -15,20 +15,15 @@
 		<link rel="stylesheet" href="../assets/css/style.css"></link>
 	</HEAD>
 	
-	<BODY>
+	<BODY style="background-color:#F5F5F5">
 		<div class="row">
 			<DIV class="col-3 px-2">
 				<?php 
 					include 'sidebar.php'; 
-					include '../header.php'; 
 				?>
 			</DIV>
 			<div class="col-9 px-0">
-				<div class="header">
-					<?php 
-						include "../header.php";
-					?>
-				</div>
+				
 				<div class="container allContent-section" style="background-color: #F5F5F5">
 					<?php
                         include 'student-dashboard.php';

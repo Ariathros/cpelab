@@ -30,3 +30,14 @@ function student_equipment(){
         }
     });
 }
+
+function reserve(){  
+    $.ajax({
+        url:"../student/reserve.php",
+        method:"post",
+        data:{record:1},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}

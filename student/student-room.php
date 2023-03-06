@@ -14,112 +14,7 @@
         </div>
         <div class="col-1"></div>
         <div class="col-3 px-0">
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reservation">
-                Reserve
-            </button>
-
-            <!-- Reservation Form Popup-->
-            <div class="modal fade" id="reservation" tabindex="-1" aria-labelledby="reservationLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="reservation">Reservation Form</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                                <?php
-                                    $id = intval($_GET['id']);
-                                    
-                                    $sql = "SELECT * FROM rooms WHERE id=$id";
-                                    $result = $conn->query($sql);
-                                    $row = $result->fetch_assoc();
-                                    $room_no = $row['room_no'];
-                                    $room_type = $row['room_type'];
-                                    $seat_count = $row['seat_count'];
-                                    $room_status = intval($row['room_status']);
-                                    
-                                    
-                                    // paki REQUIRED LAHAT PAGTAPOS
-                                ?>
-                            <form method="post">
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Room No.:</label>
-                                    <input type="number" class="form-control" id="recipient-name">
-                                    <?php echo $room_no;?>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Room Type:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                    <?php echo $room_type;?>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Seat Count:</label>
-                                    <input type="number" class="form-control" id="recipient-name">
-                                    <?php echo $seat_count;?>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Status:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                    <?php echo $room_status;?>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Time:</label>
-                                    <INPUT NAME="time_start" TYPE='TIME' REQUIRED> - <INPUT NAME="time_end" TYPE='TIME' REQUIRED>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Reason of Reservation:</label>
-                                    <textarea name="reason" class="form-control" id="message-text"></textarea>
-                                </div>
-                                <button name="bReserve" type="button" class="btn" data-bs-target="#messageToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Reserve</button>
-                            </form>
-                            
-                            <!-- for reservation conditions -->
-                            <?php
-                                if (isset($_POST['bReserve'])){
-
-                                    $time_start = htmlentities($_POST['time_start']);
-                                    $time_end = htmlentities($_POST['time_end']);
-                                    $reason = htmlentities($_POST['reason']);
-
-                                    // Insert to SQL
-                                    $sql = "INSERT INTO room_man (room_no, room_type, borrower, reason, time_start, time_end, status)
-                                        VALUES ('$room_no', '$room_type', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
-                                    if ($conn->query($sql) === FALSE) {
-
-                                        // CONDITIONS START HERE
-                                        // if(condition here){
-                                        // 	mga error output
-                                        //  return;
-                                        // }
-
-                                        // if (condition here){
-                                        // 	mga error output
-                                        //  return;
-                                        // }
-
-                                        // MGA CONDITIONS (PWEDE DAGDAGAN)
-                                        // - mas maaga time end sa time start
-                                        // - room already used (need db query)
-
-
-                                    }
-                                }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="messageToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                        Reservation has been submitted. Please wait for the request to be approved.
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-dismiss="modal">Okay</button>
-                    </div>
-                </div>
-            </div>
+            <a type="button" href="reserve.php">Reserve Room</a>
         </div>
     </div>
     <hr>
@@ -158,7 +53,7 @@
         </div>
     </div>
     <hr>
-    <!-- Individual Room Reservation -->
+    <!-- Individual Room Reservation
     <div class="accordion" id="rooms">
         <div class="accordion-item">
             <h2 class="accordion-header" id="roomDescription">
@@ -183,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <!-- Room Reservation Table -->
     <DIV>
