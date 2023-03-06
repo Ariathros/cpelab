@@ -46,8 +46,8 @@
 							<TD>" . $row["seat_count"]. "</TD>
 							<TD>" . $row["room_status"]. "</TD>
 							<TD>
-							<A HREF='room-edit.php?id=".$row["id"]."&action=edit'>Edit</A>
-							<A HREF='room-edit.php?id=".$row["id"]."&action=delete'>Delete</A>
+							<A HREF='edit.php?id=".$row["id"]."&action=edit'>Edit</A>
+							<A HREF='edit.php?id=".$row["id"]."&action=delete'>Delete</A>
 						</TD>
 							</TR>";
 						}
