@@ -47,7 +47,7 @@
 							<TD>" . $row["room_status"]. "</TD>
 							<TD>
 							<A HREF='edit.php?id=".$row["id"]."&action=edit'>Edit</A>
-							<A HREF='edit.php?id=".$row["id"]."&action=delete'>Delete</A>
+							<A HREF='delete.php?id=".$row["id"]."&action=delete'>Delete</A> 
 						</TD>
 							</TR>";
 						}
@@ -55,6 +55,7 @@
 						echo "<TR><TD>0 results</TD></TR>";
 					}
 				?>
+				<!-- Add warning when delete button is pressed -->
 			</TABLE>
 		</DIV>
 		
