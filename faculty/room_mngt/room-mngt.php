@@ -18,7 +18,7 @@
 		</DIV>
 		
 		<DIV>
-			<A HREF="add-room.php">Add Room</A>
+			<A HREF="create.php">Add Room</A>
 		</DIV>
 		
 		<DIV>
