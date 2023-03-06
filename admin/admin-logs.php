@@ -1,8 +1,6 @@
 <?php
-	include "../../connections.php";
-	include "../sessions.php";
-	//include($_SERVER['DOCUMENT_ROOT'].'/../connection.php');
-	//include($_SERVER['DOCUMENT_ROOT'].'/../admin/sessions.php');
+	include '../connections.php';
+	include 'sessions.php';
 ?>
 
 <HTML>
@@ -13,7 +11,7 @@
 	<BODY>
 		<DIV>
 			<?php
-				include "../sidebar.php";
+				include 'sidebar.php';
 			?>
 		</DIV>
 		

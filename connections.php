@@ -13,4 +13,3 @@
 	$conn->select_db($db_name);
 	include 'includes/tablequery.php';
 	
-?>

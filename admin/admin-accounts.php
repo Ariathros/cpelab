@@ -1,6 +1,6 @@
 <?php
-	include '../../connections.php';	
-	include '../sessions.php';
+	include '../connections.php';	
+	include 'sessions.php';
 ?>
 
 <HTML>
@@ -11,7 +11,7 @@
 	<BODY>
 		<DIV>
 			<?php
-				include '../sidebar.php';
+				include 'sidebar.php';
 			?>
 		</DIV>
 		
