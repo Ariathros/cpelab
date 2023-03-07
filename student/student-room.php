@@ -6,27 +6,21 @@
 <!-- Room Reservation -->
 <div class="student_rooms">
     <!-- Page header -->
-    <div class="row">
-        <div class="col-8">
-            <span class="title">
-                Room Reservations
-            </span>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-3 px-0">
-            <a type="button" href="reserve.php">Reserve Room</a>
-        </div>
-    </div>
+    <nav class="navbar">
+        <span class="navbar-text">
+            Room Reservation
+        </span>
+    </nav>
     <hr>
     <!-- calendar and timeslot-->
-    <div class="date_time">
+    <!-- <div class="date_time">
         <div class="row">
             <div class="col-6 px-0">
                 <div class="calendar_title">Calendar</div>
-                <!-- calendar goes here-->
+                calendar goes here
             </div>
             <div class="col-1 px-0"></div>
-            <!-- for time slots -->
+            for time slots
             <div class="col-5 px-0" style="">
                 <div class="time_title">Time Slots</div>
                 <div class="row mx-auto" id="time_slots">
@@ -53,7 +47,7 @@
         </div>
     </div>
     <hr>
-    <!-- Individual Room Reservation
+    Individual Room Reservation
     <div class="accordion" id="rooms">
         <div class="accordion-item">
             <h2 class="accordion-header" id="roomDescription">
@@ -80,38 +74,47 @@
         </div>
     </div> -->
     
-    <!-- Room Reservation Table -->
-    <DIV>
-		<TABLE>
-			<TR>
-				<TH SCOPE="COL">ID</TH>
-				<TH SCOPE="COL">Room Number</TH>
-				<TH SCOPE="COL">Type</TH>
-				<TH SCOPE="COL">Seat Count</TH>
-				<TH SCOPE="COL">Status</TH>
-				<TH SCOPE="COL">Action</TH>
-			</TR>
-				
-			<?php
-				$sql = "SELECT * FROM rooms";
-				$result = $conn->query($sql);
+    <!-- Table for Rooms -->
+    <div class="reservations">
+		<div class="table-holder">
+			<div class="table-rsrv">
+				<table class="table">
+					<thead >
+                        <TR>
+                            <TH SCOPE="COL">ID</TH>
+                            <TH SCOPE="COL">Room Number</TH>
+                            <TH SCOPE="COL">Type</TH>
+                            <TH SCOPE="COL">Seat Count</TH>
+                            <TH SCOPE="COL">Status</TH>
+                            <TH SCOPE="COL">Action</TH>
+                        </TR>
 
-				if ($result->num_rows > 0) {
-					// output data of each row
-					while($row = $result->fetch_assoc()) {
-						echo "<TR>
-						<TD>" . $row["id"]. "</TD>
-						<TD>" . $row["room_no"]. "</TD>
-						<TD>" . $row["room_type"]. "</TD>
-						<TD>" . $row["seat_count"]. "</TD>
-						<TD>" . $row["room_status"]. "</TD>
-						<TD><A HREF='reserve.php?id=".$row["id"]."'>Reserve</A></TD>
-						</TR>";
-					}
-				} else {
-					echo "<TR><TD>0 results</TD></TR>";
-				}
-			?>
-		</TABLE>
-	</DIV>
+						<!-- php -->
+						<?php
+                            $sql = "SELECT * FROM rooms";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<TR>
+                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["id"]. "</TD>
+                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
+                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_type"]. "</TD>
+                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["seat_count"]. "</TD>
+                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_status"]. "</TD>
+                                    <TD style='border-bottom: solid 1px black; text-align: center;'>
+                                        <A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row["id"]."'>Reserve</A>
+                                    </TD>
+                                    </TR>";
+                                }
+                            } else {
+                                echo "<TR><TD style='border-bottom: solid 1px black; text-align: center;'>0 results</TD></TR>";
+                            }
+                        ?>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>

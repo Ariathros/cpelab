@@ -56,7 +56,7 @@ form{
 input.form-control{
     width: 350px;
 }
-form button{
+.col-md-4 form button{
     width: 350px;
     font-weight: bold;
 }
@@ -148,15 +148,17 @@ hr{
 
 /* for dashboard */
 .dashboard{
+    padding-top:15px; 
     padding-left:24px; 
-    padding-right:24px;
+    padding-right:24px; 
+    font-weight:bold;
 }
-.dashboard .dash_title{
+.dashboard .navbar .navbar-text{
+    color: black;
     padding-top:15px; 
     font-size:30px; 
     font-weight:bold;
-}
-.dashboard .dash_title u{
+    text-decoration: underline;
     text-decoration-color:#CC0000; 
     text-decoration-thickness:5px;
 }
@@ -177,16 +179,14 @@ hr{
 .dashboard .reservations .table-holder .table-rsrv{
     padding:20px;
 }
-.table-rsrv table{
-    background-color:#D9D9D9;       
+.table-holder table{
+    background-color:#D9D9D9; 
+    border: solid 2px black;      
 }
-.table-rsrv table thead tr th{
-    border: solid 1px black;
+table thead tr th{
+    border-bottom: solid 2px black;
+    text-align: center;
 }
-.table-rsrv table tbody tr td{
-    border: solid 1px black;
-}
-
 /* for rooms */
 .student_rooms{
     padding-top:15px; 
@@ -194,23 +194,14 @@ hr{
     padding-right:24px; 
     font-weight:bold;
 }
-.student_rooms .row .col-8 .title{
+.student_rooms .navbar .navbar-text{
+    color: black;
     padding-top:15px; 
     font-size:30px; 
     font-weight:bold;
     text-decoration: underline;
     text-decoration-color:#CC0000; 
     text-decoration-thickness:5px;
-}
-.student_rooms .row .col-3 button.btn{
-    font-size:20px;
-    margin-top:10px;
-    cursor: pointer; 
-    border-radius: 10px;
-    background-color: #800000;
-    color: white;
-    border-width: 0px;
-    width: 80%;
 }
 .student_rooms .date_time{
     align-items:center; 
@@ -256,10 +247,13 @@ hr{
 
 /* for equipment */
 .student_equipment{
+    padding-top:15px; 
     padding-left:24px; 
-    padding-right:24px;
+    padding-right:24px; 
+    font-weight:bold;
 }
-.student_equipment .navbar .container-fluid .navbar-brand{
+.student_equipment .navbar .navbar-text{
+    color: black;
     padding-top:15px; 
     font-size:30px; 
     font-weight:bold;
@@ -267,9 +261,10 @@ hr{
     text-decoration-color:#CC0000; 
     text-decoration-thickness:5px;
 }
-.student_equipment .navbar .container-fluid .d-flex input{
-    font-size:15px;
-    width: fit-content;
+.student_equipment .navbar input{
+    font-size:20px;
+    margin-top:10px;
+    border-radius: 10px;
 }
 .student_equipment .d-flex{
     text-align:center;

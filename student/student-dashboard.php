@@ -4,16 +4,17 @@
 ?>
 
 <div class="dashboard">
-	<div class="dash_title">
-		<u>Dashboard</u>
-		<hr>
-	</div>
-	
+	<nav class="navbar">
+        <span class="navbar-text">
+            Dashboard
+        </span>
+    </nav>
+	<hr>
 	<div class="reservations">
 		<div class="table-holder">
 			<div class="table-title">My Reservations</div>
 			<div class="table-rsrv">
-				<table class="table table-bordered table-hover">
+				<table class="table">
 					<thead >
 						<TR>
 							<TH SCOPE="COL">Room No.</TH>
@@ -33,11 +34,11 @@
 							// output data of each row
 								while($row = $result->fetch_assoc()) {
 									echo "<TR>
-										<TD>" . $row["room_no"]. "</TD>
-										<TD>" . $row["room_type"]. "</TD>
-										<TD>" . $row["reason"]. "</TD>
-										<TD>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
-										<TD>" . $row["status"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_type"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["status"]. "</TD>
 										</TR>";
 								}
 							} else {
@@ -52,7 +53,7 @@
 		<div class="table-holder" style="margin-top:20px;">
 			<div class="table-title">Equipment Reservations</div>
 			<div class="table-rsrv">
-				<table class="table table-bordered table-hover">
+				<table class="table">
 					<thead >
 						<TR>
 							<TH SCOPE="COL">Item Name</TH>
@@ -72,11 +73,11 @@
 								// output data of each row
 								while($row = $result->fetch_assoc()) {
 									echo "<TR>
-										<TD>" . $row["name"]. "</TD>
-										<TD>" . $row["reason"]. "</TD>
-										<TD>" . $row["category"]. "</TD>
-										<TD>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
-										<TD>" . $row["status"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["name"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["category"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["status"]. "</TD>
 									</TR>";
 								}
 							} else {
