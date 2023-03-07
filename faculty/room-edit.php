@@ -3,9 +3,10 @@
     include 'sessions.php';
 
     $id = $_GET['id'];
-    $action = $_GET['action']='edit';
+    $action = $_GET['action'];
     echo $action;
 
+    if($action=='edit'){
     // $sql = "UPDATE eq_man
     // SET 
     //     status='$status'
@@ -16,3 +17,5 @@
     // } else {
     //   echo "Error updating record: " . mysqli_error($conn);
     // }
+    }
+
