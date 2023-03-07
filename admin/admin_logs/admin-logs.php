@@ -57,10 +57,10 @@
 		</DIV>
 		
 		<DIV>
-			<H1>Logs</H1>
+			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">Logs</H1>
 		</DIV>
 		
-		<DIV>
+		<DIV class="container">
 			<TABLE class="table table-hover text-center">
 				<thead class="table-dark">
 					<TR>
