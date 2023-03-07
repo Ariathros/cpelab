@@ -1,75 +1,91 @@
 <?php
-	include '../../connections.php';
-	include '../sessions.php';
+	//include '../../connections.php';
+	//include '../sessions.php';
 ?>
 
-<HTML>
-	<HEAD>
-		<TITLE>Admin Accounts - CPE Lab Room and Equipment Management System</TITLE>
-	</HEAD>
-	
-	<BODY>
-		<DIV>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<title>Document</title>
+	</head>
+	<body>
+		<?php
+			include "../sidebar.php";
+		?>
+
+		<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+            Account Management
+        </nav>
+
+		<div class="container">
 			<?php
-				include '../sidebar.php';
+				if(isset($_GET['msg'])) {
+					$msg = $_GET['msg'];
+					echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					'.$msg.'
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				  </div>';
+				}
 			?>
-		</DIV>
-		
-		<DIV>
-			<H1>Accounts</H1>
-		</DIV>
 
-		<DIV>
-			<A CLASS="btn btn-primary" HREF='create.php?ID="id"'>Add</A>
-		</DIV>
-		
-		<DIV>
-			<TABLE>
-				<TR>
-					<TH SCOPE="COL">ID</TH>
-					<TH SCOPE="COL">First Name</TH>
-					<TH SCOPE="COL">Last Name</TH>
-					<TH SCOPE="COL">ID Number</TH>
-					<TH SCOPE="COL">Username</TH>
-					<TH SCOPE="COL">Email</TH>
-					<TH SCOPE="COL">Password</TH>
-					<TH SCOPE="COL">User Type</TH>
-					<TH SCOPE="COL">Actions</TH>
-				</TR>
-				
-				
+			<a href="create.php" class="btn btn-dark mb-3">Add New</a>
+
+			<table class="table table-hover text-center">
+				<thead class="table-dark">
+					<tr>
+					<th scope="col">ID</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Username</th>
+					<th scope="col">Id No.</th>
+					<th scope="col">Email</th>
+					<th scope="col">Password</th>
+					<th scope="col">User Type</th>
+					<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
 					<?php
-						$sql = "SELECT * FROM useraccounts";
-						$result = $conn->query($sql);
+						include '../../connections.php';
+						include '../sessions.php';
 
-						if ($result->num_rows > 0) {
-							// output data of each row
-							while($row = $result->fetch_assoc()) {
-								echo "
-								<TR>
-									<TD>" . $row["id"]. "</TD>
-									<TD>" . $row["firstname"]. "</TD>
-									<TD>" . $row["lastname"]. "</TD>
-									<TD>" . $row["id_num"]. "</TD>
-									<TD>" . $row["username"]. "</TD>
-									<TD>" . $row["email"]. "</TD>
-									<TD>" . $row["password"]. "</TD>
-									<TD>" . $row["usertype"]. "</TD>
-									<TD>
-										<A HREF='edit.php?id=".$row["id"]."' class='btnEdit'>Edit</button>
-										<A HREF='delete.php?id=".$row["id"]."' class='btnDelete'>Delete</button>
-									</TD>
-								</TR>
-								";
-							}
-						} else {
-							echo "<TR><TD>0 results</TD></TR>";
+						$sql = "SELECT * FROM useraccounts";
+						$result = mysqli_query($conn, $sql);
+						// This will get all data from our database
+						while ($row = mysqli_fetch_assoc($result)) {
+							?>
+							<tr>
+								<td><?php echo $row['id']?></td>
+								<td><?php echo $row['firstname']?></td>
+								<td><?php echo $row['lastname']?></td>
+								<td><?php echo $row['username']?></td>
+								<td><?php echo $row['id_num']?></td>
+								<td><?php echo $row['email']?></td>
+								<td><?php echo $row['password']?></td>
+								<td><?php echo $row['usertype']?></td>
+								<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
+									<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
+							</tr>
+							<?php
 						}
 					?>
-				</TR>
-			</TABLE>
-			
-		</DIV>		
-		
-	</BODY>
-</HTML>
+				</tbody>
+			</table>
+		</div>
+		<!-- Bootstrap -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
+	</body>
+</html>
