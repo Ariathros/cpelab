@@ -38,6 +38,20 @@
 			)";
 	createTable($tablequery, $conn);
 	
+	$tablequery = "archive (
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(30) NOT NULL,
+		type VARCHAR(50) NOT NULL,
+		category VARCHAR(50) NOT NULL,
+		action VARCHAR(60) NOT NULL,
+		faculty VARCHAR(30) NOT NULL,
+		student VARCHAR(30) NOT NULL,
+		time_start TIME,
+		time_end TIME,
+		date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+		)";
+	createTable($tablequery, $conn);
+
 	$tablequery = "rooms (
 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			room_no VARCHAR(30),
