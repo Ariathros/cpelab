@@ -18,7 +18,7 @@
 		</DIV>
 		
 		<DIV>
-			<A HREF="add-room.php">Add Room</A>
+			<A HREF="create.php">Add Room</A>
 		</DIV>
 		
 		<DIV>
@@ -46,8 +46,8 @@
 							<TD>" . $row["seat_count"]. "</TD>
 							<TD>" . $row["room_status"]. "</TD>
 							<TD>
-							<A HREF='room-edit.php?id=".$row["id"]."&action=edit'>Edit</A>
-							<A HREF='room-edit.php?id=".$row["id"]."&action=delete'>Delete</A>
+							<A HREF='edit.php?id=".$row["id"]."&action=edit'>Edit</A>
+							<A HREF='delete.php?id=".$row["id"]."&action=delete'>Delete</A> 
 						</TD>
 							</TR>";
 						}
@@ -55,8 +55,8 @@
 						echo "<TR><TD>0 results</TD></TR>";
 					}
 				?>
+				<!-- Add warning when delete button is pressed -->
 			</TABLE>
 		</DIV>
-		
 	</BODY>
 </HTML>
