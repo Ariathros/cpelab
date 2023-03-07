@@ -39,7 +39,8 @@
 	createTable($tablequery, $conn);
 	
 	$tablequery = "archive (
-		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		archive_id INT(6) UNSIGNED PRIMARY KEY,
+		id INT(6) UNSIGNED,
 		name VARCHAR(30) NOT NULL,
 		type VARCHAR(50) NOT NULL,
 		category VARCHAR(50) NOT NULL,

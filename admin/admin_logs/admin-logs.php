@@ -58,19 +58,19 @@
 								</TR>";
 								
 								// Set record overdue to creation date + 3 months
-								$startDate = strtotime($row['date']. '+5 hours'); //$startDate = strtotime($row['date']. '+3 months');
+								$startDate = strtotime($row['date']. '+3 months');
 								// get the current date
 								$archiveDate = strtotime(date('y-m-d'));
 								// Check if record is overdue
-								if($startDate > $archiveDate) {
+								if($startDate < $archiveDate) {
 									// insert overdue record to 'archive' table
-									mysqli_query($conn, "INSERT INTO `archive`(`id`, `name`, `type`, `category`, `action`, `faculty`, 
-									`student`, `time_start`, `time_end`, `date`) VALUES (NULL,'name',
-									'[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]',
-									'[value-9]','$row[date]')");
-
-									// delete record from logs table
-									/* mysqli_query($conn, "DELETE FROM `logs` WHERE 'id'='$row[id]'")*/
+									mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
+									`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
+									'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
+									'$row[time_start]','$row[time_end]','$row[date]')");
+									
+									// delete record from logs table, it will generate new reocrd to archive if not deleted
+									mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
 									
 								};
 							}
