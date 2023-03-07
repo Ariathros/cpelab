@@ -1,6 +1,10 @@
 <?php
 	include '../../connections.php';
 	include '../sessions.php';
+
+	// Archive Query 
+	// INSERT INTO 'archive' WHERE 'Date' + 1 Year > Current_timestamp;
+	// DELETE FROM 'logs' WHERE id=$id;
 ?>
 
 <HTML>
@@ -52,10 +56,35 @@
 								<TD>" . $row["date"]. "</TD>
 								<TD>" . $row["time_start"]. "-" . $row["time_end"]. "</TD>
 								</TR>";
+								
+								// Set record overdue to creation date + 3 months
+								$startDate = strtotime($row['date']. '+5 hours'); //$startDate = strtotime($row['date']. '+3 months');
+								// get the current date
+								$archiveDate = strtotime(date('y-m-d'));
+								// Check if record is overdue
+								if($startDate > $archiveDate) {
+									// insert overdue record to 'archive' table
+									mysqli_query($conn, "INSERT INTO `archive`(`id`, `name`, `type`, `category`, `action`, `faculty`, 
+									`student`, `time_start`, `time_end`, `date`) VALUES (NULL,'name',
+									'[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]',
+									'[value-9]','$row[date]')");
+
+									// delete record from logs table
+									/* mysqli_query($conn, "DELETE FROM `logs` WHERE 'id'='$row[id]'")*/
+									
+								};
 							}
 						} else {
 							echo "<TR><TD>0 results</TD></TR>";
 						}
+
+						// $date = "2022-02-01";
+
+						//$archiveDate = date('Y-m-d', strtotime($date. ' + 5 years'));
+
+						//echo "$archiveDate";
+
+						//if($archiveDate > Current_timestamp())
 					?>
 				</TR>
 					

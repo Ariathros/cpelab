@@ -60,9 +60,10 @@
 						include '../../connections.php';
 						include '../sessions.php';
 
+						// Pagination
+						// Get and show all data from our database
 						$sql = "SELECT * FROM useraccounts";
 						$result = mysqli_query($conn, $sql);
-						// This will get all data from our database
 						while ($row = mysqli_fetch_assoc($result)) {
 							?>
 							<tr>
