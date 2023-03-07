@@ -38,8 +38,8 @@
 				Equipment Code: <?php echo $code;?><BR>
 				Equipment Name: <?php echo $equip_name;?><BR>
 				Remaining: <?php echo $available;?><BR>
-				Quantity: <INPUT NAME="qty" TYPE='NUMBER'><BR>
-				Time: <INPUT NAME="time_start" TYPE='TIME'>-<INPUT NAME="time_end" TYPE='TIME'><BR>
+				Quantity: <INPUT NAME="qty" TYPE='NUMBER' REQUIRED><BR>
+				Time: <INPUT NAME="time_start" TYPE='TIME' REQUIRED>-<INPUT NAME="time_end" TYPE='TIME' REQUIRED><BR>
 				Reason: <INPUT NAME="reason" TYPE='TEXT'><BR>
 				<INPUT NAME="bBorrow" TYPE='SUBMIT'>
 			</FORM>
@@ -57,11 +57,28 @@
 				// Insert to SQL
 				$sql = "INSERT INTO eq_man (name, category, borrower, reason, time_start, time_end, status)
 					VALUES ('$equip_name - $qty', '$category', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
-				if ($conn->query($sql) === TRUE) {
-					header('Location: student-dashboard.php');
-				} else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
+				if ($conn->query($sql) === FALSE) {
+					
+					// CONDITIONS START HERE
+					// if(condition here){
+					// 	mga error output
+					//  return;
+					// }
+
+					// if (condition here){
+					// 	mga error output
+					//  return;
+					// }
+
+					// MGA CONDITIONS (PWEDE DAGDAGAN)
+					// - mas maaga time end sa time start
+					// - quantity mas mataas sa remaining items na pwede hiramin
+					// - negative quantity count
+					// - 0 remaining items (wala nang stock)
+
+
 				}
+				header('Location: student-dashboard.php');
 			}
 		?>
 	</BODY>

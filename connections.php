@@ -1,4 +1,7 @@
 <?php
+	// CONNECTIONS PHP
+	// CONNECTS PHP TO MYSQL
+
 	include 'connections_functions.php';
 	
 	// MAIN CODE
@@ -12,4 +15,3 @@
 	createDatabase($db_name, $conn);
 	$conn->select_db($db_name);
 	include 'includes/tablequery.php';
-	
