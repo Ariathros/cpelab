@@ -98,9 +98,9 @@
 
                     <div class="form-group mb-3">
                         <label>User Type:</label> &nbsp; <!-- select indication -->
-                        <input type="radio" class="form-check-input" name="usertype" id="user" value="user" 
-						<?php echo ($row['usertype']=='user')?"checked":"";?>>
-                        <label for="user" class="form-input-label">User</label> &nbsp;
+                        <input type="radio" class="form-check-input" name="usertype" id="student" value="student" 
+						<?php echo ($row['usertype']=='student')?"checked":"";?>>
+                        <label for="student" class="form-input-label">Student</label> &nbsp;
                         <input type="radio" class="form-check-input" name="usertype" id="faculty" value="faculty"
 						<?php echo ($row['usertype']=='faculty')?"checked":"";?>>
                         <label for="faculty" class="form-input-label">Faculty</label> &nbsp;
