@@ -31,9 +31,20 @@ function student_equipment(){
     });
 }
 
-function reserve(){  
+function logs(){  
     $.ajax({
-        url:"../student/reserve.php",
+        url:"/cpelab/admin/admin_logs/admin-logs.php'",
+        method:"post",
+        data:{record:1},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}
+
+function accounts(){  
+    $.ajax({
+        url:"/cpelab/admin/admin_accounts/admin-accounts.php",
         method:"post",
         data:{record:1},
         success:function(data){
