@@ -15,6 +15,7 @@
 	<style>.error{ color:#FF0000 }</style>
 </body>
 </html>
+
 <?php
 	// Define variable names
 	$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr ="";
@@ -83,7 +84,7 @@
 <h2>Register</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-	First Name: <input type="text" name="firstName" placeholder="Juan">
+	First Name: <input type="text" name="firstName" placeholder="Juan" value="">
 	<span class="error">* <?php echo $firstNameErr;?></span>
 	<br><br>
 	Last Name: <input type="text" name="lastName" placeholder="Dela Cruz">
@@ -96,7 +97,8 @@
 	<span class="error">* <?php echo $idNoErr;?></span>
 	<br><br>
 	E-mail: <input type="text" name="email" placeholder="example@email.com">
-	<span class="error">* <?php echo $emailErr;?></span>
+	<?php if(isset($emailErr)); ?>
+		<span class="error">* <?php echo $emailErr;?></span>
 	<br><br>
 	Password: <input type="text" name="password">
 	<br><br>
@@ -104,34 +106,41 @@
 	<br><br>
 	<input type="submit" name="submit" value="Submit">  
 </form>
-<?php
-	
-?>
 
 <?php 
 	if($hasErr) {
-		// VARIABLE DECLARATIONS
-		$firstName = htmlentities($_POST['firstName']);
-		$lastName = htmlentities($_POST['lastName']);
-		$idNo = htmlentities($_POST['idNo']);
-		$userName = htmlentities($_POST['userName']);
-		$email = htmlentities($_POST['email']);
-		$password = htmlentities($_POST['password']);
-		$confirmPassword = htmlentities($_POST['confirmPassword']);
+		// Variable declarations
+		if(isset($_POST['submit'])) {
+			$firstName = $_POST['firstName'];
+			$lastName = $_POST['lastName'];
+			$idNo = $_POST['idNo'];
+			$userName = $_POST['userName'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			$confirmPassword = $_POST['confirmPassword'];
 
-		// MGA ILALAGAY (PWEDE DAGDAGAN)
-		// - username exist
-		// - email exist
-		// - id no. exist
-		// - password doesn't match
-		// - password less than 8 characters
+			$sql_email = "SELECT * FROM useraccounts WHERE email='$email'";
+			$sql_id = "SELECT * FROM useraccounts WHERE id_num='$idNo'";
+			$result_email = mysqli_query($conn, $sql_email) or die(mysqli_error($conn));
+			$result_id = mysqli_query($conn, $sql_id) or die(mysqli_error($conn));
 
-		// Insert to SQL
-		$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
-		VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$password', 'student')";
-		$conn->query($sql);
-		$_SESSION['username']=$userName;
-		$_SESSION['usertype']='student';
-		header('Location: student/student-dashboard.php');
+			if(mysqli_num_rows($result_email) > 0) {
+				echo "Email already taken";
+			} else if(mysqli_num_rows($result_id) > 0) {
+				echo "Id No. already taken";
+			} else {
+				// Insert data to SQL
+				$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
+				VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$password', 'student')";
+				$conn->query($sql);
+				$_SESSION['username']=$userName;
+				$_SESSION['usertype']='student';
+				header('Location: student/student-dashboard.php');
+			}
+
+			// MGA ILALAGAY (PWEDE DAGDAGAN)
+			// - password doesn't match
+			// - password less than 8 characters
+		}
 	}
 ?>
