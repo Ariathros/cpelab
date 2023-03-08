@@ -82,8 +82,8 @@
 
                     <div class="form-group mb-3">
                         <label>User Type:</label> &nbsp; <!-- select indication -->
-                        <input type="radio" class="form-check-input" name="usertype" id="user" value="user">
-                        <label for="user" class="form-input-label">User</label> &nbsp;
+                        <input type="radio" class="form-check-input" name="usertype" id="student" value="student">
+                        <label for="student" class="form-input-label">Student</label> &nbsp;
                         <input type="radio" class="form-check-input" name="usertype" id="faculty" value="faculty">
                         <label for="faculty" class="form-input-label">Faculty</label> &nbsp;
                         <input type="radio" class="form-check-input" name="usertype" id="admin" value="admin">

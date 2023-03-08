@@ -47,7 +47,7 @@
         <div class="container">
             <div class="text-center mb-4">
                 <h3>Update User Details</h3>
-                <p class="text-muted">Click update to change details</p>
+                <p class="text-muted">Click update to apply changes</p>
             </div>
 			<!-- Get ID on each record where update button is pressed, limit to 1 to only get 1 record-->
 			<?php
@@ -98,9 +98,9 @@
 
                     <div class="form-group mb-3">
                         <label>User Type:</label> &nbsp; <!-- select indication -->
-                        <input type="radio" class="form-check-input" name="usertype" id="user" value="user" 
-						<?php echo ($row['usertype']=='user')?"checked":"";?>>
-                        <label for="user" class="form-input-label">User</label> &nbsp;
+                        <input type="radio" class="form-check-input" name="usertype" id="student" value="student" 
+						<?php echo ($row['usertype']=='student')?"checked":"";?>>
+                        <label for="student" class="form-input-label">Student</label> &nbsp;
                         <input type="radio" class="form-check-input" name="usertype" id="faculty" value="faculty"
 						<?php echo ($row['usertype']=='faculty')?"checked":"";?>>
                         <label for="faculty" class="form-input-label">Faculty</label> &nbsp;

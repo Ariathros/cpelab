@@ -3,93 +3,144 @@
 	include 'sessions.php';
 ?>
 
-<HTML>
-	<HEAD>
-		<TITLE>Register - CPE Lab Room and Equipment Management System</TITLE>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="./assets/css/style.css"></link>
-	</HEAD>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register Form</title>
+</head>
+<body>
+	<style>.error{ color:#FF0000 }</style>
+</body>
+</html>
+
+<?php
+	// Define variable names
+	$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr ="";
+	$firstName = $lastName = $userName = $idNo = $email = $password = $confirmPassword = "";
+	$hasErr = false;
+	// Validate User Inputs
+	if($_SERVER['REQUEST_METHOD'] == 'POST') {
+		if(empty($_POST["firstName"])) {
+			$firstNameErr = "Please enter first name";
+		} else {
+			$firstName = test_input($_POST["firstName"]);
+			if(!preg_match("/^[a-zA-Z- ']*$/", $firstName)) {
+				$firstNameErr = "Special characters are not allowed";
+			}
+		}
+
+		if(empty($_POST["lastName"])) {
+			$lastNameErr = "Please enter last name";
+		} else {
+			$lastName = test_input($_POST["lastName"]);
+			if(!preg_match("/^[a-zA-Z- ']*$/", $lastName)) {
+				$lastNameErr = "Special characters are not allowed";
+			}
+		}
 	
-	<BODY>
-		<div class="row">
-			<div class="col-md-8">
-				<img class="bg" src="./assets/images/pup.jpg">
-			</div>
+		if(empty($_POST["userName"])) {
+			$userNameErr = "Please enter user name";
+		} else {
+			$userName = test_input($_POST["userName"]);
+			if(!preg_match("/^[a-zA-Z- ']*$/", $userName)) {
+				$userNameErr = "Special characters are not allowed";
+			}
+		}
+		
+		if(empty($_POST["idNo"])) {
+			$idNoErr = "Please your ID No.";
+		} else {
+			$idNo = test_input($_POST["idNo"]);
+			if(!preg_match("/^[a-zA-Z0-9- ']*$/", $idNo)) {
+				$idNoErr = "Special characters are not allowed";
+			}
+		}
 
-			<div class="col-md-4 flex-column">
-				<img class="pup_logo" src="./assets/images/pup logo.png" width="80px" height="80px">
-				<h2>Hi, PUPian!</h2>
-				<p>Sign in to start your session</p>
+		if(empty($_POST["email"])) {
+			$emailErr = "Please enter an email";
+		} else {
+			$email = test_input($_POST["email"]);
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				$emailErr = "Incorrect email address";
+			}
+		}
 
-				<FORM METHOD="POST">
-					<div class="input-group mb-3">
-						<INPUT NAME="f_name" TYPE="TEXT" PLACEHOLDER="First Name" class="form-control" REQUIRED>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="l_name" NAME="f_name" TYPE="TEXT" PLACEHOLDER="Last Name" class="form-control" REQUIRED>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="id_no" TYPE="TEXT" PLACEHOLDER="ID Number" class="form-control">
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="username" TYPE="TEXT" PLACEHOLDER="Username" class="form-control" REQUIRED>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="email" TYPE="EMAIL" PLACEHOLDER="Email" class="form-control" REQUIRED>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="password" TYPE="PASSWORD" PLACEHOLDER="Password" class="form-control" REQUIRED>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="c_password" TYPE="PASSWORD" PLACEHOLDER="Confirm Password" class="form-control" REQUIRED>
-					</div>
-					<button NAME="bRegister" TYPE="SUBMIT" class="btn btn-primary" VALUE="Register">Register</button>
-				</FORM>
+		if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '') {
+			$hasErr = true;
+		}
+	}
+	// Validation
+	function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+?>
+<!-- Register Form -->
+<h2>Register</h2>
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+	First Name: <input type="text" name="firstName" placeholder="Juan" value="">
+	<span class="error">* <?php echo $firstNameErr;?></span>
+	<br><br>
+	Last Name: <input type="text" name="lastName" placeholder="Dela Cruz">
+	<span class="error">* <?php echo $lastNameErr;?></span>
+	<br><br>
+	User Name: <input type="text" name="userName" placeholder="JDL">
+	<span class="error">* <?php echo $userNameErr;?></span>
+	<br><br>
+	ID No.: <input type="text" name="idNo" placeholder="2020-000000-AB-0">
+	<span class="error">* <?php echo $idNoErr;?></span>
+	<br><br>
+	E-mail: <input type="text" name="email" placeholder="example@email.com">
+	<?php if(isset($emailErr)); ?>
+		<span class="error">* <?php echo $emailErr;?></span>
+	<br><br>
+	Password: <input type="text" name="password">
+	<br><br>
+	Confirm Password: <input type="text" name="confirmPassword">
+	<br><br>
+	<input type="submit" name="submit" value="Submit">  
+</form>
 
-				<?php
-					if (isset($_POST['bRegister'])){
-						// VARIABLE DECLARATIONS
-						$f_name = htmlentities($_POST['f_name']);
-						$l_name = htmlentities($_POST['l_name']);
-						$id_no = htmlentities($_POST['id_no']);
-						$username = htmlentities($_POST['username']);
-						$email = htmlentities($_POST['email']);
-						$password = htmlentities($_POST['password']);
-						$c_password = htmlentities($_POST['c_password']);
+<?php 
+	if($hasErr) {
+		// Variable declarations
+		if(isset($_POST['submit'])) {
+			$firstName = $_POST['firstName'];
+			$lastName = $_POST['lastName'];
+			$idNo = $_POST['idNo'];
+			$userName = $_POST['userName'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			$confirmPassword = $_POST['confirmPassword'];
 
-						// CONDITION START
-						// if(condition here){
-						// 	mga error output
-						//  return;
-						// }
+			$sql_email = "SELECT * FROM useraccounts WHERE email='$email'";
+			$sql_id = "SELECT * FROM useraccounts WHERE id_num='$idNo'";
+			$result_email = mysqli_query($conn, $sql_email) or die(mysqli_error($conn));
+			$result_id = mysqli_query($conn, $sql_id) or die(mysqli_error($conn));
 
-						// if (condition here){
-						// 	mga error output
-						// }
-						// MGA ILALAGAY (PWEDE DAGDAGAN)
-						// - username exist
-						// - email exist
-						// - id no. exist
-						// - password doesn't match
-						// - password less than 8 characters
+			if(mysqli_num_rows($result_email) > 0) {
+				echo "Email already taken";
+			} else if(mysqli_num_rows($result_id) > 0) {
+				echo "Id No. already taken";
+			} else {
+				// Insert data to SQL
+				$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
+				VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$password', 'student')";
+				$conn->query($sql);
+				$_SESSION['username']=$userName;
+				$_SESSION['usertype']='student';
+				header('Location: student/student-dashboard.php');
+			}
 
-
-						// Insert to SQL
-						$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
-						VALUES ('$f_name', '$l_name', '$id_no', '$username', '$email', '$password', 'user')";
-						$conn->query($sql);
-						$_SESSION['username']=$username;
-						$_SESSION['usertype']='student';
-						header('Location: student/student-index.php');
-					}
-				?>
-
-				<DIV>
-					<A HREF="login.php">Already have an account?</A>
-				</DIV>
-			</div>
-		</div>			
-	</BODY>
-</HTML>
+			// MGA ILALAGAY (PWEDE DAGDAGAN)
+			// - password doesn't match
+			// - password less than 8 characters
+		}
+	}
+?>

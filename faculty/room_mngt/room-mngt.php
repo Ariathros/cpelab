@@ -1,6 +1,6 @@
 <?php
-	//include '../../connections.php';
-	//include '../sessions.php';
+	//include "../../connections.php";
+    //include '../sessions.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-		<title>Admin Account Management - CPE Lab Room and Equipment Management System</title>
+		<title>Faculty Room Management - CPE Lab Room and Equipment Management System</title>
 	</head>
 	<body>
 		<?php
@@ -25,7 +25,7 @@
 		?>
 
 		<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-            Account Management
+            Room Management
         </nav>
 
 		<div class="container">
@@ -44,15 +44,12 @@
 			<table class="table table-hover text-center">
 				<thead class="table-dark">
 					<tr>
-					<th scope="col">ID</th>
-					<th scope="col">First Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">Username</th>
-					<th scope="col">Id No.</th>
-					<th scope="col">Email</th>
-					<th scope="col">Password</th>
-					<th scope="col">User Type</th>
-					<th scope="col">Action</th>
+					<TH SCOPE="COL">ID</TH>
+					<TH SCOPE="COL">Room Number</TH>
+					<TH SCOPE="COL">Type</TH>
+					<TH SCOPE="COL">Seat Count</TH>
+					<TH SCOPE="COL">Status</TH>
+					<TH SCOPE="COL">Action</TH>
 					</tr>
 				</thead>
 				<tbody>
@@ -60,21 +57,17 @@
 						include '../../connections.php';
 						include '../sessions.php';
 
-						// Pagination
-						// Get and show all data from our database
-						$sql = "SELECT * FROM useraccounts";
+						$sql = "SELECT * FROM rooms";
 						$result = mysqli_query($conn, $sql);
+						// This will get all data from our database
 						while ($row = mysqli_fetch_assoc($result)) {
 							?>
 							<tr>
 								<td><?php echo $row['id']?></td>
-								<td><?php echo $row['firstname']?></td>
-								<td><?php echo $row['lastname']?></td>
-								<td><?php echo $row['username']?></td>
-								<td><?php echo $row['id_num']?></td>
-								<td><?php echo $row['email']?></td>
-								<td><?php echo $row['password']?></td>
-								<td><?php echo $row['usertype']?></td>
+								<td><?php echo $row['room_no']?></td>
+								<td><?php echo $row['room_type']?></td>
+								<td><?php echo $row['seat_count']?></td>
+								<td><?php echo $row['room_status']?></td>
 								<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
 									<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
 							</tr>
