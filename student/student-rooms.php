@@ -42,6 +42,7 @@
 								<TD><?php echo $row['seat_count']?></TD>
 								<TD><?php echo $row['room_status']?></TD>
 								<?php 
+									// only show reserve button if room status is available
 									if($row['room_status'] == 'available') { ?>
 										<TD><A HREF='reserve.php?id=<?php echo $row['id']?>'>Reserve</A></TD>
 									<?php } ?>

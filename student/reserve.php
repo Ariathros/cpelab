@@ -31,12 +31,13 @@
 				
 				$timeErr = '';
 				$hasErr = false;
-					if($_SERVER['REQUEST_METHOD'] == 'POST') {
-						if($_POST["time_start"] > $_POST["time_end"]) {
-						$timeErr = "Start time must not greater than end time";
-						} else {
-							$hasErr = true;
-						}
+				// condition to check if start time is greater than end time
+				if($_SERVER['REQUEST_METHOD'] == 'POST') {
+					if($_POST["time_start"] > $_POST["time_end"]) {
+					$timeErr = "Start time must not greater than end time";
+					} else {
+						$hasErr = true;
+					}
 				}
 				
 				// paki REQUIRED LAHAT PAGTAPOS
@@ -67,16 +68,7 @@
 					$sql = "INSERT INTO room_man (room_no, room_type, borrower, reason, time_start, time_end, status)
 						VALUES ('$room_no', '$room_type', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
 					if ($conn->query($sql) === FALSE) {
-	
-						// CONDITIONS START HERE
-						// if(condition here){
-						// 	mga error output
-						//  return;
-						// }
-	
-						// MGA CONDITIONS (PWEDE DAGDAGAN)
-						// - mas maaga time end sa time start
-						// - room already used (need db query)
+
 	
 	
 					}
