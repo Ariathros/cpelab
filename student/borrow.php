@@ -57,6 +57,12 @@
 				// Insert to SQL
 				$sql = "INSERT INTO eq_man (name, category, borrower, reason, time_start, time_end, status)
 					VALUES ('$equip_name - $qty', '$category', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
+			
+				// UPDATE query for remaining available equipments
+				$remaining = $available - $qty;
+				$sql_avail = "UPDATE `equipments` SET `available`='$remaining' WHERE id=$id";
+				$conn->query($sql_avail);
+
 				if ($conn->query($sql) === TRUE) {
 					header('Location: student-dashboard.php');
 				} else {
