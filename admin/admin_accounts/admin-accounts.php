@@ -11,6 +11,7 @@
 	<BODY>
 		<DIV>
 			<?php
+				
 				include '../sidebar.php';
 			?>
 		</DIV>
