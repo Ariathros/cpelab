@@ -34,16 +34,19 @@
 
 					if ($result->num_rows > 0) {
 						// output data of each row
-						while($row = $result->fetch_assoc()) {
-							echo "<TR>
-							<TD>" . $row["id"]. "</TD>
-							<TD>" . $row["room_no"]. "</TD>
-							<TD>" . $row["room_type"]. "</TD>
-							<TD>" . $row["seat_count"]. "</TD>
-							<TD>" . $row["room_status"]. "</TD>
-							<TD><A HREF='reserve.php?id=".$row["id"]."'>Reserve</A></TD>
-							</TR>";
-						}
+						while($row = $result->fetch_assoc()) { ?>
+							<TR>
+								<TD><?php echo $row['id']?></TD> 
+								<TD><?php echo $row['room_no']?></TD>
+								<TD><?php echo $row['room_type']?></TD>
+								<TD><?php echo $row['seat_count']?></TD>
+								<TD><?php echo $row['room_status']?></TD>
+								<?php 
+									if($row['room_status'] == 'available') { ?>
+										<TD><A HREF='reserve.php?id=<?php echo $row['id']?>'>Reserve</A></TD>
+									<?php } ?>
+							</TR>
+						<?php	}
 					} else {
 						echo "<TR><TD>0 results</TD></TR>";
 					}
