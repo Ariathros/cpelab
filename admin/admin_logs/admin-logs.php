@@ -8,7 +8,7 @@
 	}else {
 		$page_no = 1;
 	}
-
+	// These are all required for pagination implementation
 	// count of records to display per page
 	$record_per_page = 10;
 	// page offset for LIMIT query
@@ -94,43 +94,43 @@
 									<td><?= $row['date']; ?></td>
 									<td><?= $row['time_start'] . "-" . $row['time_end']; ?></td>
 
-									<?php
-										// Set record overdue to creation date + 3 months
-										$startDate = strtotime($row['date']. '+3 months');
-										// get the current date
-										$archiveDate = strtotime(date('y-m-d'));
-										// Check if record is overdue
-										/*if($startDate < $archiveDate) {
-											// insert overdue record to 'archive' table
-											mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
-											`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
-											'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
-											'$row[time_start]','$row[time_end]','$row[date]')");
-											// delete record from logs table, it will generate new reocrd to archive if not deleted
-											mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
-										};*/
-									?>
-								</tr>
-							<?php }
-							mysqli_close($conn); ?>
-						</tbody>
-					</TABLE>
-						<!-- Pagination -->
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-								<!-- Previous -->
-								<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-								<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-								<!-- Page Numbers -->
-								<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-									<?php if($page_no != $counter) { ?>
-										<li class="page-item"><a class="page-link" href="?page_no=<?=
-										$counter; ?>"><?= $counter; ?></a></li>
-									<?php } else { ?>
-										<li class="page-item"><a class="page-link active"><?= $counter; ?>
-										</a></li>
-									<?php } ?>
-								<?php } ?>
+							<?php
+								// Set record overdue to creation date + 3 months
+								$startDate = strtotime($row['date']. '+3 months');
+								// get the current date
+								$archiveDate = strtotime(date('y-m-d'));
+								// Check if record is overdue
+								if($startDate < $archiveDate) {
+									// Insert overdue record to 'archive' table
+									mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
+									`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
+									'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
+									'$row[time_start]','$row[time_end]','$row[date]')");
+									// Delete record from logs table, it will generate new record to archive if not deleted
+									mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
+								};
+							?>
+						</tr>
+					<?php }
+					mysqli_close($conn); ?>
+				</tbody>
+			</TABLE>
+				<!-- Pagination -->
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<!-- Previous -->
+						<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+						<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+						<!-- Page Numbers -->
+						<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+							<?php if($page_no != $counter) { ?>
+								<li class="page-item"><a class="page-link" href="?page_no=<?=
+								$counter; ?>"><?= $counter; ?></a></li>
+							<?php } else { ?>
+								<li class="page-item"><a class="page-link active"><?= $counter; ?>
+								</a></li>
+							<?php } ?>
+						<?php } ?>
 
 								<!-- Next -->
 								<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"

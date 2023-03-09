@@ -76,6 +76,13 @@
 								$emailErr = "Incorrect email address";
 							}
 						}
+						
+						// check if password match and at least 8 char
+						if(($_POST['password'] != $_POST['confirmPassword'])) {
+							$passwordErr = "Password did not match! Try again";
+						} else if(strlen($_POST['password']) < 8 ) {
+							$passwordErr = "Password at least 8 characters! Try Again";
+						}
 
 						if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '') {
 							$hasErr = true;

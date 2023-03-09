@@ -12,7 +12,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="../assets/js/ajaxWork.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-4.0.0.min.js" ></script>
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -41,7 +41,16 @@
 						$room_status = intval($row['room_status']);
 						
 						
-						// paki REQUIRED LAHAT PAGTAPOS
+						$timeErr = '';
+						$hasErr = false;
+						// condition to check if start time is greater than end time
+						if($_SERVER['REQUEST_METHOD'] == 'POST') {
+							if($_POST["time_start"] > $_POST["time_end"]) {
+							$timeErr = "Start time must not greater than end time";
+							} else {
+								$hasErr = true;
+							}
+						}
 					?>
 					<FORM METHOD="POST">
 						<div class="input-group mb-3">

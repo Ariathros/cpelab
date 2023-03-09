@@ -25,19 +25,43 @@
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 	</head>
 	<body>
-		<div class="row">
-			<div class="col-3 px-2">
-				<?php
-					include "../sidebar.php";
-				?>
-			</div>
-			<div class="col-9 px-0">
-				<div style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-						Account Management
-					</nav>
-				</div>
-				<div class="container" style="padding-left:24px; padding-right:24px;">
+		<?php
+			include "../sidebar.php";
+		?>
+
+		<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+            Account Management
+        </nav>
+
+		<div class="container">
+			<?php
+				// flash message after every action
+				if(isset($_GET['msg'])) {
+					$msg = $_GET['msg'];
+					echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					'.$msg.'
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				  </div>';
+				}
+			?>
+
+			<a href="create.php" class="btn btn-dark mb-3">Add New</a>
+
+			<table class="table table-hover text-center">
+				<thead class="table-dark">
+					<tr>
+					<th scope="col">ID</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Username</th>
+					<th scope="col">Id No.</th>
+					<th scope="col">Email</th>
+					<th scope="col">Password</th>
+					<th scope="col">User Type</th>
+					<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
 					<?php
 						if(isset($_GET['msg'])) {
 							$msg = $_GET['msg'];

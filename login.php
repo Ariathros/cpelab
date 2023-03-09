@@ -44,7 +44,7 @@
 						// Select from SQL
 						$sql = "SELECT password, usertype FROM useraccounts 
 						WHERE username='$username'";
-						$result = cpeQuery($sql, $conn);
+						$result = $conn->query($sql);
 
 						// IF MAY RESULTS
 						if ($result->num_rows > 0) {
@@ -88,6 +88,10 @@
 			</div>
 		</div>
 
+		<DIV>
+			<A HREF="register.php">Register</A>
+			<A href="index.php">Cancel</A>
+		</DIV>
 		
 	</BODY>
 </HTML>
