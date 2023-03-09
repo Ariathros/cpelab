@@ -30,6 +30,7 @@
 
 		<div class="container">
 			<?php
+				// flash message after every action
 				if(isset($_GET['msg'])) {
 					$msg = $_GET['msg'];
 					echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">

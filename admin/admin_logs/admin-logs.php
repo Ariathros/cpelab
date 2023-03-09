@@ -8,7 +8,7 @@
 	}else {
 		$page_no = 1;
 	}
-
+	// These are all required for pagination implementation
 	// count of records to display per page
 	$record_per_page = 10;
 	// page offset for LIMIT query
@@ -94,15 +94,15 @@
 								// get the current date
 								$archiveDate = strtotime(date('y-m-d'));
 								// Check if record is overdue
-								/*if($startDate < $archiveDate) {
-									// insert overdue record to 'archive' table
+								if($startDate < $archiveDate) {
+									// Insert overdue record to 'archive' table
 									mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
 									`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
 									'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
 									'$row[time_start]','$row[time_end]','$row[date]')");
-									// delete record from logs table, it will generate new reocrd to archive if not deleted
+									// Delete record from logs table, it will generate new record to archive if not deleted
 									mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
-								};*/
+								};
 							?>
 						</tr>
 					<?php }
