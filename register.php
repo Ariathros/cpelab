@@ -18,7 +18,7 @@
 
 <?php
 	// Define variable names
-	$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr ="";
+	$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr = $passwordErr = "";
 	$firstName = $lastName = $userName = $idNo = $email = $password = $confirmPassword = "";
 	$hasErr = false;
 	// Validate User Inputs
@@ -51,7 +51,7 @@
 		}
 		
 		if(empty($_POST["idNo"])) {
-			$idNoErr = "Please your ID No.";
+			$idNoErr = "Please enter your ID No.";
 		} else {
 			$idNo = test_input($_POST["idNo"]);
 			if(!preg_match("/^[a-zA-Z0-9- ']*$/", $idNo)) {
@@ -68,7 +68,13 @@
 			}
 		}
 
-		if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '') {
+		if(($_POST['password'] != $_POST['confirmPassword'])) {
+			$passwordErr = "Password did not match! Try again";
+		} else if(strlen($_POST['password']) < 8 ) {
+			$passwordErr = "Password at least 8 characters! Try Again";
+		}
+
+		if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '' && $passwordErr == '') {
 			$hasErr = true;
 		}
 	}
@@ -100,7 +106,8 @@
 	<?php if(isset($emailErr)); ?>
 		<span class="error">* <?php echo $emailErr;?></span>
 	<br><br>
-	Password: <input type="text" name="password">
+	Password: <input type="text" name="password" placeholder="at least 8 char">
+	<span class="error">* <?php echo $passwordErr;?></span>
 	<br><br>
 	Confirm Password: <input type="text" name="confirmPassword">
 	<br><br>
@@ -125,9 +132,9 @@
 			$result_id = mysqli_query($conn, $sql_id) or die(mysqli_error($conn));
 
 			if(mysqli_num_rows($result_email) > 0) {
-				echo "Email already taken";
+				echo "Email already exists";
 			} else if(mysqli_num_rows($result_id) > 0) {
-				echo "Id No. already taken";
+				echo "ID No. already exists";
 			} else {
 				// Insert data to SQL
 				$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
@@ -139,7 +146,6 @@
 			}
 
 			// MGA ILALAGAY (PWEDE DAGDAGAN)
-			// - password doesn't match
 			// - password less than 8 characters
 		}
 	}
