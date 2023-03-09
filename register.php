@@ -12,6 +12,7 @@
 	<title>Register Form</title>
 </head>
 <body>
+	<!-- Set color for error messages -->
 	<style>.error{ color:#FF0000 }</style>
 </body>
 </html>
@@ -23,6 +24,7 @@
 	$hasErr = false;
 	// Validate User Inputs
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
+		// disallow special characters
 		if(empty($_POST["firstName"])) {
 			$firstNameErr = "Please enter first name";
 		} else {
@@ -31,7 +33,7 @@
 				$firstNameErr = "Special characters are not allowed";
 			}
 		}
-
+		// disallow special characters
 		if(empty($_POST["lastName"])) {
 			$lastNameErr = "Please enter last name";
 		} else {
@@ -40,7 +42,7 @@
 				$lastNameErr = "Special characters are not allowed";
 			}
 		}
-	
+		// disallow special characters
 		if(empty($_POST["userName"])) {
 			$userNameErr = "Please enter user name";
 		} else {
@@ -49,7 +51,7 @@
 				$userNameErr = "Special characters are not allowed";
 			}
 		}
-		
+		// disallow special characters
 		if(empty($_POST["idNo"])) {
 			$idNoErr = "Please enter your ID No.";
 		} else {
@@ -58,7 +60,7 @@
 				$idNoErr = "Special characters are not allowed";
 			}
 		}
-
+		// validate email format
 		if(empty($_POST["email"])) {
 			$emailErr = "Please enter an email";
 		} else {
@@ -67,13 +69,13 @@
 				$emailErr = "Incorrect email address";
 			}
 		}
-
+		// check if password match and at least 8 char
 		if(($_POST['password'] != $_POST['confirmPassword'])) {
 			$passwordErr = "Password did not match! Try again";
 		} else if(strlen($_POST['password']) < 8 ) {
 			$passwordErr = "Password at least 8 characters! Try Again";
 		}
-
+		// if no error occured it will proceed to INSERT query
 		if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '' && $passwordErr == '') {
 			$hasErr = true;
 		}
@@ -114,7 +116,7 @@
 	<input type="submit" name="submit" value="Submit">  
 </form>
 
-<?php 
+<?php
 	if($hasErr) {
 		// Variable declarations
 		if(isset($_POST['submit'])) {
@@ -125,18 +127,18 @@
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 			$confirmPassword = $_POST['confirmPassword'];
-
+			// get id no and email match
 			$sql_email = "SELECT * FROM useraccounts WHERE email='$email'";
 			$sql_id = "SELECT * FROM useraccounts WHERE id_num='$idNo'";
 			$result_email = mysqli_query($conn, $sql_email) or die(mysqli_error($conn));
 			$result_id = mysqli_query($conn, $sql_id) or die(mysqli_error($conn));
-
+			// if returned more than 1 row show error
 			if(mysqli_num_rows($result_email) > 0) {
 				echo "Email already exists";
 			} else if(mysqli_num_rows($result_id) > 0) {
 				echo "ID No. already exists";
 			} else {
-				// Insert data to SQL
+				// INSERT query
 				$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
 				VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$password', 'student')";
 				$conn->query($sql);
@@ -144,9 +146,6 @@
 				$_SESSION['usertype']='student';
 				header('Location: student/student-dashboard.php');
 			}
-
-			// MGA ILALAGAY (PWEDE DAGDAGAN)
-			// - password less than 8 characters
 		}
 	}
 ?>
