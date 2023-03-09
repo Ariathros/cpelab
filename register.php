@@ -113,7 +113,8 @@
 	<br><br>
 	Confirm Password: <input type="text" name="confirmPassword">
 	<br><br>
-	<input type="submit" name="submit" value="Submit">  
+	<input type="submit" name="submit" value="Submit">
+	<a href="index.php">Cancel</a>
 </form>
 
 <?php
