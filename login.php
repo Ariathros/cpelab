@@ -64,6 +64,7 @@
 
 		<DIV>
 			<A HREF="register.php">Register</A>
+			<A href="index.php">Cancel</A>
 		</DIV>
 		
 	</BODY>
