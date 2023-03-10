@@ -108,38 +108,37 @@
 									'$row[time_start]','$row[time_end]','$row[date]')");
 									// Delete record from logs table, it will generate new record to archive if not deleted
 									mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
-								};
-							?>
-						</tr>
-					<?php }
-					mysqli_close($conn); ?>
-				</tbody>
-			</TABLE>
-				<!-- Pagination -->
-				<nav aria-label="Page navigation example">
-					<ul class="pagination">
+								};?>
+								</tr>
+							<?php }
+							mysqli_close($conn); ?>
+						</tbody>
+					</TABLE>
+					<!-- Pagination -->
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
 						<!-- Previous -->
 						<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
 						<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
 						<!-- Page Numbers -->
-						<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-							<?php if($page_no != $counter) { ?>
-								<li class="page-item"><a class="page-link" href="?page_no=<?=
-								$counter; ?>"><?= $counter; ?></a></li>
-							<?php } else { ?>
-								<li class="page-item"><a class="page-link active"><?= $counter; ?>
-								</a></li>
+							<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+								<?php if($page_no != $counter) { ?>
+									<li class="page-item"><a class="page-link" href="?page_no=<?=
+									$counter; ?>"><?= $counter; ?></a></li>
+								<?php } else { ?>
+									<li class="page-item"><a class="page-link active"><?= $counter; ?>
+									</a></li>
+								<?php } ?>
 							<?php } ?>
-						<?php } ?>
 
-								<!-- Next -->
-								<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
-								<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
-							</ul>
-						</nav>
-						<div class="p-10">
-							<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
-						</div>
+							<!-- Next -->
+							<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
+							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
+						</ul>
+					</nav>
+					<div class="p-10">
+						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+					</div>
 				</DIV>
 			</div>
 		</div>
