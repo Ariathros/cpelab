@@ -51,21 +51,18 @@
 							$row = $result->fetch_assoc();
 							
 							// verify hash password
-							$checkHashPass = password_verify($password, $row['password']);
+							// $checkHashPass = password_verify($password, $row['password']);
 
-							if($row["password"]!=$checkHashPass){
-								//if($row["password"]!=$password){
-									// WRONG PASSWORD CONDITION
-									echo "Wrong Password!";
-									return;
-								//}
-							}
-							// for easy access, will not check unhashed passwords
-							// if($row["password"]!=$password){
-							// 	// WRONG PASSWORD CONDITION
-							// 	echo "Wrong Password!";
-							// 	return;
+							// if($row["password"]!=$checkHashPass){
+							// 		echo "Wrong Password!";
+							// 		return;
 							// }
+							// for easy access, will not check unhashed passwords
+							if($row["password"]!=$password){
+								// WRONG PASSWORD CONDITION
+								echo "Wrong Password!";
+								return;
+							}
 								
 							// USERTYPE CHECKER
 							$_SESSION['username']=$username;

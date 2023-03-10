@@ -11,7 +11,8 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $usertype = $_POST['usertype'];
-
+        // hash password
+        //$hashPass = password_hash($password, PASSWORD_DEFAULT);
 		// SQL query to update record
         $sql = "UPDATE `useraccounts` SET`firstname`='$firstname',`lastname`='$lastname',
 		`id_num`='$id_num',`username`='$username',`email`='$email',`password`='$password',
