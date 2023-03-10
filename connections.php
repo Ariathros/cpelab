@@ -15,3 +15,4 @@
 	createDatabase($db_name, $conn);
 	$conn->select_db($db_name);
 	include 'includes/tablequery.php';
+	include 'timesync.php';

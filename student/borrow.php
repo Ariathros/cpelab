@@ -90,10 +90,10 @@
 						$sql = "INSERT INTO eq_man (name, category, qty, borrower, reason, date, time_start, time_end, status)
 							VALUES ('$equip_name', '$category', '$qty', '".$_SESSION['username']."', '$reason', '$date', '$time_start', '$time_end', 'Pending')";
 					
-						// UPDATE query for remaining available equipments
-						$remaining = $available - $qty;
-						$sql_avail = "UPDATE `equipments` SET `available`='$remaining' WHERE id=$id";
-						$conn->query($sql_avail);
+						// UPDATE query for remaining available equipments (if approved lng mababawasan ang qty, ililipat ko sya sa faculty)
+						// $remaining = $available - $qty;
+						// $sql_avail = "UPDATE `equipments` SET `available`='$remaining' WHERE id=$id";
+						// $conn->query($sql_avail);
 
 						if ($conn->query($sql) === TRUE) {
 							header('Location: student-index.php');
