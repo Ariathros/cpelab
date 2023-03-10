@@ -160,10 +160,6 @@
 								$_SESSION['usertype']='student';
 								header('Location: student/student-index.php');
 							}
-
-							// MGA ILALAGAY (PWEDE DAGDAGAN)
-							// - password doesn't match
-							// - password less than 8 characters
 						}
 					}
 				?>
@@ -171,7 +167,6 @@
 		</div>
 	</body>
 </html>
-
 
 <html lang="en">
 	<body>
