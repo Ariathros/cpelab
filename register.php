@@ -27,7 +27,7 @@
 
 				<?php
 					// Define variable names
-					$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr ="";
+					$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr = $passwordErr="";
 					$firstName = $lastName = $userName = $idNo = $email = $password = $confirmPassword = "";
 					$hasErr = false;
 					// Validate User Inputs
@@ -84,7 +84,7 @@
 							$passwordErr = "Password at least 8 characters! Try Again";
 						}
 
-						if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '') {
+						if($firstNameErr == '' && $lastNameErr === '' && $userNameErr == '' && $emailErr == '' && $idNoErr == '' && $passwordErr == '') {
 							$hasErr = true;
 						}
 					}
@@ -121,8 +121,9 @@
 						<span class="error">* <?php echo $emailErr;?></span>
 					</div>
 					<div class="input-group mb-3">
-						<INPUT NAME="password" TYPE="password" PLACEHOLDER="Password" class="form-control" REQUIRED>
-					</div><div class="input-group mb-3">
+						<INPUT NAME="password" TYPE="password" PLACEHOLDER="Password" class="form-control" REQUIRED>*
+					</div><span class="error"><?php echo $passwordErr;?></span>
+					<div class="input-group mb-3">
 						<INPUT NAME="confirmPassword" TYPE="password" PLACEHOLDER="Confirm Password" class="form-control" REQUIRED>
 					</div>
 					<button NAME="submit" TYPE="SUBMIT" class="btn btn-primary" VALUE="Submit">Submit</button>
@@ -151,10 +152,10 @@
 								echo "Id No. already taken";
 							} else {
 								// Turn password to hash
-								// $hashPass = password_hash($password, PASSWORD_DEFAULT);
+								$hashPass = password_hash($password, PASSWORD_DEFAULT);
 								// Insert data to SQL
 								$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
-								VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$password', 'student')";
+								VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$hashPass', 'student')";
 								$conn->query($sql);
 								$_SESSION['username']=$userName;
 								$_SESSION['usertype']='student';

@@ -23,9 +23,9 @@
         if(isset($_POST['submit'])) {
             $password = $_POST['password'];
             // hash password
-            //$hashPass = password_hash($password, PASSWORD_DEFAULT);
+            $hashPass = password_hash($password, PASSWORD_DEFAULT);
             // SQL query to update record
-            $sql = "UPDATE `useraccounts` SET`password`='$password' WHERE id=$id";
+            $sql = "UPDATE `useraccounts` SET`password`='$hashPass' WHERE id=$id";
     
             $result = mysqli_query($conn, $sql);
     
