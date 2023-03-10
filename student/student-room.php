@@ -72,8 +72,8 @@
                 </div>
             </div>
         </div>
-    </div> -->
-    
+    </div>
+    <hr> -->
     <!-- Table for Rooms -->
     <div class="reservations">
 		<div class="table-holder">

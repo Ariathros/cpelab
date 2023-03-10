@@ -72,11 +72,11 @@
 					<!-- Room Status -->
                     <div class="form-group mb-3">
                         <label>Room Status:</label> &nbsp; <!-- select indication -->
-                        <input type="radio" class="form-check-input" name="room_status" id="available" value="available">
+                        <input type="radio" class="form-check-input" name="room_status" id="available" value="Available">
                         <label for="available" class="form-input-label">Available</label> &nbsp;
-                        <input type="radio" class="form-check-input" name="room_status" id="unavailable" value="unavailable">
+                        <input type="radio" class="form-check-input" name="room_status" id="unavailable" value="Unavailable">
                         <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
-                        <input type="radio" class="form-check-input" name="room_status" id="reserved" value="reserved">
+                        <input type="radio" class="form-check-input" name="room_status" id="reserved" value="Reserved">
                         <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                     </div>
 

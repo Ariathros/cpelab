@@ -38,7 +38,7 @@
 						$room_no = $row['room_no'];
 						$room_type = $row['room_type'];
 						$seat_count = $row['seat_count'];
-						$room_status = intval($row['room_status']);
+						$room_status = $row['room_status'];
 						
 						
 						$timeErr = '';
