@@ -1,0 +1,39 @@
+.reservation_form{
+    padding-top:15px; 
+    padding-left:24px; 
+    padding-right:24px; 
+    font-weight:bold;
+}
+
+.reservation_title u{
+    padding-top:15px; 
+    font-size:30px; 
+    font-weight:bold;
+    text-decoration: underline;
+    text-decoration-color:#CC0000; 
+    text-decoration-thickness:5px;
+}
+
+.reservation_form form{
+    padding: 10px;
+    width:100%;
+}
+
+.reservation_form form .input-group{
+    font-size: 20px;
+}
+
+.reservation_form form .input-group .input-title{
+    width:15%;
+}
+.reservation_form form .input-group .input{
+    width:85%;
+}
+.reservation_form form .btn{
+    align-items: center;
+    margin-top: 15px;
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
+    width: 30%;
+}

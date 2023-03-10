@@ -19,7 +19,7 @@
 		$conn->query($sql);
 		// Database Created
 		$conn -> select_db($db_name);
-		//echo "Database $db_name selected.";
+		// echo "Database $db_name selected.";
 	}
 		
 	function cpeQuery($sql, $conn){

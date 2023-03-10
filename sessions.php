@@ -2,7 +2,7 @@
 	// if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 	session_start();
 	if (!isset($_SESSION['username'])){
-		echo "Welcome Guest!";
+		// echo "Welcome Guest!";
 	}
 	else{
 		if ($_SESSION['usertype']==='admin'){
@@ -12,6 +12,6 @@
 			header("Location: faculty/faculty-rooms.php");
 		}
 		else{
-			header("Location: student/student-dashboard.php");
+			header("Location: student/student-index.php");
 		}
 	}
