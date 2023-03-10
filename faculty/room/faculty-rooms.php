@@ -23,12 +23,13 @@
 					<TH SCOPE="COL">Room No.</TH>
 					<TH SCOPE="COL">Type</TH>
 					<TH SCOPE="COL">Borrower</TH>
+					<TH SCOPE="COL">Date</TH>
 					<TH SCOPE="COL">Time</TH>
 					<TH SCOPE="COL">Actions</TH>
 				</TR>
 				
 				<?php
-					$sql = "SELECT * FROM room_man WHERE status= 'pending'";
+					$sql = "SELECT * FROM room_man WHERE status= 'Pending'";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -38,10 +39,11 @@
 								<TD>" . $row["room_no"]. "</TD>
 								<TD>" . $row["room_type"]. "</TD>
 								<TD>" . $row["borrower"]. "</TD>
+								<TD>" . $row["date"]. "</TD>
 								<TD>" . $row["time_start"]."". $row["time_end"]."</TD>
 								<TD>
-									<A HREF='reserve-action.php?id=".$row["id"]."&action=approved'>Approve</A>
-									<A HREF='reserve-action.php?id=".$row["id"]."&action=declined'>Decline</A>
+									<A HREF='reserve-action.php?id=".$row["id"]."&action=Approved'>Approve</A>
+									<A HREF='reserve-action.php?id=".$row["id"]."&action=Declined'>Decline</A>
 								</TD>
 							</TR>";
 						}

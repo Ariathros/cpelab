@@ -6,7 +6,7 @@
 	}
 	else{
 		if ($_SESSION['usertype']==='admin'){
-			header("Location: admin/admin-logs.php");
+			header("Location: admin\admin_logs\admin-logs.php");
 		}
 		elseif ($_SESSION['usertype']==='faculty'){
 			header("Location: faculty/faculty-rooms.php");

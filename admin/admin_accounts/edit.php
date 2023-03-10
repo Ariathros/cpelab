@@ -9,13 +9,12 @@
         $username = $_POST['username'];
         $id_num = $_POST['id_num'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
         $usertype = $_POST['usertype'];
         // hash password
         //$hashPass = password_hash($password, PASSWORD_DEFAULT);
 		// SQL query to update record
         $sql = "UPDATE `useraccounts` SET`firstname`='$firstname',`lastname`='$lastname',
-		`id_num`='$id_num',`username`='$username',`email`='$email',`password`='$password',
+		`id_num`='$id_num',`username`='$username',`email`='$email',
 		`usertype`='$usertype' WHERE id=$id";
 
         $result = mysqli_query($conn, $sql);
@@ -108,12 +107,6 @@
                                 value="<?php echo $row['email']?>">
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Password:</label>
-                                <input type="password" class="form-control" name="password" 
-                                value="<?php echo $row['password']?>">
-                            </div>
-
                             <div class="form-group mb-3">
                                 <label>User Type:</label> &nbsp; <!-- select indication -->
                                 <input type="radio" class="form-check-input" name="usertype" id="student" value="student" 
@@ -125,6 +118,10 @@
                                 <input type="radio" class="form-check-input" name="usertype" id="admin" value="admin"
                                 <?php echo ($row['usertype']=='admin')?"checked":"";?>>
                                 <label for="admin" class="form-input-label">Admin</label> &nbsp;
+                            </div>
+
+                            <div>
+                                <a href="change-password.php?id=<?php echo $id ?>">Change Password</a>
                             </div>
 
                             <div class="mb-5">

@@ -20,6 +20,7 @@
 							<TH SCOPE="COL">Room No.</TH>
 							<TH SCOPE="COL">Type</TH>
 							<TH SCOPE="COL">Reason</TH>
+							<TH SCOPE="COL">Date</TH>
 							<TH SCOPE="COL">Time</TH>
 							<TH SCOPE="COL">Status</TH>
 						</TR>
@@ -36,7 +37,8 @@
 									echo "<TR>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_type"]. "</TD>
-										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>								
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["date"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["status"]. "</TD>
 										</TR>";
@@ -59,6 +61,8 @@
 							<TH SCOPE="COL">Item Name</TH>
 							<TH SCOPE="COL">Reason</TH>
 							<TH SCOPE="COL">Category</TH>
+							<TH SCOPE="COL">Quantity</TH>
+							<TH SCOPE="COL">Date</TH>
 							<TH SCOPsE="COL">Time</TH>
 							<TH SCOPE="COL">Status</TH>
 						</TR>
@@ -75,7 +79,9 @@
 									echo "<TR>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["name"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>
-										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["category"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["category"]. "</TD>										
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["qty"]. "</TD>									
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["date"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["status"]. "</TD>
 									</TR>";

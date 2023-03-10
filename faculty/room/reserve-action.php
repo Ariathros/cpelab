@@ -25,13 +25,14 @@
     $room_no = $row["room_no"];
     $room_type = $row["room_type"];
     $student = $row["borrower"];
+    $date = $row["date"];
     $time_start = $row["time_start"];
     $time_end = $row["time_end"];
     $faculty = $_SESSION['username'];
 
     // INSERT INTO LOGS
-    $sql = "INSERT INTO logs (name, type, category, action, faculty, student, time_start, time_end) 
-    VALUES ('$room_no', 'room', '$room_type', '$status', '$faculty', '$student', '$time_start', '$time_end')";
+    $sql = "INSERT INTO logs (name, type, category, action, faculty, student, date, time_start, time_end) 
+    VALUES ('$room_no', 'room', '$room_type', '$status', '$faculty', '$student', '$date', '$time_start', '$time_end')";
     $conn->query($sql);
 
     // ALERT ACTION

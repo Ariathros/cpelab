@@ -60,6 +60,10 @@
 						<div class="input-group mb-3">
 							<div class="input-title">Quantity:</div>
 							<div  class="input"><INPUT NAME="qty" TYPE='NUMBER'></div>
+						</div>						
+						<div class="input-group mb-3">
+							<div class="input-title">Date:</div>
+							<div  class="input"><INPUT NAME="date" TYPE='DATE' REQUIRED></div>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-title">Time:</div>
@@ -76,14 +80,15 @@
 					if (isset($_POST['bBorrow'])){
 
 						// Add quantity column
-						$qty = htmlentities($_POST['qty']);
+						$qty = htmlentities($_POST['qty']);						
+						$date = htmlentities($_POST['date']);
 						$time_start = htmlentities($_POST['time_start']);
 						$time_end = htmlentities($_POST['time_end']);
 						$reason = htmlentities($_POST['reason']);
 
 						// Insert to SQL
-						$sql = "INSERT INTO eq_man (name, category, borrower, reason, time_start, time_end, status)
-							VALUES ('$equip_name - $qty', '$category', '".$_SESSION['username']."', '$reason', '$time_start', '$time_end', 'pending')";
+						$sql = "INSERT INTO eq_man (name, category, qty, borrower, reason, date, time_start, time_end, status)
+							VALUES ('$equip_name', '$category', '$qty', '".$_SESSION['username']."', '$reason', '$date', '$time_start', '$time_end', 'Pending')";
 					
 						// UPDATE query for remaining available equipments
 						$remaining = $available - $qty;
@@ -91,7 +96,7 @@
 						$conn->query($sql_avail);
 
 						if ($conn->query($sql) === TRUE) {
-							header('Location: student-dashboard.php');
+							header('Location: student-index.php');
 						} else {
 							echo "Error: " . $sql . "<br>" . $conn->error;
 						}
