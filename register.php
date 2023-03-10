@@ -150,9 +150,11 @@
 							} else if(mysqli_num_rows($result_id) > 0) {
 								echo "Id No. already taken";
 							} else {
+								// Turn password to hash
+								$hashPass = password_hash($password, PASSWORD_DEFAULT);
 								// Insert data to SQL
 								$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
-								VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$password', 'student')";
+								VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$hashPass', 'student')";
 								$conn->query($sql);
 								$_SESSION['username']=$userName;
 								$_SESSION['usertype']='student';
