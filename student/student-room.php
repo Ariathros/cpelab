@@ -81,7 +81,6 @@
 				<table class="table">
 					<thead >
                         <TR>
-                            <TH SCOPE="COL">ID</TH>
                             <TH SCOPE="COL">Room Number</TH>
                             <TH SCOPE="COL">Type</TH>
                             <TH SCOPE="COL">Seat Count</TH>
@@ -98,7 +97,6 @@
                                 // output data of each row
                                 while($row = $result->fetch_assoc()) {
                                     echo "<TR>
-                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["id"]. "</TD>
                                     <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
                                     <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_type"]. "</TD>
                                     <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["seat_count"]. "</TD>

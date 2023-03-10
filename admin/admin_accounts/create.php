@@ -9,10 +9,11 @@
         $id_num = $_POST['id_num'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
         $usertype = $_POST['usertype'];
 
         $sql = "INSERT INTO `useraccounts`(`id`, `firstname`, `lastname`, `id_num`, `username`, `email`, `password`, `usertype`, `reg_date`) 
-        VALUES (NULL,'$firstname','$lastname','$id_num','$username','$email','$password','$usertype', NULL)";
+        VALUES (NULL,'$firstname','$lastname','$id_num','$username','$email','$hashPass','$usertype', NULL)";
 
         $result = mysqli_query($conn, $sql);
 

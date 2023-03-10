@@ -17,7 +17,7 @@
 	$result = $conn->query($sql);
 	if ($result->num_rows === 0){
 		$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
-					VALUES ('super', 'admin', '1', 'superadmin', 'superadmin@gmail.com', '$2y$10$gnGTtdM4eyfpPwXTG1pfjugP8.QQH8.n6yIMd3oTY2rcaHnQPBqNK', 'admin')"; // Admin pass: superadmin
+					VALUES ('super', 'admin', '1', 'superadmin', 'superadmin@gmail.com', '$2y$10\$gnGTtdM4eyfpPwXTG1pfjugP8.QQH8.n6yIMd3oTY2rcaHnQPBqNK', 'admin')"; // Admin pass: superadmin
 		cpeQuery($sql,$conn);
 	}
 	else{

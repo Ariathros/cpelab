@@ -54,7 +54,7 @@
 							$userNameErr = "Please enter user name";
 						} else {
 							$userName = test_input($_POST["userName"]);
-							if(!preg_match("/^[a-zA-Z- ']*$/", $userName)) {
+							if(!preg_match("/^[a-zA-Z0-9- ']*$/", $userName)) {
 								$userNameErr = "Special characters are not allowed";
 							}
 						}
