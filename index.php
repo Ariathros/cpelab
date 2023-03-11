@@ -21,17 +21,55 @@
 	</HEAD>
 	
 	<BODY>
-		<div class="row">
-			<div class="col-md-8">
-				<img class="bg" src="./assets/images/pup.jpg">
-			</div>
-			<div class="col-md-4 flex-column">
-				<img class="pup_logo" src="./assets/images/pup logo.png" width="80px" height="80px">
-				<h2>Hi, PUPian!</h2>
-				<p>Please click or tap your destination.</p>
-				<div class="index_menu">
-					<a class="btn btn-primary" href="login.php" role="button">Login</a>
-					<a class="btn btn-primary" href="register.php" role="button">Register</a>
+		<div class="index">
+			<img class="bg" src="./assets/images/index.png">
+			<nav class="navbar justify-content-between">
+				<a class="navbar-brand">
+					Computer Engineering Rooms and Equipment Management System
+				</a>
+				<!-- <button class="btn" type="submit">Register</button> -->
+			</nav>	
+			<div class="container ">
+				<div class="d-flex">
+					<div class="user_card">
+						<div class="d-flex justify-content-center">
+							<div class="brand_logo_container">
+								<img src="./assets/images/pup logo.png" alt="Logo">
+							</div>
+						</div>
+					<div class="d-flex justify-content-center form_container">
+						<form>
+							<div class="input-group mb-3">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							</div>
+							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+							</div>
+							<div class="form-group">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customControlInline">
+									<label class="custom-control-label" for="customControlInline">Remember me</label>
+								</div>
+							</div>
+							<div class="d-flex justify-content-center mt-3 login_container">
+								<button type="button" name="button" class="btn login_btn">Login</button>
+							</div>
+						</form>
+					</div>
+					<div class="mt-4">
+						<div class="links d-flex justify-content-center ">
+							Don't have an account? <a href="register.php" class="ml-2">Sign Up</a>
+						</div>
+						<div class="links d-flex justify-content-center ">
+							<a href="#">Forgot your password?</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

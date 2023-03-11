@@ -16,7 +16,53 @@
 	</HEAD>
 
 	<body>
-		<div class="row">
+	<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <h3>Welcome</h3>
+                        <p><!-- write something here --></p>
+						<a href="index.php">
+							<input type="submit" name="back_login" value="Login"/>
+						</a>
+                        <br/>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Register your account</h3>
+                                <div class="row register-form">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+										<div class="form-group">
+                                            <input type="text" class="form-control" placeholder="User Name *" value="" />
+                                        </div>
+										<div class="form-group">
+                                            <input type="text" class="form-control" placeholder="ID No. *" value="" />
+                                        </div>
+										<div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        </div>
+										<input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+		<!-- <div class="row">
 			<div class="col-md-8">
 				<img class="bg" src="./assets/images/pup.jpg">
 			</div>
@@ -165,7 +211,7 @@
 					}
 				?>
 			</div>
-		</div>
+		</div>-->
 	</body>
 </html>
 
