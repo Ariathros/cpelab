@@ -8,23 +8,13 @@
         $category = $_POST['category'];
         $description = $_POST['description'];
         $total = $_POST['total'];
-        $target = "../../assets/images/".basename($_FILES['p_img']['name']);
-        $image_upload = $_FILES['p_img']['name'];
 
         // SQL query to add new record
-        $sql = "INSERT INTO `equipments`(`id`, `equip_code`, `equip_name`, `category`, `description`, `total`, `available`, `p_img`) 
-		VALUES (NULL,'$equip_code','$equip_name','$category', '$description', '$total', '$total', '$image_upload')";
+        $sql = "INSERT INTO `equipments`(`id`, `equip_code`, `equip_name`, `category`, `description`, `total`, `available`) 
+		VALUES (NULL,'$equip_code','$equip_name','$category', '$description', '$total', '$total')";
 
-        $conn->query($sql);
-        
-        // img upload in folder
-        if(move_uploaded_file($_FILES['p_img']['tmp_name'], $target)){
-            echo "Image uploaded successfully";
+        $result = mysqli_query($conn, $sql);
 
-    }
-    else{
-        echo "Failed to upload image";
-    }
         if($result) {
             header("Location: equip-mngt.php?msg=New Equipment Created Succesfully");
         }
@@ -58,11 +48,11 @@
             </div>
 
             <div class="container d-flex justify-content-center">
-                <form action="create.php" method="post" style="width:50vw; min-width:300px;" enctype="multipart/form-data">
+                <form action="" method="post" style="width:50vw; min-width:300px;">
 					<!-- Equip Code -->
                     <div class="mb-3">
                         <label class="form-label">Code:</label>
-                        <input type="text" class="form-control" name="equip_code" placeholder="pjt001" >
+                        <input type="text" class="form-control" name="equip_code" placeholder="pjt001">
                     </div>
 
 					<!-- Equip Name -->
@@ -86,8 +76,9 @@
                     <!-- Add img -->
                     <div class="mb-3">
                         <label class="form-label">Upload Image:</label>
-                        <input type="file"  name="p_img" accept="image/png, image/jpg, image/jpeg, image/PNG">
+                        <input type="file" class="form-control" name="p_img" accept="image/png, image/jpg, image/jpeg" REQUIRED>
                     </div>
+
 
                     <!-- Description -->
                     <div class="mb-3">

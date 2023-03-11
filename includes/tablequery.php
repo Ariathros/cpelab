@@ -75,7 +75,8 @@
 			category VARCHAR(50) NOT NULL,
 			description VARCHAR(255) NOT NULL,
 			total INT(5) NOT NULL,
-			available INT(5) NOT NULL
+			available INT(5) NOT NULL,
+			p_img VARCHAR(255) NULL
 			)";
 	createTable($tablequery, $conn);
 	
