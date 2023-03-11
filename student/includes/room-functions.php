@@ -3,7 +3,9 @@
     function getTimeReservations($conn, $room_no){
         
         $d1 =  date("Y-m-d", time());
-        $sql = "SELECT * FROM room_man WHERE room_no='$room_no' AND status='Approved' AND date='$d1'";
+        $sql = "SELECT * FROM room_man
+        WHERE room_no='$room_no' AND status='Approved' AND date='$d1'
+        ORDER BY time_start ASC";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

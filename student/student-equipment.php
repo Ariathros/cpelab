@@ -47,7 +47,8 @@
 											
 						<!-- php -->
 						<?php
-							$sql = "SELECT * FROM equipments";
+							$sql = "SELECT * FROM equipments
+							ORDER BY equip_name ASC";
 							$result = $conn->query($sql);
 
 							if ($result->num_rows > 0) {

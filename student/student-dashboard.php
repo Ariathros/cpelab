@@ -28,17 +28,22 @@
 						<?php
 							// SHOW ROOM RESERVATIONS
 							$username = $_SESSION['username'];
-							$sql = "SELECT * FROM room_man WHERE borrower='$username'";
+							$sql = "SELECT * FROM room_man WHERE borrower='$username' ORDER BY date ASC, time_start ASC";
 							$result = $conn->query($sql);
 
 							if ($result->num_rows > 0) {
 								while($row = $result->fetch_assoc()) {
+									$t1 = strtotime($row['time_start']);
+									$t2 = strtotime($row['time_end']);
+									$time_start = date('h:i A',$t1);
+									$time_end = date('h:i A',$t2);
+
 									echo "<TR>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_type"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>								
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["date"]. "</TD>
-										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>$time_start - $time_end</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["status"]. "</TD>
 										</TR>";
 								}
@@ -69,18 +74,22 @@
 						<?php
 							// SHOW EQUIPMENT RESERVATIONS
 							$username = $_SESSION['username'];
-							$sql = "SELECT * FROM eq_man WHERE borrower='$username'";
+							$sql = "SELECT * FROM eq_man WHERE borrower='$username' ORDER BY date ASC, time_start ASC";
 							$result = $conn->query($sql);
-
 							if ($result->num_rows > 0) {
 								while($row = $result->fetch_assoc()) {
+									$t1 = strtotime($row['time_start']);
+									$t2 = strtotime($row['time_end']);
+									$time_start = date('h:i A',$t1);
+									$time_end = date('h:i A',$t2);
+		
 									echo "<TR>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["name"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["reason"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["category"]. "</TD>										
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["qty"]. "</TD>									
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["date"]. "</TD>
-										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["time_start"]." - " . $row["time_end"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>$time_start - $time_end</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["status"]. "</TD>
 									</TR>";
 								}
