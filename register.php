@@ -203,6 +203,7 @@
 								$sql = "INSERT INTO useraccounts (firstname, lastname, id_num, username, email, password, usertype) 
 								VALUES ('$firstName', '$lastName', '$idNo', '$userName', '$email', '$hashPass', 'student')";
 								$conn->query($sql);
+								$_SESSION['name']= $firstName ." ". $lastName;
 								$_SESSION['username']=$userName;
 								$_SESSION['usertype']='student';
 								header('Location: student/student-index.php');

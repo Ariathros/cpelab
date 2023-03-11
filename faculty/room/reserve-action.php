@@ -45,4 +45,4 @@
     // ALERT ACTION
     // echo "<script>alert('Room $status.');</script>";
 
-    // header('Location: faculty-rooms.php');
+    header('Location: faculty-rooms.php');

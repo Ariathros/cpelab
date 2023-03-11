@@ -29,23 +29,30 @@
     $time_end = $row["time_end"];
     $faculty = $_SESSION['username'];
 
-      // UPDATE query for remaining available equipments
-    if ($status=='Approved'){
-
-      $sql = "SELECT * FROM equipments WHERE equip_name='$eq_name'";
-      $result2 = $conn->query($sql);
-      $row2 = $result2->fetch_assoc();
-      $available = $row2['available'];
-
-      $remaining = $available - $qty;
-      $sql_avail = "UPDATE equipments SET available=$remaining WHERE equip_name='$eq_name'";
-      $conn->query($sql_avail);
-    }
+    // Select Student Name
+    $sql = "SELECT * FROM useraccounts WHERE username= '$student'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();    
+    $student_name = $row["firstname"]." ".$row["lastname"];
+    $faculty = $_SESSION['name'];
 
     // INSERT INTO LOGS
     $sql = "INSERT INTO logs (name, type, category, action, faculty, student, date, time_start, time_end) 
-    VALUES ('$eq_name ($qty)', 'equipment', '$category', '$status', '$faculty', '$student', '$date', '$time_start', '$time_end')";
+    VALUES ('$eq_name ($qty)', 'equipment', '$category', '$status', '$faculty', '$student_name', '$date', '$time_start', '$time_end')";
     $conn->query($sql);
+
+    // UPDATE query for remaining available equipments
+  if ($status=='Approved'){
+
+    $sql = "SELECT * FROM equipments WHERE equip_name='$eq_name'";
+    $result2 = $conn->query($sql);
+    $row2 = $result2->fetch_assoc();
+    $available = $row2['available'];
+
+    $remaining = $available - $qty;
+    $sql_avail = "UPDATE equipments SET available=$remaining WHERE equip_name='$eq_name'";
+    $conn->query($sql_avail);
+  }
 
     // ALERT ACTION
     // echo "<script>alert('Room $status.');</script>";
