@@ -8,12 +8,12 @@
         $equip_code = $_POST['equip_code'];
         $equip_name = $_POST['equip_name'];
         $category = $_POST['category'];
+        $description = $_POST['description'];
         $total = $_POST['total'];
-		$available = $_POST['available'];
 
 		// SQL query to update record
         $sql = "UPDATE `equipments` SET `equip_code`='$equip_code',`equip_name`='$equip_name',
-        `category`='$category',`total`='$total',`available`='$available' WHERE id=$id";
+        `category`='$category', `description`='$description',`total`='$total',`available`='$total' WHERE id=$id";
 
         $result = mysqli_query($conn, $sql);
 
@@ -74,12 +74,20 @@
                     <!-- Category -->
                     <div class="mb-3">
 						<label class="form-label">Category</label>
-						<select name="category" class="form-control" value="<?php echo $row['category']?>">
+						<select name="category" class="form-control">
 							<option value="">--Select Option--</option>
-							<option value="laptop">Laptop</option>
-							<option value="projector">Projector</option>
-							<option value="electronics">Electronics</option>
+							<option value="Devices">Devices</option>
+							<option value="Electronics">Electronics</option>
+							<option value="Hardware">Hardware/Computer Parts</option>
+							<option value="Others">Others</option>
 						</select>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label class="form-label">Description:</label>
+                        <textarea class="form-control" name="description" placeholder="Description" cols="40" rows="5"><?php echo $row['description']; ?></textarea>
+                        
                     </div>
 
                     <!-- Total -->
@@ -88,13 +96,6 @@
                         <input type="number" class="form-control" name="total" max="50" min="0" 
 						value="<?php echo $row['total']?>">
                     </div>
-
-                    <!-- Available -->
-                    <div class="mb-3">
-                        <label class="form-label">Available:</label>
-                        <input type="number" class="form-control" name="available" max="50" min="0" 
-						value="<?php echo $row['available']?>">
-                    </div> 
 
                     <div class="mb-5">
                         <button type="submit" class="btn btn-success" name="submit">Update</button>

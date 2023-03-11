@@ -10,8 +10,8 @@
         $total = $_POST['total'];
 
         // SQL query to add new record
-        $sql = "INSERT INTO `equipments`(`id`, `equip_code`, `equip_name`, `category`, `total`, `available`) 
-		VALUES (NULL,'$equip_code','$equip_name','$category','$total', '$total')";
+        $sql = "INSERT INTO `equipments`(`id`, `equip_code`, `equip_name`, `category`, `description`, `total`, `available`) 
+		VALUES (NULL,'$equip_code','$equip_name','$category', '$description', '$total', '$total')";
 
         $result = mysqli_query($conn, $sql);
 
@@ -73,10 +73,10 @@
 						</select>
                     </div>
 
-                    <!-- Equip Name -->
+                    <!-- Description -->
                     <div class="mb-3">
                         <label class="form-label">Description:</label>
-                        <textarea class="form-control" name="equip_name" placeholder="Name of Equipment" REQUIRED cols="40" rows="5"></textarea>
+                        <textarea class="form-control" name="description" placeholder="Description" cols="40" rows="5"></textarea>
                         <!-- <input type="text" class="form-control" name="equip_name" placeholder="Name of Equipment" REQUIRED> -->
                     </div>
 
