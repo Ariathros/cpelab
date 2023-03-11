@@ -96,7 +96,7 @@
 
 							<?php
 								// Set record overdue to creation date + 3 months
-								$startDate = strtotime($row['date']. '+3 months');
+								$startDate = strtotime($row['date']. '+5 months');
 								// get the current date
 								$archiveDate = strtotime(date('y-m-d'));
 								// Check if record is overdue
