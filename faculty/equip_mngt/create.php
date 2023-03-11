@@ -6,12 +6,12 @@
         $equip_code = $_POST['equip_code'];
         $equip_name = $_POST['equip_name'];
         $category = $_POST['category'];
+        $description = $_POST['description'];
         $total = $_POST['total'];
-		$available = $_POST['available'];
 
         // SQL query to add new record
         $sql = "INSERT INTO `equipments`(`id`, `equip_code`, `equip_name`, `category`, `total`, `available`) 
-		VALUES (NULL,'$equip_code','$equip_name','$category','$total', '$available')";
+		VALUES (NULL,'$equip_code','$equip_name','$category','$total', '$total')";
 
         $result = mysqli_query($conn, $sql);
 
@@ -58,7 +58,7 @@
 					<!-- Equip Name -->
                     <div class="mb-3">
                         <label class="form-label">Name:</label>
-                        <input type="text" class="form-control" name="equip_name" placeholder="Projector">
+                        <input type="text" class="form-control" name="equip_name" placeholder="Name of Equipment" REQUIRED>
                     </div>
 
 					<!-- Category -->
@@ -66,24 +66,25 @@
 						<label class="form-label">Category</label>
 						<select name="category" class="form-control">
 							<option value="">--Select Option--</option>
-							<option value="laptop">Laptop</option>
-							<option value="projector">Projector</option>
-							<option value="electronics">Electronics</option>
+							<option value="Devices">Devices</option>
+							<option value="Electronics">Electronics</option>
+							<option value="Hardware">Hardware/Computer Parts</option>
+							<option value="Others">Others</option>
 						</select>
+                    </div>
+
+                    <!-- Equip Name -->
+                    <div class="mb-3">
+                        <label class="form-label">Description:</label>
+                        <textarea class="form-control" name="equip_name" placeholder="Name of Equipment" REQUIRED cols="40" rows="5"></textarea>
+                        <!-- <input type="text" class="form-control" name="equip_name" placeholder="Name of Equipment" REQUIRED> -->
                     </div>
 
 					<!-- Total -->
                     <div class="mb-3">
                         <label class="form-label">Total:</label>
-                        <input type="number" max="50" min="0" class="form-control" name="total" placeholder="max: 50, min: 0">
-                    </div>
-
-					<!-- Available -->
-                    <div class="mb-3">
-                        <label class="form-label">Available:</label>
-                        <input type="number" max="50" min="0"class="form-control" name="available" placeholder="max: 50, min: 0">
-                    </div>
-    
+                        <input type="number" max="50" min="0" class="form-control" name="total" placeholder="max: 50, min: 0" REQUIRED>
+                    </div>   
 
                     <div class="mb-5">
                         <button type="submit" class="btn btn-success" name="submit">Save</button>
