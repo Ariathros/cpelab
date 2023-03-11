@@ -11,6 +11,10 @@
         $description = $_POST['description'];
         $total = $_POST['total'];
 
+        // $target = "../../assets/images/".basename($_FILES['p_img']['name']);
+        // $image_upload = $_FILES['p_img']['name'];
+
+
 		// SQL query to update record
         $sql = "UPDATE `equipments` SET `equip_code`='$equip_code',`equip_name`='$equip_name',
         `category`='$category', `description`='$description',`total`='$total',`available`='$total' WHERE id=$id";
@@ -56,7 +60,7 @@
 			?>
 
             <div class="container d-flex justify-content-center">
-                <form action="" method="post" style="width:50vw; min-width:300px;">
+                <form action="" method="post" style="width:50vw; min-width:300px;" enctype="multipart/form-data">
                     <!-- Equipment Code -->
                     <div class="row mb-3">
                         <label for="form-label">Equipment Code:</label>
@@ -89,7 +93,13 @@
                         <textarea class="form-control" name="description" placeholder="Description" cols="40" rows="5"><?php echo $row['description']; ?></textarea>
                         
                     </div>
-
+                    <!-- Image update -->
+                    <!-- Tanggalin pag di na kaya XD -->
+                    <div class="mb-3">
+                    <label class="form-label">Choose Image:</label>
+                        <input type="file"  name="p_img" accept="image/png, image/jpg, image/jpeg, image/PNG"?>">
+                    
+                    </div>
                     <!-- Total -->
                     <div class="mb-3">
                         <label class="form-label">Total:</label>
