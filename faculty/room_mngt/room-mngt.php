@@ -1,6 +1,6 @@
 <?php
-	//include "../../connections.php";
-    //include '../sessions.php';
+	include '../../connections.php';
+	include '../sessions.php';
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +54,6 @@
 				</thead>
 				<tbody>
 					<?php
-						include '../../connections.php';
-						include '../sessions.php';
 
 						$sql = "SELECT * FROM rooms";
 						$result = mysqli_query($conn, $sql);

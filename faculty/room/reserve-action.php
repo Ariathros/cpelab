@@ -28,14 +28,21 @@
     $date = $row["date"];
     $time_start = $row["time_start"];
     $time_end = $row["time_end"];
-    $faculty = $_SESSION['username'];
+
+    // Select Student Name
+    $sql = "SELECT * FROM useraccounts WHERE username= '$student'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();    
+    $student_name = $row["firstname"]." ".$row["lastname"];
+    $faculty = $_SESSION['name'];
+    echo $student_name;
 
     // INSERT INTO LOGS
     $sql = "INSERT INTO logs (name, type, category, action, faculty, student, date, time_start, time_end) 
-    VALUES ('$room_no', 'room', '$room_type', '$status', '$faculty', '$student', '$date', '$time_start', '$time_end')";
+    VALUES ('$room_no', 'room', '$room_type', '$status', '$faculty', '$student_name', '$date', '$time_start', '$time_end')";
     $conn->query($sql);
 
     // ALERT ACTION
     // echo "<script>alert('Room $status.');</script>";
 
-    header('Location: faculty-rooms.php');
+    // header('Location: faculty-rooms.php');

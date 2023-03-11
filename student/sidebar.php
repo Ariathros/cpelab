@@ -4,7 +4,8 @@
         <img src="../assets/images/pup logo.png" width="120px" height="120px">
     </div>
     <div class="side-header">
-        <br><b>Welcome <?php echo $_SESSION['name']; ?>!</b>
+        <br><b>Hello <?php echo $_SESSION['name']; ?>!</b>
+        <!-- Ito ay pwede iedit -->
     </div>
     <div class="menu">
         <div>

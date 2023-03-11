@@ -1,6 +1,6 @@
 <?php
-	//include '../connections.php';	
-	//include 'sessions.php';
+	include '../../connections.php';
+	include '../sessions.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,8 +55,6 @@
 				</thead>
 				<tbody>
 					<?php
-						include '../../connections.php';
-						include '../sessions.php';
 
 						$sql = "SELECT * FROM equipments";
 						$result = mysqli_query($conn, $sql);

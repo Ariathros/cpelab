@@ -62,7 +62,6 @@
                     $room_no_display = $row['room_no'];
                     $room_name_display = $row["room_type"];
                     $room_status = $row["room_status"];
-                    // $room_time = getTimeReservations($conn, $room_no_display);
                     
                     echo "<div class='accordion-item'>
                         <h2 class='accordion-header' id='roomDescription'>

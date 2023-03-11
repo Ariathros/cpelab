@@ -37,6 +37,7 @@
 						$code = $row['equip_code'];
 						$equip_name = $row['equip_name'];
 						$category = $row['category'];
+						$description = $row['description'];
 						$total = intval($row['total']);
 						$available = intval($row['available']);
 						
@@ -61,6 +62,14 @@
 						<div class="input-group mb-3">
 							<div class="input-title">Equipment Name:</div>
 							<div  class="input"><?php echo $equip_name;?></div>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-title">Category:</div>
+							<div  class="input"><?php echo $category;?></div>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-title">Description:</div>
+							<div  class="input"><?php echo $description;?></div>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-title">Remaining:</div>
