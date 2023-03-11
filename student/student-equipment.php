@@ -26,11 +26,12 @@
 					$equip_name = $row['equip_name'];
 					$available = $row['available'];
 					$description = $row['description'];
+					$image_upload = $row['p_img'];
 
 					echo "<div class='card'>
 					<h3 class='card-title'>$equip_name</h3>
 						<div class='card-body'>
-							<img src='...' class='card-img-top' alt='...'>
+							<img src='../assets/images/$image_upload' class='card-img-top' alt='$image_upload'>
 							<p class='card-text'>$description</p>
 							<p class='card-text'>Remaining: $available</p>
 							<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='borrow.php?id=".$row["id"]."'>Borrow</A>

@@ -1,6 +1,6 @@
 <?php
-    include "../../connections.php";
-    include '../sessions.php';
+    include "connections.php";
+    // include '../sessions.php';
 
     if(isset($_POST['submit'])) {
         $equip_code = $_POST['equip_code'];
@@ -8,7 +8,11 @@
         $category = $_POST['category'];
         $description = $_POST['description'];
         $total = $_POST['total'];
-        $target = "../../assets/images/".basename($_FILES['p_img']['name']);
+        // img upload
+
+
+        // img upload
+        $target = "assets/images/".basename($_FILES['p_img']['name']);
         $image_upload = $_FILES['p_img']['name'];
 
         // SQL query to add new record
@@ -25,12 +29,16 @@
     else{
         echo "Failed to upload image";
     }
+
         if($result) {
-            header("Location: equip-mngt.php?msg=New Equipment Created Succesfully");
+            header("Location: add-imgTest.php?msg=New Equipment Created Succesfully");
         }
         else {
             echo "Failed: " . mysqli_error($conn); 
         }
+
+
+
     }
 ?>
 
@@ -58,11 +66,11 @@
             </div>
 
             <div class="container d-flex justify-content-center">
-                <form action="create.php" method="post" style="width:50vw; min-width:300px;" enctype="multipart/form-data">
+                <form action="add-imgTest.php" method="post" style="width:50vw; min-width:300px;" enctype="multipart/form-data">
 					<!-- Equip Code -->
                     <div class="mb-3">
                         <label class="form-label">Code:</label>
-                        <input type="text" class="form-control" name="equip_code" placeholder="pjt001" >
+                        <input type="text" class="form-control" name="equip_code" placeholder="pjt001">
                     </div>
 
 					<!-- Equip Name -->
@@ -86,7 +94,7 @@
                     <!-- Add img -->
                     <div class="mb-3">
                         <label class="form-label">Upload Image:</label>
-                        <input type="file"  name="p_img" accept="image/png, image/jpg, image/jpeg, image/PNG">
+                        <input type="file"  name="p_img">
                     </div>
 
                     <!-- Description -->
