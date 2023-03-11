@@ -10,7 +10,7 @@
 
     // Equipment Quantity Add
 
-    $sql = "SELECT name, qty FROM eq_man WHERE date < '$d1' OR (date = '$d1' AND time_end <= '$t1')";
+    $sql = "SELECT name, qty FROM eq_man WHERE status='Approved' AND (date < '$d1' OR (date = '$d1' AND time_end <= '$t1'))";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -36,22 +36,23 @@
         while($row = $result->fetch_assoc()) {
             
             $room_no = $row['room_no'];
+            $date = $row['date'];
             $time_start = $row['time_start'];
             $time_end = $row['time_end'];
 
             $sql2 = "SELECT * FROM rooms WHERE room_no='$room_no'";
             $result2 = $conn->query($sql2);
     
-            if($time_start <= $t1 && $t1 < $time_end){
-                $room_status='reserved';
+            if($date<=$d1 && ($time_start <= $t1 && $t1 < $time_end)){
+                $room_status='Reserved';
             }else{
-                $room_status='available';
+                $room_status='Available';
             }
             $sql3 = "UPDATE rooms SET room_status='$room_status' WHERE room_no='$room_no'";
             $conn->query($sql3);
         }
     } else {
-        $sql3 = "UPDATE rooms SET room_status='available'";
+        $sql3 = "UPDATE rooms SET room_status='Available'";
         $conn->query($sql3);
     }
 

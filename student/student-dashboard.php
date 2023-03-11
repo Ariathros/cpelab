@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 	include '../connections.php';	
 	include 'sessions.php';
-?>
+?> -->
 
 <div class="dashboard">
 	<nav class="navbar">
@@ -25,14 +25,13 @@
 							<TH SCOPE="COL">Status</TH>
 						</TR>
 
-						<!-- php -->
 						<?php
+							// SHOW ROOM RESERVATIONS
 							$username = $_SESSION['username'];
 							$sql = "SELECT * FROM room_man WHERE borrower='$username'";
 							$result = $conn->query($sql);
 
 							if ($result->num_rows > 0) {
-							// output data of each row
 								while($row = $result->fetch_assoc()) {
 									echo "<TR>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
@@ -66,15 +65,14 @@
 							<TH SCOPsE="COL">Time</TH>
 							<TH SCOPE="COL">Status</TH>
 						</TR>
-											
-						<!-- php -->
+										
 						<?php
+							// SHOW EQUIPMENT RESERVATIONS
 							$username = $_SESSION['username'];
 							$sql = "SELECT * FROM eq_man WHERE borrower='$username'";
 							$result = $conn->query($sql);
 
 							if ($result->num_rows > 0) {
-								// output data of each row
 								while($row = $result->fetch_assoc()) {
 									echo "<TR>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["name"]. "</TD>

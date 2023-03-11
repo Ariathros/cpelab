@@ -58,8 +58,9 @@
 						<label class="form-label">Room Type</label>
 						<select name="room_type" class="form-control">
 							<option value="">--Select Option--</option>
-							<option value="lecture_room">Lecture Room</option>
-							<option value="computer_room">Computer Room</option>
+							<option value="Lecture Room">Lecture Room</option>
+							<option value="Computer Room">Computer Room</option>                            
+							<option value="Miscelaneous Room">Miscelaneous Room</option>
 						</select>
                     </div>
 
@@ -72,11 +73,11 @@
 					<!-- Room Status -->
                     <div class="form-group mb-3">
                         <label>Room Status:</label> &nbsp; <!-- select indication -->
-                        <input type="radio" class="form-check-input" name="room_status" id="available" value="Available">
+                        <input type="radio" class="form-check-input" name="room_status" id="Available" value="Available">
                         <label for="available" class="form-input-label">Available</label> &nbsp;
-                        <input type="radio" class="form-check-input" name="room_status" id="unavailable" value="Unavailable">
+                        <input type="radio" class="form-check-input" name="room_status" id="Unavailable" value="Unavailable">
                         <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
-                        <input type="radio" class="form-check-input" name="room_status" id="reserved" value="Reserved">
+                        <input type="radio" class="form-check-input" name="room_status" id="Reserved" value="Reserved">
                         <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                     </div>
 

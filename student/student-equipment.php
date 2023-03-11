@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
     include '../connections.php';
     include 'sessions.php';
-?>
+?> -->
 
 <!-- Equipment Reservation -->
 <div class="student_equipment">
@@ -40,7 +40,7 @@
 							<TH SCOPE="COL">Equipment Code</TH>
 							<TH SCOPE="COL">Equipment Name</TH>
 							<TH SCOPE="COL">Category</TH>
-							<TH SCOPE="COL">Total</TH>
+							<TH SCOPE="COL">Description</TH>
 							<TH SCOPE="COL">Available</TH>
 							<TH SCOPE="COL">Actions</TH>
 						</TR>
@@ -57,7 +57,7 @@
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["equip_code"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["equip_name"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["category"]. "</TD>
-										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["total"]. "</TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'></TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["available"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>
 											<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='borrow.php?id=".$row["id"]."'>Borrow</A>
@@ -66,7 +66,7 @@
 								}
 							} else {
 								echo "<TR>
-								<TD style='border-bottom: solid 1px black; text-align: center;'>0 results</TD>
+								<TD style='border-bottom: solid 1px black; text-align: center;'>No Equipments Available Yet.</TD>
 								</TR>";
 							}
 						?>

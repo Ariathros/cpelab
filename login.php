@@ -42,8 +42,7 @@
 						$password = htmlentities($_POST['password']);
 
 						// Select from SQL
-						$sql = "SELECT password, usertype FROM useraccounts 
-						WHERE username='$username'";
+						$sql = "SELECT * FROM useraccounts WHERE username='$username'";
 						$result = $conn->query($sql);
 
 						// IF MAY RESULTS
@@ -65,6 +64,8 @@
 								
 							// USERTYPE CHECKER
 							$_SESSION['username']=$username;
+							$_SESSION['name']=$row['firstname']." ".$row['lastname'];
+
 							if($row["usertype"]==="admin"){
 								$_SESSION['usertype']='admin';
 								header('Location: admin\admin_logs\admin-logs.php');

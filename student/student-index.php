@@ -1,3 +1,7 @@
+<?php
+	include 'sessions.php';
+?>
+
 <HTML>
 	<HEAD>
 		<TITLE>Dashboard - CPE Lab Room and Equipment Management System</TITLE>

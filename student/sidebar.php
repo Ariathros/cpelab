@@ -10,6 +10,9 @@
     <div class="side-header">
         <img src="../assets/images/pup logo.png" width="120px" height="120px">
     </div>
+    <div class="side-header">
+        <br><b>Welcome <?php echo $_SESSION['name']; ?>!</b>
+    </div>
     <div class="menu">
         <div>
             <a class="btn" onclick="dashboard()">

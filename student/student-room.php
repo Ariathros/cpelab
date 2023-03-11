@@ -1,7 +1,8 @@
-<?php
+<!-- <?php
     include '../connections.php';
     include 'sessions.php';
-?>
+    include 'includes/room-functions.php';
+?> -->
 
 <!-- Room Reservation -->
 <div class="student_rooms">
@@ -46,36 +47,47 @@
             </div>
         </div>
     </div>
-    <hr>
-    Individual Room Reservation
-    <div class="accordion" id="rooms">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="roomDescription">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <strong>301</strong>&nbsp Lecture Room
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <h4>Reserved Rooms</h4>
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">7:00 AM - 8:00 AM</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">7:00 AM - 8:00 AM</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">7:00 AM - 8:00 AM</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
     <hr> -->
+    Current Day Room Reservation
+    <div class="accordion" id="rooms">
+        <?php
+
+            $sql = "SELECT * FROM rooms";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    
+                    $room_no_display = $row['room_no'];
+                    $room_name_display = $row["room_type"];
+                    $room_status = $row["room_status"];
+                    // $room_time = getTimeReservations($conn, $room_no_display);
+                    
+                    echo "<div class='accordion-item'>
+                        <h2 class='accordion-header' id='roomDescription'>
+                            <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
+                                <strong>$room_no_display</strong>&nbsp $room_name_display&nbsp $room_status
+                            </button>
+                        </h2>
+                        <div id='collapseOne' class='accordion-collapse collapse show' aria-labelledby='headingOne' data-bs-parent='#accordionExample'>
+                            <div class='accordion-body'>
+                                <h4>Reserved Rooms</h4>
+                                    <ul class='nav justify-content-center'>";
+                        getTimeReservations($conn, $room_no_display);
+                        echo "</ul>
+                        <A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row["id"]."'>Reserve</A>
+                            </div>
+                        </div>
+                    </div>";
+                }
+            }
+        ?>
+    </div>
+    
+    <!-- <hr> -->
     <!-- Table for Rooms -->
-    <div class="reservations">
+    <!-- <div class="reservations">
 		<div class="table-holder">
 			<div class="table-rsrv">
 				<table class="table">
@@ -86,10 +98,10 @@
                             <TH SCOPE="COL">Seat Count</TH>
                             <TH SCOPE="COL">Status</TH>
                             <TH SCOPE="COL">Action</TH>
-                        </TR>
+                        </TR> -->
 
 						<!-- php -->
-						<?php
+						<!-- <?php
                             $sql = "SELECT * FROM rooms";
                             $result = $conn->query($sql);
 
@@ -114,5 +126,5 @@
 				</table>
 			</div>
 		</div>
-	</div>
+	</div>  -->
 </div>
