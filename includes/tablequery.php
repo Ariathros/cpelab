@@ -73,6 +73,7 @@
 			equip_code VARCHAR(20) NOT NULL,
 			equip_name VARCHAR(50) NOT NULL,
 			category VARCHAR(50) NOT NULL,
+			description VARCHAR(255) NOT NULL,
 			total INT(5) NOT NULL,
 			available INT(5) NOT NULL
 			)";

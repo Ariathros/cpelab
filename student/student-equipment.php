@@ -57,7 +57,7 @@
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["equip_code"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["equip_name"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["category"]. "</TD>
-										<TD style='border-bottom: solid 1px black; text-align: center;'></TD>
+										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["description"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["available"]. "</TD>
 										<TD style='border-bottom: solid 1px black; text-align: center;'>
 											<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='borrow.php?id=".$row["id"]."'>Borrow</A>
