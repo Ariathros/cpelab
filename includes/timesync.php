@@ -40,7 +40,7 @@
             $time_start = $row['time_start'];
             $time_end = $row['time_end'];
 
-            $sql2 = "SELECT * FROM rooms WHERE room_no='$room_no' ORDER BY time_start DESC";
+            $sql2 = "SELECT * FROM rooms WHERE room_no='$room_no'";
             $result2 = $conn->query($sql2);
     
             if($date<=$d1 && ($time_start <= $t1 && $t1 < $time_end)){

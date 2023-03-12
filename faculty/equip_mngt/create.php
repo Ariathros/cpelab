@@ -53,7 +53,7 @@
 
         <div class="container">
             <div class="text-center mb-4">
-                <h3>Add New Equipmnet</h3>
+                <h3>Add New Equipment</h3>
                 <p class="text-muted">Complete the form below to add new equipment</p>
             </div>
 
