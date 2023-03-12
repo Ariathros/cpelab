@@ -57,7 +57,7 @@
     <div class="accordion accordion-flush" id="rooms">
         <?php
 
-            $sql = "SELECT * FROM rooms";
+            $sql = "SELECT * FROM rooms ORDER BY room_no ASC";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -70,12 +70,12 @@
                     
                     echo "
                     <div class='accordion-item'>
-                        <h2 class='accordion-header' id='roomDescription'>
-                            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne'>
+                        <h2 class='accordion-header' id='room$room_no_display'>
+                            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-room$room_no_display' aria-expanded='false' aria-controls='flush-collapseOne'>
                                 <strong>$room_no_display</strong>&nbsp $room_name_display&nbsp $room_status
                             </button>
                         </h2>
-                        <div id='flush-collapseOne' class='accordion-collapse collapse' aria-labelledby='roomDescription' data-bs-parent='#rooms'>
+                        <div id='flush-room$room_no_display' class='accordion-collapse collapse' aria-labelledby='room$room_no_display' data-bs-parent='#rooms'>
                             <div class='accordion-body'>
                                 <h4>Current day reservations</h4>
                                     <ul class='nav justify-content-center'>";
@@ -88,62 +88,8 @@
                 }
             }
         ?>
-    </div>.
+    </div>
 
-    <!--<div id="accordion">
-        <div class="card">
-            <div class="card-header" id="room">
-                <h5 class="mb-0">
-                    <button>
-
-                    </button>
-                </h5>
-            </div>
-        </div>
-    </div>-->
-    
-    <!-- <hr> -->
-    <!-- Table for Rooms -->
-    <!-- <div class="reservations">
-		<div class="table-holder">
-			<div class="table-rsrv">
-				<table class="table">
-					<thead >
-                        <TR>
-                            <TH SCOPE="COL">Room Number</TH>
-                            <TH SCOPE="COL">Type</TH>
-                            <TH SCOPE="COL">Seat Count</TH>
-                            <TH SCOPE="COL">Status</TH>
-                            <TH SCOPE="COL">Action</TH>
-                        </TR> -->
-
-						<!-- php -->
-						<!-- <?php
-                            $sql = "SELECT * FROM rooms";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<TR>
-                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_no"]. "</TD>
-                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_type"]. "</TD>
-                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["seat_count"]. "</TD>
-                                    <TD style='border-bottom: solid 1px black; text-align: center;'>" . $row["room_status"]. "</TD>
-                                    <TD style='border-bottom: solid 1px black; text-align: center;'>
-                                        <A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row["id"]."'>Reserve</A>
-                                    </TD>
-                                    </TR>";
-                                }
-                            } else {
-                                echo "<TR><TD style='border-bottom: solid 1px black; text-align: center;'>0 results</TD></TR>";
-                            }
-                        ?>
-					</thead>
-				</table>
-			</div>
-		</div>
-	</div>  -->
 </div>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script>
