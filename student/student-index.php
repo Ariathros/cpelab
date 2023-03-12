@@ -28,7 +28,7 @@
 			</DIV>
 			<div class="col-9 px-0">
 				
-				<div class="container allContent-section" style="background-color: #F5F5F5">
+				<div class="container allContent-section" style="background-color: #F5F5F5;">
 					<?php
                         include 'student-dashboard.php';
                     ?>
@@ -36,4 +36,5 @@
 			</div>
 		</div>
 	</BODY>
+	
 </HTML>

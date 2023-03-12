@@ -1,11 +1,17 @@
-
 body,html{
     overflow-x: hidden;
     height: 100%;
     font-family: 'Bree Serif', serif;
 }
 
-/* index */
+/* index and login */
+.bg{
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+}
 .index nav{
     position: relative;
     padding: 20px;
@@ -17,7 +23,7 @@ body,html{
     text-shadow: 0px 0px 5px #D9D9D9;
 }
 /* login in index*/
-.container{
+.index .container{
     margin-top: 100px;
     margin-left: 50px;
 }
@@ -84,49 +90,82 @@ body,html{
 .links a{
     font-style: italic;
 }
-/*login page*/
-.bg{
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-}
-/*.col-md-4{
-    margin-top: 50px;
-    height: 100%;
-    align-items: center;
+
+/*register*/
+#register{
     text-align: center;
-    display: flex;
+    background: -webkit-linear-gradient(left, #800000, #383d41);
 }
-.col-md-4 h2{
-    padding-top: 10px;
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 2%;
 }
-.col-md-4 a{
-    padding-bottom: 50px;
+.register-left img{
+    width: 60%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
-.index_menu a.btn{
-    width: 300px;
-    padding: 10px 16px;
-    margin-bottom: 12px ;
-    font-size: larger;
+.register-left h3{
     font-weight: bold;
-    border-width: 0;
+    margin-top: 5%;
+    
 }
-.index_menu a.btn:nth-child(1){
-    background-color: #006BCE;
+.register-left p{
+    font-weight: lighter;
+    margin-top: 5%;
+    font-size: 20px;
 }
-.index_menu a.btn:nth-child(2){
-    background-color: #CE0000;
-}
-.index_menu a.btn:hover{
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 30%;
+    background: #f8f9fa;
+    font-weight: bold;
     color: black;
-    border-width: 3px;
-    border-color: black;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f5f5f5;
+    margin-top: 2%;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    text-align: center;
+}
+.register-heading{
+    margin-top: 4%;
+    color: black;
+}
+.register-right form{
+    padding-top: 4%;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 5%;
+    position: relative;
+    display:grid;
+   
+}
+.error{
+    margin-bottom: 2%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #800000;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
 }
 
+
+
 /* for login pages */
-form{
+/* form{
     width: 350px;
 }
 input.form-control{
@@ -173,6 +212,11 @@ hr{
 .sidebar .side-header{
     text-align: center;
 }
+.side-header .user{
+    margin-top: 10%;
+    font-size: 30px;
+    font-weight: bold;
+}
 .sidebar .menu{
     display: flexbox;
     padding-top: 30px;
@@ -186,6 +230,7 @@ hr{
     padding-left: 40px;
 }
 .menu_icon i{
+    margin-top: 20%;
     width: 40px;
     color: white;
 }
@@ -217,9 +262,10 @@ hr{
 }
 .logout .btn .menu_icon{
     width: 20px;
+    margin-top: 0.5%;
 }
 .logout .btn .menu_text{
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 /* for dashboard */
@@ -238,6 +284,13 @@ hr{
     text-decoration-color:#CC0000; 
     text-decoration-thickness:5px;
 }
+.navbar a{
+    padding-left: 1%;
+    font-size: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+}
 .dashboard .reservations{
     text-align:center;
     margin-bottom: 10px;
@@ -252,6 +305,7 @@ hr{
     font-size:40px; 
     font-weight:bold;
 }
+
 .dashboard .reservations .table-holder .table-rsrv{
     padding:20px;
 }
@@ -360,73 +414,4 @@ table thead tr th{
     margin-bottom: 10px;
 }
 
-/*register*/
-#register{
-    text-align: center;
-    background: -webkit-linear-gradient(left, #800000, #383d41);
-}
-.register-left{
-    text-align: center;
-    color: #fff;
-    margin-top: 2%;
-}
-.register-left img{
-    width: 60%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-.register-left h3{
-    font-weight: bold;
-    margin-top: 5%;
-    
-}
-.register-left p{
-    font-weight: lighter;
-    margin-top: 5%;
-    font-size: 20px;
-}
-.register-left input{
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    width: 30%;
-    background: #f8f9fa;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 3%;
-    cursor: pointer;
-}
-.register-right{
-    background: #f5f5f5;
-    margin-top: 2%;
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-    text-align: center;
-}
-.register-heading{
-    margin-top: 4%;
-    color: black;
-}
-.register-right form{
-    padding-top: 4%;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 5%;
-    position: relative;
-    display:grid;
-   
-}
-.error{
-    margin-bottom: 2%;
-}
-.btnRegister{
-    float: right;
-    margin-top: 10%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #800000;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-}
+

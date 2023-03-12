@@ -7,10 +7,12 @@
 <!-- Room Reservation -->
 <div class="student_rooms">
     <!-- Page header -->
-    <nav class="navbar">
-        <span class="navbar-text">
-            Room Reservation
-        </span>
+    <nav class="navbar navbar-expand-lg">
+        <span class="navbar-text">Room Reservation</span>
+        <a class="instruction fa fa-question-circle-o" data-bs-toggle="popover"  
+			title="Room Reservation" 
+			data-bs-content="This page shows the current day's room reservations. Click each room to see its availability and to create a reservation. Click the icon again to close this information.">
+		</a>
     </nav>
     <hr>
     <!-- calendar and timeslot-->
@@ -127,3 +129,9 @@
 		</div>
 	</div>  -->
 </div>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+	$(document).ready(function(){
+		$('[data-bs-toggle="popover"]').popover()
+	})
+</script>
