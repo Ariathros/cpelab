@@ -57,7 +57,7 @@
     <div class="accordion accordion-flush" id="rooms">
         <?php
 
-            $sql = "SELECT * FROM rooms";
+            $sql = "SELECT * FROM rooms ORDER BY room_no ASC";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
