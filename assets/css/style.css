@@ -413,3 +413,8 @@ table thead tr th{
     text-align:center;
     margin-bottom: 10px;
 }
+
+.table-dark th:hover{
+
+    cursor: pointer;
+}
