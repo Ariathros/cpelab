@@ -15,21 +15,16 @@
 		<link rel="stylesheet" href="./assets/css/style.css"></link>
 	</HEAD>
 
-	<body id="register">
-		<div class="row">
-			<div class="col-md-5  register-left">
-				<h3>Computer Engineering Rooms and Equipment Management System</h3>
-				<img src="./assets/images/register.png">
-				<p>Already have an account?</p>
-				<a href="index.php">
-					<input type="submit" name="back_login" value="Login"/>
-				</a>
+	<body>
+	<div class="container register">
+		<!-- <div class="row">
+			<div class="col-md-8">
+				<img class="bg" src="./assets/images/pup.jpg">
 			</div>
-
-			<div class="col-md-7 register-right">
-				<h3 class="register-heading">Register your account</h3>
-				
-				<!-- php -->
+			<div class="col-md-4 flex-column" style="padding-bottom:50px;">
+				<img class="pup_logo" src="./assets/images/pup logo.png" width="80px" height="80px">
+				<h2>Hi, PUPian!</h2>
+				<h5>Register your account</h5> -->
 				<?php
 					// Define variable names
 					$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr = $passwordErr="";
@@ -101,66 +96,61 @@
 						return $data;
 					}?>
 
-				<!-- registration form -->
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">First Name</span>
-						</div>
-						<input type="text" name="firstName" class="form-control input_user" placeholder="ex. Juan" REQUIRED>
+				<div class="row">
+					<div class="col-md-3 register-left">
+						<h3>Welcome</h3>
+						<p><!-- write something here --></p>
+						<a href="index.php">
+							<input type="submit" name="back_login" value="Login"/>
+						</a>
+						<br/>
 					</div>
-					<div class="error"><?php echo $firstNameErr;?></div>
-					
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">Last Name</span>
+					<div class="col-md-9 register-right">
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+								<h3 class="register-heading">Register your account</h3>
+								<!-- Subheader dapat ito -->
+								<!-- <h2 class="muted">Please complete the form to register</h2> -->
+								<div class="row register-form">
+									<div class="">
+										<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+											<span class="error"><?php echo $firstNameErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="firstName" TYPE="TEXT" PLACEHOLDER="First Name" class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $lastNameErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="lastName" TYPE="TEXT" PLACEHOLDER="Last Name" class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $userNameErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="userName" TYPE="TEXT" PLACEHOLDER="User Name" class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $idNoErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="idNo" TYPE="TEXT" PLACEHOLDER="ID No." class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $emailErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="email" TYPE="TEXT" PLACEHOLDER="Email" class="form-control" REQUIRED>
+												<?php if(isset($emailErr)); ?>
+											</div>
+											<span class="error"><?php echo $passwordErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="password" TYPE="password" PLACEHOLDER="Password" class="form-control" REQUIRED>
+											</div>
+											<div class="input-group mb-3">
+												<INPUT NAME="confirmPassword" TYPE="password" PLACEHOLDER="Confirm Password" class="form-control" REQUIRED>
+											</div>
+											<button NAME="submit" TYPE="SUBMIT" class="btn btn-primary" VALUE="Submit">Submit</button>
+										</form>
+									</div>
+								</div>
+							</div>
 						</div>
-						<input type="text" name="lastName" class="form-control input_user" placeholder="ex. Dela Cruz" REQUIRED>
 					</div>
-					<div class="error"><?php echo $lastNameErr;?></div>
+				</div>
 
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">User Name</span>
-						</div>
-						<input type="text" name="userName" class="form-control input_user" placeholder="ex. jdc" REQUIRED>
-					</div>
-					<div class="error"><?php echo $userNameErr;?></div>
-
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">ID No.</span>
-						</div>
-						<input type="text" name="idNo" class="form-control input_user" placeholder="ex. 2019-01234-MN-0" REQUIRED>
-					</div>
-					<div class="error"><?php echo $idNoErr;?></div>
-
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">Email</span>
-						</div>
-						<input type="email" name="email" class="form-control input_user" placeholder="ex. jdc@example.com" REQUIRED>
-					</div>
-					<div class="error"><?php echo $emailErr;?></div>
-
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">Password</span>
-						</div>
-						<input type="password" name="password" class="form-control input_user" placeholder="Password" REQUIRED>
-					</div>
-					<div class="error"><?php echo $passwordErr;?></div>
-					
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text">Confirm Password</span>
-						</div>
-						<input type="password" name="confirmPassword" class="form-control input_user" placeholder="Confirm Password" REQUIRED>
-					</div>
-					<button type="submit" class="btnRegister"  value="Register">Register</button>
-				</form>
-				
-				<!-- php -->
 				<?php 
 					if($hasErr) {
 						// Variable declarations
@@ -198,8 +188,7 @@
 						}
 					}
 				?>
-			</div>
-		</div>
+	</div>
 	</body>
 </html>
 

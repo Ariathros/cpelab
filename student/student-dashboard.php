@@ -4,19 +4,15 @@
 ?> -->
 
 <div class="dashboard">
-	<nav class="navbar navbar-expand-lg">
-        <span class="navbar-text">Dashboard</span>
-		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" 
-			title="Dashboard" 
-			data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation. Click the icon again to close this information.">
-		</a>
+	<nav class="navbar">
+        <span class="navbar-text">
+            Dashboard
+        </span>
     </nav>
 	<hr>
 	<div class="reservations">
 		<div class="table-holder">
-			<div class="table-title">
-				Room Reservations
-			</div>
+			<div class="table-title">My Reservations</div>
 			<div class="table-rsrv">
 				<table class="table">
 					<thead >
@@ -61,9 +57,7 @@
 		</div>
 							
 		<div class="table-holder" style="margin-top:20px;">
-			<div class="table-title">
-				Equipment Reservations
-			</div>
+			<div class="table-title">Equipment Reservations</div>
 			<div class="table-rsrv">
 				<table class="table">
 					<thead >
@@ -111,9 +105,3 @@
 		</div>
 	</div>
 </div>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script>
-	$(document).ready(function(){
-		$('[data-bs-toggle="popover"]').popover()
-	})
-</script>

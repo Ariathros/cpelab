@@ -1,17 +1,12 @@
+
 body,html{
     overflow-x: hidden;
     height: 100%;
     font-family: 'Bree Serif', serif;
+    
 }
 
-/* index and login */
-.bg{
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-}
+/* index */
 .index nav{
     position: relative;
     padding: 20px;
@@ -23,7 +18,7 @@ body,html{
     text-shadow: 0px 0px 5px #D9D9D9;
 }
 /* login in index*/
-.index .container{
+.container{
     margin-top: 100px;
     margin-left: 50px;
 }
@@ -90,82 +85,49 @@ body,html{
 .links a{
     font-style: italic;
 }
-
-/*register*/
-#register{
+/*login page*/
+.bg{
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+}
+/*.col-md-4{
+    margin-top: 50px;
+    height: 100%;
+    align-items: center;
     text-align: center;
-    background: -webkit-linear-gradient(left, #800000, #383d41);
+    display: flex;
 }
-.register-left{
-    text-align: center;
-    color: #fff;
-    margin-top: 2%;
+.col-md-4 h2{
+    padding-top: 10px;
 }
-.register-left img{
-    width: 60%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+.col-md-4 a{
+    padding-bottom: 50px;
 }
-.register-left h3{
+.index_menu a.btn{
+    width: 300px;
+    padding: 10px 16px;
+    margin-bottom: 12px ;
+    font-size: larger;
     font-weight: bold;
-    margin-top: 5%;
-    
+    border-width: 0;
 }
-.register-left p{
-    font-weight: lighter;
-    margin-top: 5%;
-    font-size: 20px;
+.index_menu a.btn:nth-child(1){
+    background-color: #006BCE;
 }
-.register-left input{
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    width: 30%;
-    background: #f8f9fa;
-    font-weight: bold;
+.index_menu a.btn:nth-child(2){
+    background-color: #CE0000;
+}
+.index_menu a.btn:hover{
     color: black;
-    margin-bottom: 3%;
-    cursor: pointer;
+    border-width: 3px;
+    border-color: black;
 }
-.register-right{
-    background: #f5f5f5;
-    margin-top: 2%;
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-    text-align: center;
-}
-.register-heading{
-    margin-top: 4%;
-    color: black;
-}
-.register-right form{
-    padding-top: 4%;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 5%;
-    position: relative;
-    display:grid;
-   
-}
-.error{
-    margin-bottom: 2%;
-}
-.btnRegister{
-    float: right;
-    margin-top: 10%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #800000;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-
 
 /* for login pages */
-/* form{
+form{
     width: 350px;
 }
 input.form-control{
@@ -212,11 +174,6 @@ hr{
 .sidebar .side-header{
     text-align: center;
 }
-.side-header .user{
-    margin-top: 10%;
-    font-size: 30px;
-    font-weight: bold;
-}
 .sidebar .menu{
     display: flexbox;
     padding-top: 30px;
@@ -230,7 +187,6 @@ hr{
     padding-left: 40px;
 }
 .menu_icon i{
-    margin-top: 20%;
     width: 40px;
     color: white;
 }
@@ -262,10 +218,9 @@ hr{
 }
 .logout .btn .menu_icon{
     width: 20px;
-    margin-top: 0.5%;
 }
 .logout .btn .menu_text{
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 /* for dashboard */
@@ -284,13 +239,6 @@ hr{
     text-decoration-color:#CC0000; 
     text-decoration-thickness:5px;
 }
-.navbar a{
-    padding-left: 1%;
-    font-size: 20px;
-    margin-top: 20px;
-    text-decoration: none;
-    color: black;
-}
 .dashboard .reservations{
     text-align:center;
     margin-bottom: 10px;
@@ -305,7 +253,6 @@ hr{
     font-size:40px; 
     font-weight:bold;
 }
-
 .dashboard .reservations .table-holder .table-rsrv{
     padding:20px;
 }
@@ -412,4 +359,101 @@ table thead tr th{
     font-weight:bold;
     text-align:center;
     margin-bottom: 10px;
+}
+
+/**/
+.register{
+    background: -webkit-linear-gradient(left, #800000, #CC3D3D);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
 }

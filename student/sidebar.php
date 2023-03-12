@@ -2,7 +2,10 @@
 <div class="sidebar"  style="color:white;">
     <div class="side-header">
         <img src="../assets/images/pup logo.png" width="120px" height="120px">
-        <div class="user">Hello <?php echo $_SESSION['name']; ?>!</div>
+    </div>
+    <div class="side-header">
+        <br><b>Hello <?php echo $_SESSION['name']; ?>!</b>
+        <!-- Ito ay pwede iedit -->
     </div>
     <div class="menu">
         <div>
