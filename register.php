@@ -17,15 +17,16 @@
 
 	<body id="register">
 		<div class="row">
-			<div class="col-md-4  register-left">
-				<h3>Welcome</h3>
-                <p><!-- write something here --></p>
+			<div class="col-md-5  register-left">
+				<h3>Computer Engineering Rooms and Equipment Management System</h3>
+				<img src="./assets/images/register.png">
+				<p>Already have an account?</p>
 				<a href="index.php">
 					<input type="submit" name="back_login" value="Login"/>
 				</a>
 			</div>
 
-			<div class="col-md-8 register-right">
+			<div class="col-md-7 register-right">
 				<h3 class="register-heading">Register your account</h3>
 				
 				<!-- php -->
