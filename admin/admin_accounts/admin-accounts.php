@@ -56,13 +56,6 @@
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 
 		<script>
-			$("#btnExport").click(function (e) {
-				$(this).attr({
-					'download': "admin-account.xls",
-						'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
-				})
-			});
-
 			$(document).ready(function(){
 				$("#myInput").on("keyup", function() {
 					var value = $(this).val().toLowerCase();
@@ -136,6 +129,15 @@
 					<a href="x" download="down.xls" class="btn btn-dark mb-3" id="btnExport">
 					Export Table
 					</a>
+
+					<script>
+						$("#btnExport").click(function (e) {
+							$(this).attr({
+								'download': "admin-account.xls",
+									'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
+							})
+						});
+					</script>
 
 					<input id="myInput" type="text" placeholder="Search..">
 
