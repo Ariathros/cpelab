@@ -17,51 +17,6 @@
 
 	<body>
 	<div class="container register">
-                <div class="row">
-                    <div class="col-md-3 register-left">
-                        <h3>Welcome</h3>
-                        <p><!-- write something here --></p>
-						<a href="index.php">
-							<input type="submit" name="back_login" value="Login"/>
-						</a>
-                        <br/>
-                    </div>
-                    <div class="col-md-9 register-right">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Register your account</h3>
-                                <div class="row register-form">
-                                    <div class="">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-										<div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" value="" />
-                                        </div>
-										<div class="form-group">
-                                            <input type="text" class="form-control" placeholder="ID No. *" value="" />
-                                        </div>
-										<div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
-										<input type="submit" class="btnRegister"  value="Register"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 		<!-- <div class="row">
 			<div class="col-md-8">
 				<img class="bg" src="./assets/images/pup.jpg">
@@ -69,8 +24,7 @@
 			<div class="col-md-4 flex-column" style="padding-bottom:50px;">
 				<img class="pup_logo" src="./assets/images/pup logo.png" width="80px" height="80px">
 				<h2>Hi, PUPian!</h2>
-				<h5>Register your account</h5>
-
+				<h5>Register your account</h5> -->
 				<?php
 					// Define variable names
 					$firstNameErr = $lastNameErr = $userNameErr = $emailErr = $idNoErr = $passwordErr="";
@@ -106,7 +60,7 @@
 						}
 						
 						if(empty($_POST["idNo"])) {
-							$idNoErr = "Please your ID No.";
+							$idNoErr = "Please enter your ID No.";
 						} else {
 							$idNo = test_input($_POST["idNo"]);
 							if(!preg_match("/^[a-zA-Z0-9- ']*$/", $idNo)) {
@@ -140,40 +94,62 @@
 						$data = stripslashes($data);
 						$data = htmlspecialchars($data);
 						return $data;
-					}
-				?>
+					}?>
 
-				<p><span class="error">* required field</span></p>
-
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-					<div class="input-group mb-3">
-						<INPUT NAME="firstName" TYPE="TEXT" PLACEHOLDER="First Name" class="form-control" REQUIRED>
-						<span class="error">* <?php echo $firstNameErr;?></span>
+				<div class="row">
+					<div class="col-md-3 register-left">
+						<h3>Welcome</h3>
+						<p><!-- write something here --></p>
+						<a href="index.php">
+							<input type="submit" name="back_login" value="Login"/>
+						</a>
+						<br/>
 					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="lastName" TYPE="TEXT" PLACEHOLDER="Last Name" class="form-control" REQUIRED>
-						<span class="error">* <?php echo $lastNameErr;?></span>
+					<div class="col-md-9 register-right">
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+								<h3 class="register-heading">Register your account</h3>
+								<!-- Subheader dapat ito -->
+								<!-- <h2 class="muted">Please complete the form to register</h2> -->
+								<div class="row register-form">
+									<div class="">
+										<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+											<span class="error"><?php echo $firstNameErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="firstName" TYPE="TEXT" PLACEHOLDER="First Name" class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $lastNameErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="lastName" TYPE="TEXT" PLACEHOLDER="Last Name" class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $userNameErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="userName" TYPE="TEXT" PLACEHOLDER="User Name" class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $idNoErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="idNo" TYPE="TEXT" PLACEHOLDER="ID No." class="form-control" REQUIRED>
+											</div>
+											<span class="error"><?php echo $emailErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="email" TYPE="TEXT" PLACEHOLDER="Email" class="form-control" REQUIRED>
+												<?php if(isset($emailErr)); ?>
+											</div>
+											<span class="error"><?php echo $passwordErr;?></span>
+											<div class="input-group mb-3">
+												<INPUT NAME="password" TYPE="password" PLACEHOLDER="Password" class="form-control" REQUIRED>
+											</div>
+											<div class="input-group mb-3">
+												<INPUT NAME="confirmPassword" TYPE="password" PLACEHOLDER="Confirm Password" class="form-control" REQUIRED>
+											</div>
+											<button NAME="submit" TYPE="SUBMIT" class="btn btn-primary" VALUE="Submit">Submit</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="userName" TYPE="TEXT" PLACEHOLDER="User Name" class="form-control" REQUIRED>
-						<span class="error">* <?php echo $userNameErr;?></span>
-					</div><div class="input-group mb-3">
-						<INPUT NAME="idNo" TYPE="TEXT" PLACEHOLDER="ID No." class="form-control" REQUIRED>
-						<span class="error">* <?php echo $idNoErr;?></span>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="email" TYPE="TEXT" PLACEHOLDER="Email" class="form-control" REQUIRED>
-						<?php if(isset($emailErr)); ?>
-						<span class="error">* <?php echo $emailErr;?></span>
-					</div>
-					<div class="input-group mb-3">
-						<INPUT NAME="password" TYPE="password" PLACEHOLDER="Password" class="form-control" REQUIRED>*
-					</div><span class="error"><?php echo $passwordErr;?></span>
-					<div class="input-group mb-3">
-						<INPUT NAME="confirmPassword" TYPE="password" PLACEHOLDER="Confirm Password" class="form-control" REQUIRED>
-					</div>
-					<button NAME="submit" TYPE="SUBMIT" class="btn btn-primary" VALUE="Submit">Submit</button>
-				</form>
+				</div>
 
 				<?php 
 					if($hasErr) {
@@ -186,12 +162,13 @@
 							$email = $_POST['email'];
 							$password = $_POST['password'];
 							$confirmPassword = $_POST['confirmPassword'];
-
+							
+							// Get email and id to check if it already exists
 							$sql_email = "SELECT * FROM useraccounts WHERE email='$email'";
 							$sql_id = "SELECT * FROM useraccounts WHERE id_num='$idNo'";
 							$result_email = mysqli_query($conn, $sql_email) or die(mysqli_error($conn));
 							$result_id = mysqli_query($conn, $sql_id) or die(mysqli_error($conn));
-
+							// if return greater than 0 means there is similar value
 							if(mysqli_num_rows($result_email) > 0) {
 								echo "Email already taken";
 							} else if(mysqli_num_rows($result_id) > 0) {
@@ -211,8 +188,7 @@
 						}
 					}
 				?>
-			</div>
-		</div>-->
+	</div>
 	</body>
 </html>
 

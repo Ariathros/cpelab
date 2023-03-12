@@ -42,7 +42,7 @@
 
             $sql2 = "SELECT * FROM rooms WHERE room_no='$room_no'";
             $result2 = $conn->query($sql2);
-    
+            
             if($date<=$d1 && ($time_start <= $t1 && $t1 < $time_end)){
                 $room_status='Reserved';
             }else{
