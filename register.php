@@ -137,7 +137,7 @@
 								</form>
 							</div>
 						</div>
-						<input type="text" name="firstName" class="form-control input_user" placeholder="ex. Juan" REQUIRED>
+						<!-- <input type="text" name="firstName" class="form-control input_user" placeholder="ex. Juan" REQUIRED> -->
 					</div>
 				</div>
 			</div>
