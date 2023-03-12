@@ -53,13 +53,18 @@
 		<title>Faculty Room Management - CPE Lab Room and Equipment Management System</title>
 	</head>
 	<body>
-		<?php
-			include "../sidebar.php";
-		?>
-
-		<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-            Room Management
-        </nav>
+		<div class="row">
+			<DIV class="col-3 px-2">
+				<?php
+					include "../sidebar.php";
+				?>
+			</DIV>
+			<div class="col-9 px-0">
+		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
+			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+			Room Management
+			</H1>
+		</DIV>
 
 		<div class="container">
 			<?php
@@ -133,6 +138,9 @@
 			<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 		</div>
 		</div>
+		</div>
+		</div>
+		
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

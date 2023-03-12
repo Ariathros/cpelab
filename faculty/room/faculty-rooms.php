@@ -66,11 +66,12 @@
 	</HEAD>
 	
 	<BODY>
-		<DIV>
+		<div class="row">
+		<DIV class="col-3 px-2">
 			<?php include '../sidebar.php'; ?>
 		</DIV>
-		
-		<DIV>
+		<div class="col-9 px-0">
+		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
 			Room Reservations
 			</H1>
@@ -88,7 +89,7 @@
 						<TH SCOPE="COL">Actions</TH>
 					</TR>
 				</thead>
-				
+				<tbody>
 				<?php
 					$sql = "SELECT * FROM room_man WHERE status= 'Pending'";
 					$result = $conn->query($sql);
@@ -114,6 +115,7 @@
 
 					// insert to logs
 				?>
+				</tbody>
 			</TABLE>
 			<!-- Pagination -->
 		<nav aria-label="Page navigation example">
@@ -141,5 +143,7 @@
 			<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 		</div>
 		</DIV>
+		</div>
+		</div>
 	</BODY>
 </HTML>
