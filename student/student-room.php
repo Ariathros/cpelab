@@ -48,7 +48,7 @@
         </div>
     </div>
     <hr> -->
-    Current Day Room Reservation
+    Available Rooms for Reservation
     <div class="accordion" id="rooms">
         <?php
 
@@ -62,7 +62,7 @@
                     $room_no_display = $row['room_no'];
                     $room_name_display = $row["room_type"];
                     $room_status = $row["room_status"];
-                    
+                    // Room headers
                     echo "<div class='accordion-item'>
                         <h2 class='accordion-header' id='roomDescription'>
                             <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
@@ -71,7 +71,7 @@
                         </h2>
                         <div id='collapseOne' class='accordion-collapse collapse show' aria-labelledby='headingOne' data-bs-parent='#accordionExample'>
                             <div class='accordion-body'>
-                                <h4>Reserved Rooms</h4>
+                                <h4>Current day reservations</h4>
                                     <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
                         echo "</ul>

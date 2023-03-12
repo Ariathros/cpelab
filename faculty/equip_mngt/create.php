@@ -62,7 +62,7 @@
 					<!-- Equip Code -->
                     <div class="mb-3">
                         <label class="form-label">Code:</label>
-                        <input type="text" class="form-control" name="equip_code" placeholder="pjt001" >
+                        <input type="text" class="form-control" name="equip_code" placeholder="pjt" >
                     </div>
 
 					<!-- Equip Name -->
