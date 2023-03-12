@@ -80,41 +80,57 @@
 					?>
 
 					<a href="create.php" class="btn btn-dark mb-3">Add New</a>
-					<table class="table table-hover text-center">
-						<thead class="table-dark">
-							<tr>
-							<th scope="col">ID</th>
-							<th scope="col">First Name</th>
-							<th scope="col">Last Name</th>
-							<th scope="col">Username</th>
-							<th scope="col">Id No.</th>
-							<th scope="col">Email</th>
-							<th scope="col">User Type</th>
-							<th scope="col">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
 
-								// Pagination
-								// Get and show all data from our database
-								$sql = "SELECT * FROM useraccounts";
-								$result = mysqli_query($conn, $sql);
-								while ($row = mysqli_fetch_assoc($result)) { ?>
-									<tr>
-										<td><?php echo $row['id']?></td>
-										<td><?php echo $row['firstname']?></td>
-										<td><?php echo $row['lastname']?></td>
-										<td><?php echo $row['username']?></td>
-										<td><?php echo $row['id_num']?></td>
-										<td><?php echo $row['email']?></td>
-										<td><?php echo $row['usertype']?></td>
-										<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
-											<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
-									</tr>
-								<?php } ?>
-						</tbody>
-					</table>
+					<a href="x" download="down.xls" id="btnExport">
+					Export Table data into Excel
+					</a>
+
+					<script>
+						$("#btnExport").click(function (e) {
+							$(this).attr({
+								'download': "admin-account.xls",
+									'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
+							})
+						});
+					</script>
+					<DIV id='dvData'>
+						<table class="table table-hover text-center">
+							<thead class="table-dark">
+								<tr>
+								<th scope="col">ID</th>
+								<th scope="col">First Name</th>
+								<th scope="col">Last Name</th>
+								<th scope="col">Username</th>
+								<th scope="col">Id No.</th>
+								<th scope="col">Email</th>
+								<th scope="col">User Type</th>
+								<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+
+									// Pagination
+									// Get and show all data from our database
+									$sql = "SELECT * FROM useraccounts";
+									$result = mysqli_query($conn, $sql);
+									while ($row = mysqli_fetch_assoc($result)) { ?>
+										<tr>
+											<td><?php echo $row['id']?></td>
+											<td><?php echo $row['firstname']?></td>
+											<td><?php echo $row['lastname']?></td>
+											<td><?php echo $row['username']?></td>
+											<td><?php echo $row['id_num']?></td>
+											<td><?php echo $row['email']?></td>
+											<td><?php echo $row['usertype']?></td>
+											<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
+												<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
+										</tr>
+									<?php } ?>
+							</tbody>
+						</table>
+					</DIV>
+					
 					<!-- Pagination -->
 					<nav aria-label="Page navigation example">
 						<ul class="pagination">
