@@ -15,7 +15,7 @@
 		</a>
     </nav>
     <hr>
-    <div class="d-flex flex column">
+    <div class="d-flex flex-wrap">
 		<?php
 			$sql = "SELECT * FROM equipments
 			ORDER BY equip_name ASC";
