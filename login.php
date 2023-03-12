@@ -16,7 +16,8 @@
 	<BODY>
 		<div class="row">
 			<div class="col-md-8">
-				<img class="bg" src="./assets/images/pup.jpg">
+				<!-- <img class="bg" src="./assets/images/pup.jpg"> -->
+				<img class="bg" src="./assets/images/index.png">
 			</div>
 
 			<div class="col-md-4 flex-column">
@@ -42,35 +43,37 @@
 						$password = htmlentities($_POST['password']);
 
 						// Select from SQL
-						$sql = "SELECT password, usertype FROM useraccounts 
-						WHERE username='$username'";
+						$sql = "SELECT * FROM useraccounts WHERE username='$username'";
 						$result = $conn->query($sql);
 
 						// IF MAY RESULTS
 						if ($result->num_rows > 0) {
 							$row = $result->fetch_assoc();
-
-							$hashPedCheck = password_verify($password, $row["password"]);
-							if($row["password"]!=$hashPedCheck){
-								if($row["password"]!=$password){
-									// WRONG PASSWORD CONDITION
+							
+							// verify hash password
+							$checkHashPass = password_verify($password, $row['password']);
+							if($row["password"]!=$checkHashPass){
 									echo "Wrong Password!";
 									return;
-								}	
-								// WRONG PASSWORD CONDITION
-								// echo "Wrong Password!";
-								// return;
 							}
+							// for easy access, will not check unhashed passwords
+							// if($row["password"]!=$password){
+							// 	// WRONG PASSWORD CONDITION
+							// 	echo "Wrong Password!";
+							// 	return;
+							// }
 								
 							// USERTYPE CHECKER
 							$_SESSION['username']=$username;
+							$_SESSION['name']=$row['firstname']." ".$row['lastname'];
+
 							if($row["usertype"]==="admin"){
 								$_SESSION['usertype']='admin';
 								header('Location: admin\admin_logs\admin-logs.php');
 							}
 							elseif($row["usertype"]==="faculty"){
 								$_SESSION['usertype']='faculty';
-								header('Location: faculty/room/faculty-rooms.php');
+								header('Location: faculty/dashboard/faculty-dashboard.php');
 							}
 							else{
 								
