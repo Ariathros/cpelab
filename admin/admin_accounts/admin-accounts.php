@@ -34,6 +34,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<TITLE>Admin Account Management - CPE Lab Room and Equipment Management System</TITLE>
 
@@ -53,7 +54,51 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
+
+		<script>
+			$(document).ready(function(){
+				$("#myInput").on("keyup", function() {
+					var value = $(this).val().toLowerCase();
+					$("#myTable tr").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+					});
+				});
+			});			
+
+			$(document).on("click", "table thead tr th:not(.no-sort)", function() {
+				var table = $(this).parents("table");
+				var rows = $(this).parents("table").find("tbody tr").toArray().sort(TableComparer($(this).index()));
+				var dir = ($(this).hasClass("sort-asc")) ? "desc" : "asc";
+
+				if (dir == "desc") {
+					rows = rows.reverse();
+				}
+
+				for (var i = 0; i < rows.length; i++) {
+					table.append(rows[i]);
+				}
+
+				table.find("thead tr th").removeClass("sort-asc").removeClass("sort-desc");
+				$(this).removeClass("sort-asc").removeClass("sort-desc") .addClass("sort-" + dir);
+			});
+
+			function TableComparer(index) {
+				return function(a, b) {
+					var val_a = TableCellValue(a, index);
+					var val_b = TableCellValue(b, index);
+					var result = ($.isNumeric(val_a) && $.isNumeric(val_b)) ? val_a - val_b : val_a.toString().localeCompare(val_b);
+
+					return result;
+				}
+			}	
+
+			function TableCellValue(row, index) {
+				return $(row).children("td").eq(index).text();
+			}
+		</script>
+
 	</head>
+
 	<body>
 		<div class="row">
 			<div class="col-3 px-2">
@@ -81,8 +126,8 @@
 
 					<a href="create.php" class="btn btn-dark mb-3">Add New</a>
 
-					<a href="x" download="down.xls" id="btnExport">
-					Export Table data into Excel
+					<a href="x" download="down.xls" class="btn btn-dark mb-3" id="btnExport">
+					Export Table
 					</a>
 
 					<script>
@@ -93,6 +138,9 @@
 							})
 						});
 					</script>
+
+					<input id="myInput" type="text" placeholder="Search..">
+
 					<DIV id='dvData'>
 						<table class="table table-hover text-center">
 							<thead class="table-dark">
@@ -107,13 +155,15 @@
 								<th scope="col">Action</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody id="myTable">
 								<?php
 
-									// Pagination
-									// Get and show all data from our database
-									$sql = "SELECT * FROM useraccounts";
+									// Search Conditions
+									
+									// Get and show selected data from our database
+									$sql = "SELECT * FROM useraccounts ";
 									$result = mysqli_query($conn, $sql);
+
 									while ($row = mysqli_fetch_assoc($result)) { ?>
 										<tr>
 											<td><?php echo $row['id']?></td>
