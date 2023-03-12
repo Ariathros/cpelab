@@ -64,14 +64,18 @@
 		<title>Faculty Equipment Management - CPE Lab Room and Equipment Management System</title>
 	</head>
 	<body>
+	<div class="row">
+		<DIV class="col-3 px-2">
 		<?php
 			include "../sidebar.php";
 		?>
-
-		<nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-            Equipment Management
-        </nav>
-
+		</DIV>
+		<div class="col-9 px-0">
+		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
+			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+			Equipment Management
+			</H1>
+		</DIV>
 		<div class="container">
 			<?php
 				if(isset($_GET['msg'])) {
