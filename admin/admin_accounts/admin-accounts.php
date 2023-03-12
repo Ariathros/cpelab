@@ -139,7 +139,7 @@
 						});
 					</script>
 
-					<input id="myInput" type="text" placeholder="Search..">
+					<input id="myInput" type="text" placeholder="Search.." style="float:right">
 
 					<DIV id='dvData'>
 						<table class="table table-hover text-center">

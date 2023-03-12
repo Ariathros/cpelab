@@ -122,7 +122,7 @@
 						});
 					</script>
 
-					<input id="myInput" type="text" placeholder="Search..">
+					<input id="myInput" type="text" placeholder="Search.." style="float:right">
 
 					<DIV id='dvData'>
 						<TABLE id="admin-logs" class="table table-hover text-center">
