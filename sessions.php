@@ -9,7 +9,7 @@
 			header("Location: admin/admin_logs/admin-logs.php");
 		}
 		elseif ($_SESSION['usertype']==='faculty'){
-			header("Location: faculty/faculty-dashboard.php");
+			header("Location: faculty/dashboard/faculty-dashboard.php");
 		}
 		else{
 			header("Location: student/student-index.php");

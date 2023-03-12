@@ -73,7 +73,7 @@
 							}
 							elseif($row["usertype"]==="faculty"){
 								$_SESSION['usertype']='faculty';
-								header('Location: faculty/faculty-dashboard.php');
+								header('Location: faculty/dashboard/faculty-dashboard.php');
 							}
 							else{
 								
