@@ -45,7 +45,7 @@
 		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="../assets/js/ajaxWork.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-		<script src="https://code.jquery.com/jquery-4.0.0.min.js" ></script>
+		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -67,53 +67,68 @@
 					</H1>
 				</DIV>
 				<DIV class="container" style="padding-left:24px; padding-right:24px;">
-					<TABLE class="table table-hover text-center">
-						<thead class="table-dark">
-							<TR>
-								<TH SCOPE="COL">ID</TH>
-								<TH SCOPE="COL">Name</TH>
-								<TH SCOPE="COL">Type</TH>
-								<TH SCOPE="COL">Category</TH>
-								<TH SCOPE="COL">Action</TH>
-								<TH SCOPE="COL">Action By</TH>
-								<TH SCOPE="COL">Student</TH>
-								<TH SCOPE="COL">Date</TH>
-								<TH SCOPE="COL">Time</TH>
-							</TR>
-						</thead>
-						<tbody>
-							<?php while ($row = mysqli_fetch_array($result)) { ?>
-								<tr>
-									<td><?= $row['id']; ?></td>
-									<td><?= $row['name']; ?></td>
-									<td><?= $row['type']; ?></td>
-									<td><?= $row['category']; ?></td>
-									<td><?= $row['action']; ?></td>
-									<td><?= $row['faculty']; ?></td>
-									<td><?= $row['student']; ?></td>
-									<td><?= $row['date']; ?></td>
-									<td><?= $row['time_start'] . "-" . $row['time_end']; ?></td>
+					<a href="x" download="down.xls" id="btnExport">
+							Export Table data into Excel
+							</a>
 
-							<?php
-								// Set record overdue to creation date + 5 months
-								$startDate = strtotime($row['date']. '+5 months');
-								// get the current date
-								$archiveDate = strtotime(date('y-m-d'));
-								// Check if record is overdue
-								if($startDate < $archiveDate) {
-									// Insert overdue record to 'archive' table
-									mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
-									`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
-									'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
-									'$row[time_start]','$row[time_end]','$row[date]')");
-									// Delete record from logs table, it will generate new record to archive if not deleted
-									mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
-								};?>
-								</tr>
-							<?php }
-							mysqli_close($conn); ?>
-						</tbody>
-					</TABLE>
+							<script>
+								$("#btnExport").click(function (e) {
+									$(this).attr({
+										'download': "admin-logs.xls",
+											'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
+									})
+								});
+							</script>
+					<DIV id='dvData'>
+						<TABLE id="admin-logs" class="table table-hover text-center">
+							<thead class="table-dark">
+								<TR>
+									<TH SCOPE="COL">ID</TH>
+									<TH SCOPE="COL">Name</TH>
+									<TH SCOPE="COL">Type</TH>
+									<TH SCOPE="COL">Category</TH>
+									<TH SCOPE="COL">Action</TH>
+									<TH SCOPE="COL">Action By</TH>
+									<TH SCOPE="COL">Student</TH>
+									<TH SCOPE="COL">Date</TH>
+									<TH SCOPE="COL">Time</TH>
+								</TR>
+							</thead>
+							<tbody>
+								<?php while ($row = mysqli_fetch_array($result)) { ?>
+									<tr>
+										<td><?= $row['id']; ?></td>
+										<td><?= $row['name']; ?></td>
+										<td><?= $row['type']; ?></td>
+										<td><?= $row['category']; ?></td>
+										<td><?= $row['action']; ?></td>
+										<td><?= $row['faculty']; ?></td>
+										<td><?= $row['student']; ?></td>
+										<td><?= $row['date']; ?></td>
+										<td><?= $row['time_start'] . "-" . $row['time_end']; ?></td>
+
+								<?php
+									// Set record overdue to creation date + 5 months
+									$startDate = strtotime($row['date']. '+5 months');
+									// get the current date
+									$archiveDate = strtotime(date('y-m-d'));
+									// Check if record is overdue
+									if($startDate < $archiveDate) {
+										// Insert overdue record to 'archive' table
+										mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
+										`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
+										'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
+										'$row[time_start]','$row[time_end]','$row[date]')");
+										// Delete record from logs table, it will generate new record to archive if not deleted
+										mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
+									};?>
+									</tr>
+								<?php }
+								mysqli_close($conn); ?>
+							</tbody>
+							   
+						</TABLE>
+					</DIV>
 					<!-- Pagination -->
 					<nav aria-label="Page navigation example">
 						<ul class="pagination">
@@ -142,8 +157,6 @@
 				</DIV>
 			</div>
 		</div>
-		
-		
 		
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
