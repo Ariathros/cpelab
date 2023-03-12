@@ -5,13 +5,14 @@
 
 <!-- Equipment Reservation -->
 <div class="student_equipment">
-	<nav class="navbar">
+	<nav class="navbar navbar-expand-lg">
         <span class="navbar-text">
             Equipment Reservation
         </span>
-        <!--<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    	</form>-->
+		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" 
+			title="Equipment Reservation" 
+			data-bs-content="This page shows the current day's available equipment. Each piece of equipment has its number of items available, the name of the equipment, its category, and the button to borrow equipment. Click the icon again to close this information.">
+		</a>
     </nav>
     <hr>
     <div class="d-flex flex column">
@@ -28,13 +29,14 @@
 					$description = $row['description'];
 					$image_upload = $row['p_img'];
 
-					echo "<div class='card'>
-					<h3 class='card-title'>$equip_name</h3>
-						<div class='card-body'>
-							<img src='../assets/images/$image_upload' class='card-img-top' alt='$image_upload'>
+					echo "
+					<div class='card' style='margin-right:20px;'>
+						<h3 class='card-title' style='margin-top:5%; '>$equip_name</h3>
+						<div class='card-body' style='margin-top:5%;margin-bottom:5%;'>
+							<img src='../assets/images/$image_upload' class='card-img-top' alt='$image_upload' style='width:200px; height:200px; margin-bottom:5%'>
 							<p class='card-text'>$description</p>
 							<p class='card-text'>Remaining: $available</p>
-							<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='borrow.php?id=".$row["id"]."'>Borrow</A>
+							<A class='btn btn-primary' type='button' style='background-color:#800000; border:0px;' HREF='borrow.php?id=".$row["id"]."'>Borrow</A>
 						</div>
 					</div>";
 				}
@@ -90,3 +92,9 @@
 		</div>
 	</div> -->
 </div>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+	$(document).ready(function(){
+		$('[data-bs-toggle="popover"]').popover()
+	})
+</script>
