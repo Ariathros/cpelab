@@ -420,3 +420,7 @@ table thead tr th{
 
     cursor: pointer;
 }
+/* accordion */
+.accordion:after {
+    content: "<?php echo $room_status ?>";
+}
