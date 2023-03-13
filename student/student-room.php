@@ -4,6 +4,54 @@
     include 'includes/room-functions.php';
 ?>
 
+<!-- accordion style -->
+<style>
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+
+    .active, .accordion:hover {
+        background-color: #ccc;
+    }
+
+    .accordion:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2212";
+    }
+
+    .panel {
+        text-align:center;
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    .panel h4{
+        padding:2%;
+    }
+    .panel .btn{
+        margin:2%;
+        background-color:green;
+        border:0;
+    }
+</style>
 <!-- Room Reservation -->
 <div class="student_rooms">
     <!-- Page header -->
@@ -54,42 +102,36 @@
     </div>
     <hr> -->
     Available Rooms for Reservation
-    <div class="accordion accordion-flush" id="rooms">
-        <?php
+    <?php
+        $sql = "SELECT * FROM rooms";
+        $result = $conn->query($sql);
 
-            $sql = "SELECT * FROM rooms";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    
-                    $room_no_display = $row['room_no'];
-                    $room_name_display = $row["room_type"];
-                    $room_status = $row["room_status"];
-                    
-                    echo "
-                    <div class='accordion-item'>
-                        <h2 class='accordion-header' id='roomDescription'>
-                            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne'>
-                                <strong>$room_no_display</strong>&nbsp $room_name_display&nbsp $room_status
-                            </button>
-                        </h2>
-                        <div id='flush-collapseOne' class='accordion-collapse collapse' aria-labelledby='roomDescription' data-bs-parent='#rooms'>
-                            <div class='accordion-body'>
-                                <h4>Current day reservations</h4>
-                                    <ul class='nav justify-content-center'>";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                
+                $room_no_display = $row['room_no'];
+                $room_name_display = $row["room_type"];
+                $room_status = $row["room_status"];
+                
+                echo "
+                <button class='accordion'><strong>$room_no_display</strong>&nbsp $room_name_display</button>
+                <div class='panel'>
+                    <h4>Current day reservations</h4>
+                    <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
-                        echo "</ul>
-                        <A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row["id"]."'>Reserve</A>
-                            </div>
-                        </div>
-                    </div>";
-                }
+                        echo "
+                    </ul>
+                    <A class='btn btn-primary' type='button' HREF='reserve.php?id=".$row["id"]."'>
+                        Reserve
+                    </A>
+                </div>";
             }
-        ?>
-    </div>.
-
+            echo"
+                
+            ";
+        }
+    ?>
     <!--<div id="accordion">
         <div class="card">
             <div class="card-header" id="room">
@@ -150,4 +192,20 @@
 	$(document).ready(function(){
 		$('[data-bs-toggle="popover"]').popover()
 	})
+</script>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+        } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+    }
 </script>
