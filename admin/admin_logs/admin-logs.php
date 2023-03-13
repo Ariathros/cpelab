@@ -108,11 +108,8 @@
 						Logs
 					</H1>
 				</DIV>
-				<DIV class="container" style="padding-left:24px; padding-right:24px;">
-					<a href="x" download="down.xls" id="btnExport" class="btn btn-dark mb-3">
-					Export Table
-					</a>
-					
+				<DIV class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
+					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
 					<script>
 						$("#btnExport").click(function (e) {
 							$(this).attr({
@@ -122,7 +119,7 @@
 						});
 					</script>
 
-					<input id="myInput" type="text" placeholder="Search.." style="float:right">
+					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
 
 					<DIV id='dvData'>
 						<TABLE id="admin-logs" class="table table-hover text-center">

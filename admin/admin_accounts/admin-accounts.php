@@ -124,9 +124,9 @@
 						}
 					?>
 
-					<a href="create.php" class="btn btn-success mb-3">Add New</a>&emsp;
+					<a href="create.php" class="btn btn-success mb-3 button2 :hover">Add New</a>&emsp;
 
-					<a href="x" download="down.xls" class="btn btn-warning mb-3" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
+					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
 
 					<script>
 						$("#btnExport").click(function (e) {
@@ -137,7 +137,7 @@
 						});
 					</script>
 
-					<input id="myInput" type="text" placeholder="Search.." style="float:right">
+					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
 
 					<DIV id='dvData'>
 						<table class="table table-hover text-center">
@@ -171,7 +171,7 @@
 											<td><?php echo $row['id_num']?></td>
 											<td><?php echo $row['email']?></td>
 											<td><?php echo $row['usertype']?></td>
-											<td><a type="button" href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square me-3"></i></a>
+											<td><a  href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square me-3"></i></a>
 											<button type="button" class="btn btn-danger deletebtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash fs-5"></i></button>
 											
 											</td>
