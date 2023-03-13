@@ -29,4 +29,10 @@
             <div class="menu_text">Logout</div>
         </a>
     </div>
+    <div class="logout">
+        <a href="/cpelab/admin/admin_logs/logs-archive.php" class="btn">
+            <div class="menu_icon"><i class='fa-sharp fa-solid fa-file-zipper'></i></div>
+            <div class="menu_text">Archives</div>
+        </a>
+    </div>
 </div>
