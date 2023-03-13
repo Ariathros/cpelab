@@ -113,7 +113,7 @@
 					</H1>
 				</DIV>
 
-				<div class="container">
+				<div class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<?php
 						if(isset($_GET['msg'])) {
 							$msg = $_GET['msg'];
@@ -124,11 +124,9 @@
 						}
 					?>
 
-					<a href="create.php" class="btn btn-dark mb-3">Add New</a>
+					<a href="create.php" class="btn btn-success mb-3">Add New</a>&emsp;
 
-					<a href="x" download="down.xls" class="btn btn-dark mb-3" id="btnExport">
-					Export Table
-					</a>
+					<a href="x" download="down.xls" class="btn btn-warning mb-3" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
 
 					<script>
 						$("#btnExport").click(function (e) {
