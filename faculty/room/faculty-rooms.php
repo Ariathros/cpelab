@@ -120,7 +120,7 @@
 		</DIV>
 		
 		<DIV class="container" style="padding-left:24px; padding-right:24px; ">
-		<input id="myInput" type="text" placeholder="Search.." style="float:right">
+		<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
 			<TABLE class="table table-hover text-center">
 				<thead class="table-dark">
 					<TR>
@@ -139,18 +139,19 @@
 
 					if ($result->num_rows > 0) {
 						// output data of each row
-						while($row = $result->fetch_assoc()) {
-							echo "<TR>
-								<TD>" . $row["room_no"]. "</TD>
-								<TD>" . $row["room_type"]. "</TD>
-								<TD>" . $row["borrower"]. "</TD>
-								<TD>" . $row["date"]. "</TD>
-								<TD>" . $row["time_start"]."". $row["time_end"]."</TD>
+						while($row = $result->fetch_assoc()) { ?>
+							<TR>
+								<TD><?php echo $row['room_no']?></TD>
+								<TD><?php echo $row['room_type']?></TD>
+								<TD><?php echo $row['borrower']?></TD>
+								<TD><?php echo $row['date']?></TD>
+								<TD><?php echo $row['time_start'] ."-". $row['time_end']?></TD>
 								<TD>
-									<A HREF='reserve-action.php?id=".$row["id"]."&action=Approved'>Approve</A>
-									<A HREF='reserve-action.php?id=".$row["id"]."&action=Declined'>Decline</A>
+									<A class="btn btn-primary" HREF='reserve-action.php?id=".$row["id"]."&action=Approved'><i class="fa-solid fa-check"></i> Approve</A>
+									<A class="btn btn-danger" HREF='reserve-action.php?id=".$row["id"]."&action=Declined'><i class="fa-solid fa-ban"></i> Decline</A>
 								</TD>
-							</TR>";
+							</TR>
+							<?php
 						}
 					} else {
 						echo "<TR><TD>No reservations needed actions at this moment.</TD></TR>";

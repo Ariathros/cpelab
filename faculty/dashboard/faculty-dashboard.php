@@ -113,7 +113,7 @@
 					</H1>
 				</DIV>
 				<DIV class="container" style="padding-left:24px; padding-right:24px;">
-				<input id="myInput" type="text" placeholder="Search.." style="float:right">
+				<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
 					<TABLE class="table table-hover text-center">
 						<thead class="table-dark">
 							<TR>
