@@ -173,8 +173,10 @@
 											<td><?php echo $row['id_num']?></td>
 											<td><?php echo $row['email']?></td>
 											<td><?php echo $row['usertype']?></td>
-											<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
-												<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
+											<td><a type="button" href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square me-3"></i></a>
+											<button type="button" class="btn btn-danger deletebtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash fs-5"></i></button>
+											
+											</td>
 										</tr>
 									<?php } ?>
 							</tbody>
@@ -203,15 +205,68 @@
 							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
 						</ul>
 					</nav>
+					<!-- Page Navigation -->
 					<div class="p-10">
 						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 					</div>
+					<section>
+						<!-- Delete Warning (Bootstrap Modal) -->
+						<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel"> Delete User Data </h5>
+										<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+
+									<form action="delete.php" method="POST">
+
+										<div class="modal-body">
+
+											<input type="hidden" name="delete_id" id="delete_id">
+
+											<p> Are you sure you want to delete user? </p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+											<button type="submit" name="deletedata" class="btn btn-danger"> Delete </button>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
 		</div>
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
+		<!-- Modal Delete function -->
+		<script>
+			$(document).ready(function () {
+
+				$('.deletebtn').on('click', function () {
+
+					$('#deletemodal').modal('show');
+
+					$tr = $(this).closest('tr');
+
+					var data = $tr.children("td").map(function () {
+						return $(this).text();
+					}).get();
+
+					console.log(data);
+
+					$('#delete_id').val(data[0]);
+
+				});
+			});
 		</script>
 	</body>
 </html>
