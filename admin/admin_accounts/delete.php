@@ -2,14 +2,21 @@
 	include '../../connections.php';
 	include '../sessions.php';
 
-    $id = $_GET['id'];
-    $sql = "DELETE FROM useraccounts WHERE id=$id"; // table name should not be enclosed with quote
-    $result = mysqli_query($conn, $sql);
-    
-    if($result) {
-        header("Location: admin-accounts.php?msg=Record deleted succesfully");
+    if(isset($_POST['deletedata']))
+    {
+        $id = $_POST['delete_id'];
+
+        $query = "DELETE FROM useraccounts WHERE id='$id'";
+        $query_run = mysqli_query($conn, $query);
+
+        if($query_run)
+        {
+            header("Location:admin-accounts.php?msg=Record deleted succesfully");
+        }
+        else
+        {
+            echo '<script> alert("Data Not Deleted"); </script>';
+        }
     }
-    else {
-        echo "Failed: " . mysqli_error($conn); 
-    }
+
 ?>

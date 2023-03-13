@@ -69,14 +69,13 @@
 
 							if($row["usertype"]==="admin"){
 								$_SESSION['usertype']='admin';
-								header('Location: admin\admin_logs\admin-logs.php');
+								header('Location: admin/admin_logs/admin-logs.php');
 							}
 							elseif($row["usertype"]==="faculty"){
 								$_SESSION['usertype']='faculty';
 								header('Location: faculty/dashboard/faculty-dashboard.php');
 							}
 							else{
-								
 								$_SESSION['usertype']='student';
 								header('Location: student/student-index.php');
 							}

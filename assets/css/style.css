@@ -161,9 +161,11 @@ body,html{
     font-weight: 600;
     cursor: pointer;
 }
+/* Buttons */
 
-
-
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
 /* for login pages */
 /* form{
     width: 350px;

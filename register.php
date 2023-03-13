@@ -102,52 +102,53 @@
 				?>
 
 				<form method="post">
+					<div class="error"><?php echo $firstNameErr;?></div>
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">First Name</span>
 						</div>
 						<input type="text" name="firstName" class="form-control input_user" placeholder="ex. Juan" REQUIRED>
 					</div>
-					<div class="error"><?php echo $firstNameErr;?></div>
-					
+
+					<div class="error"><?php echo $lastNameErr;?></div>
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">Last Name</span>
 						</div>
 						<input type="text" name="lastName" class="form-control input_user" placeholder="ex. Dela Cruz" REQUIRED>
 					</div>
-					<div class="error"><?php echo $lastNameErr;?></div>
 
+					<div class="error"><?php echo $userNameErr;?></div>
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">User Name</span>
 						</div>
 						<input type="text" name="userName" class="form-control input_user" placeholder="ex. jdc" REQUIRED>
 					</div>
-					<div class="error"><?php echo $userNameErr;?></div>
+
+					<div class="error"><?php echo $idNoErr;?></div>
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">ID No.</span>
 						</div>
 						<input type="text" name="idNo" class="form-control input_user" placeholder="ex. 2019-01234-MN-0" REQUIRED>
 					</div>
-					<div class="error"><?php echo $idNoErr;?></div>
-
+					
+					<div class="error"><?php echo $emailErr;?></div>
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">Email</span>
 						</div>
 						<input type="email" name="email" class="form-control input_user" placeholder="ex. jdc@example.com" REQUIRED>
 					</div>
-					<div class="error"><?php echo $emailErr;?></div>
 
+					<div class="error"><?php echo $passwordErr;?></div>
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">Password</span>
 						</div>
 						<input type="password" name="password" class="form-control input_user" placeholder="Password" REQUIRED>
 					</div>
-					<div class="error"><?php echo $passwordErr;?></div>
 
 					<div class="input-group mb-3">
 						<div class="input-group-append">

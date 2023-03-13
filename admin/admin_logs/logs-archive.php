@@ -1,5 +1,5 @@
 <?php
-	include '../../connections.php';	
+	include '../../connections.php';
 	include '../sessions.php';
 
 	// get page number
@@ -27,42 +27,31 @@
 	$total_pages = ceil($total_records / $record_per_page);
 
 	// sql query
-	$sql = "SELECT * FROM logs LIMIT $offset , $record_per_page";
+	$sql = "SELECT * FROM archive LIMIT $offset , $record_per_page";
 	// result
 	$result = $conn->query($sql);
 ?>
 
-<HTML>
-	<HEAD>
-	<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Bootstrap -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
-		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!DOCTYPE html>
+<HTML lang="en">
+	<head>
+		<TITLE>Admin Logs - CPE Lab Room and Equipment Management System</TITLE>
 
-		<TITLE>Room Reservations - CPE Lab Room and Equipment Management System</TITLE>
-
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="../../assets/js/ajaxWork.js"></script>
+		<script type="text/javascript" src="../assets/js/ajaxWork.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-		<script src="https://code.jquery.com/jquery-4.0.0.min.js" ></script>
+		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
-
+        <!-- Search function -->
 		<script>
 			$(document).ready(function(){
 				$("#myInput").on("keyup", function() {
@@ -104,63 +93,85 @@
 				return $(row).children("td").eq(index).text();
 			}
 		</script>
-		
-	</HEAD>
+	</head>
 	
 	<BODY>
 		<div class="row">
 			<DIV class="col-3 px-2">
-				<?php include '../sidebar.php'; ?>
+				<?php
+					include '../sidebar.php';
+				?>
 			</DIV>
-			<div class="col-9 px-0">
+			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-					Room Reservations
+						Logs Archive
 					</H1>
 				</DIV>
-				
-				<DIV class="container" style="padding-left:24px; padding-right:24px; ">
-					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
-					<TABLE class="table table-hover text-center">
-						<thead class="table-dark">
-							<TR>
-								<TH SCOPE="COL">Room No.</TH>
-								<TH SCOPE="COL">Type</TH>
-								<TH SCOPE="COL">Borrower</TH>
-								<TH SCOPE="COL">Date</TH>
-								<TH SCOPE="COL">Time</TH>
-								<TH SCOPE="COL">Actions</TH>
-							</TR>
-						</thead>
-						<tbody id="myTable">
-						<?php
-							$sql = "SELECT * FROM room_man WHERE status= 'Pending'";
-							$result = $conn->query($sql);
+				<DIV class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
+				<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
+					
+					<script>
+						$("#btnExport").click(function (e) {
+							$(this).attr({
+								'download': "admin-logs.xls",
+									'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
+							})
+						});
+					</script>
 
-							if ($result->num_rows > 0) {
-								// output data of each row
-								while($row = $result->fetch_assoc()) { ?>
-									<TR>
-										<TD><?php echo $row['room_no']?></TD>
-										<TD><?php echo $row['room_type']?></TD>
-										<TD><?php echo $row['borrower']?></TD>
-										<TD><?php echo $row['date']?></TD>
-										<TD><?php echo $row['time_start'] ."-". $row['time_end']?></TD>
-										<TD>
-											<A class="btn btn-primary" HREF='reserve-action.php?id=<?php echo $row["id"]?> &action=Approved'><i class="fa-solid fa-check"></i> Approve</A>
-											<A class="btn btn-danger" HREF='reserve-action.php?id=<?php echo $row["id"]?> &action=Declined'><i class="fa-solid fa-ban"></i> Decline</A>
-										</TD>
-									</TR>
-									<?php
-								}
-							} else {
-								echo "No reservations needed actions at this moment.";
-							}
+					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
 
-							// insert to logs
-						?>
-						</tbody>
-					</TABLE>
+					<DIV id='dvData'>
+						<TABLE id="admin-logs" class="table table-hover text-center">
+							<thead class="table-dark">
+								<TR>
+									<TH SCOPE="COL">ID</TH>
+									<TH SCOPE="COL">Name</TH>
+									<TH SCOPE="COL">Type</TH>
+									<TH SCOPE="COL">Category</TH>
+									<TH SCOPE="COL">Action</TH>
+									<TH SCOPE="COL">Action By</TH>
+									<TH SCOPE="COL">Student</TH>
+									<TH SCOPE="COL">Date</TH>
+									<TH SCOPE="COL">Time</TH>
+								</TR>
+							</thead>
+							<tbody id="myTable">
+								<?php while ($row = mysqli_fetch_array($result)) { ?>
+									<tr>
+										<td><?= $row['id']; ?></td>
+										<td><?= $row['name']; ?></td>
+										<td><?= $row['type']; ?></td>
+										<td><?= $row['category']; ?></td>
+										<td><?= $row['action']; ?></td>
+										<td><?= $row['faculty']; ?></td>
+										<td><?= $row['student']; ?></td>
+										<td><?= $row['date']; ?></td>
+										<td><?= $row['time_start'] . "-" . $row['time_end']; ?></td>
+
+								<!-- <?php
+									// Set record overdue to creation date + 5 months
+									$startDate = strtotime($row['date']. '+5 months');
+									// get the current date
+									$archiveDate = strtotime(date('y-m-d'));
+									// Check if record is overdue
+									if($startDate < $archiveDate) {
+										// Insert overdue record to 'archive' table
+										mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
+										`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
+										'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
+										'$row[time_start]','$row[time_end]','$row[date]')");
+										// Delete record from logs table, it will generate new record to archive if not deleted
+										mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
+									};?> -->
+									</tr>
+								<?php }
+								mysqli_close($conn); ?>
+							</tbody>
+							   
+						</TABLE>
+					</DIV>
 					<!-- Pagination -->
 					<nav aria-label="Page navigation example">
 						<ul class="pagination">
@@ -183,12 +194,16 @@
 							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
 						</ul>
 					</nav>
-					<!-- Page navigation -->
 					<div class="p-10">
 						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 					</div>
 				</DIV>
 			</div>
 		</div>
+		
+		<!-- Bootstrap -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
 	</BODY>
 </HTML>
