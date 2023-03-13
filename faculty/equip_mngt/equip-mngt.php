@@ -113,7 +113,8 @@
 		<?php
 			include "../sidebar.php";
 		?>
-		</DIV>
+
+		</div>
 		<div class="col-9 px-0">
 		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
