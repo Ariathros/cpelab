@@ -424,3 +424,7 @@ table thead tr th{
 .accordion:after {
     content: "<?php echo $room_status ?>";
 }
+
+.sidebar2{
+    display: none;
+}
