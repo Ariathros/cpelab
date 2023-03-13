@@ -29,7 +29,7 @@
     $conn->query($sql);
 
     // Room Status Update
-    $sql = "SELECT * FROM room_man WHERE status='Approved'";
+    $sql = "SELECT * FROM room_man WHERE status='Approved' ORDER BY time_start DESC";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {

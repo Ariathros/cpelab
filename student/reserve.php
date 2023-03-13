@@ -42,11 +42,44 @@
 						
 						$timeErr = '';
 						$hasErr = false;
+
 						// condition to check if start time is greater than end time
 						if($_SERVER['REQUEST_METHOD'] == 'POST') {
-							if($_POST["time_start"] > $_POST["time_end"]) {
-							$timeErr = "Start time must not greater than end time";
-							} else {
+							
+
+							$sql = "SELECT * FROM room_man WHERE room_no='$room_no' AND status='Approved'";
+							$result = $conn->query($sql);
+							$reserved=0;
+
+							if ($result->num_rows > 0) {
+								while($row = $result->fetch_assoc()) {								
+									$date1 = $_POST["date"];
+									$start1 = $_POST["time_start"];
+									$end1 = $_POST["time_end"];
+									$date2 = $row["date"];
+									$start2 = $row["time_start"];
+									$end2 = $row["time_end"];
+									
+									// if start time or end time is between current reservations
+									// or current reservations is between input start and end time
+									// show error
+									// 1 is input, 2 is existing
+									if(	$date1==$date2 &&
+										(($start1<$start2 && $start2<$end1) ||
+											($start1<$end2 && $end2<$end1) ||
+											($start2<$start1 && $end1<$end2))){
+										$reserved=1;
+										break;
+									}	
+								}	
+							}
+
+							if($start1 > $end1) {
+								$timeErr = "Start time must not greater than end time.";
+							}elseif($reserved==1){
+								$timeErr = "Reservation already existing.";
+							}
+							else {
 								$hasErr = true;
 							}
 						}
@@ -96,25 +129,7 @@
 							// Insert to SQL
 							$sql = "INSERT INTO room_man (room_no, room_type, borrower, reason, date, time_start, time_end, status)
 								VALUES ('$room_no', '$room_type', '".$_SESSION['username']."', '$reason', '$date', '$time_start', '$time_end', 'Pending')";
-							if ($conn->query($sql) === FALSE) {
-	
-								// CONDITIONS START HERE
-								// if(condition here){
-								// 	mga error output
-								//  return;
-								// }
-	
-								// if (condition here){
-								// 	mga error output
-								//  return;
-								// }
-	
-								// MGA CONDITIONS (PWEDE DAGDAGAN)
-								// - mas maaga time end sa time start
-								// - room already used (need db query)
-	
-	
-							}
+							$conn->query($sql);
 							header('Location: student-index.php');
 						}
 					}
