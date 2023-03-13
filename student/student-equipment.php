@@ -9,7 +9,7 @@
         <span class="navbar-text">
             Equipment Reservation
         </span>
-		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" 
+		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
 			title="Equipment Reservation" 
 			data-bs-content="This page shows the current day's available equipment. Each piece of equipment has its number of items available, the name of the equipment, its category, and the button to borrow equipment. Click the icon again to close this information.">
 		</a>

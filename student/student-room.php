@@ -9,7 +9,7 @@
     <!-- Page header -->
     <nav class="navbar navbar-expand-lg">
         <span class="navbar-text">Room Reservation</span>
-        <a class="instruction fa fa-question-circle-o" data-bs-toggle="popover"  
+        <a class="instruction fa fa-question-circle-o" data-bs-toggle="popover"  data-bs-trigger="hover"
 			title="Room Reservation" 
 			data-bs-content="This page shows the current day's room reservations. 
             Click each room to see its availability and to create a reservation. 
