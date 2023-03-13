@@ -50,13 +50,13 @@
 					<!-- Room No. -->
                     <div class="mb-3">
                         <label class="form-label">Room No.:</label>
-                        <input type="text" class="form-control" name="room_no" placeholder="">
+                        <input type="text" class="form-control" name="room_no" placeholder="" REQUIRED>
                     </div>
 
 					<!-- Room Type -->
                     <div class="mb-3">
 						<label class="form-label">Room Type</label>
-						<select name="room_type" class="form-control">
+						<select name="room_type" class="form-control" REQUIRED>
 							<option value="">--Select Option--</option>
 							<option value="Lecture Room">Lecture Room</option>
 							<option value="Computer Room">Computer Room</option>                            
@@ -73,11 +73,11 @@
 					<!-- Room Status -->
                     <div class="form-group mb-3">
                         <label>Room Status:</label> &nbsp; <!-- select indication -->
-                        <input type="radio" class="form-check-input" name="room_status" id="Available" value="Available">
+                        <input type="radio" class="form-check-input" name="room_status" id="Available" value="Available" REQUIRED>
                         <label for="available" class="form-input-label">Available</label> &nbsp;
-                        <input type="radio" class="form-check-input" name="room_status" id="Unavailable" value="Unavailable">
+                        <input type="radio" class="form-check-input" name="room_status" id="Unavailable" value="Unavailable" REQUIRED>
                         <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
-                        <input type="radio" class="form-check-input" name="room_status" id="Reserved" value="Reserved">
+                        <input type="radio" class="form-check-input" name="room_status" id="Reserved" value="Reserved" REQUIRED>
                         <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                     </div>
 

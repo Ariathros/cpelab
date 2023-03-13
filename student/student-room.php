@@ -54,9 +54,9 @@
                                 <h4>Current day reservations</h4>
                                     <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
-                        echo "</ul>
-                        <A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row["id"]."'>Reserve</A>
-                            </div>
+                        echo "</ul>";
+                        unavailableDisable($room_status, $row["id"]);
+                        echo "</div>
                         </div>
                     </div>";
                 }
