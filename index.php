@@ -21,17 +21,103 @@
 	</HEAD>
 	
 	<BODY>
-		<div class="row">
-			<div class="col-md-8">
-				<img class="bg" src="./assets/images/pup.jpg">
-			</div>
-			<div class="col-md-4 flex-column">
-				<img class="pup_logo" src="./assets/images/pup logo.png" width="80px" height="80px">
-				<h2>Hi, PUPian!</h2>
-				<p>Please click or tap your destination.</p>
-				<div class="index_menu">
-					<a class="btn btn-primary" href="login.php" role="button">Login</a>
-					<a class="btn btn-primary" href="register.php" role="button">Register</a>
+		<div class="index">
+			<img class="bg" src="./assets/images/index.png">
+			<nav class="navbar justify-content-between">
+				<a class="navbar-brand">
+					Computer Engineering Rooms and Equipment Management System
+				</a>
+				<!-- <button class="btn" type="submit">Register</button> -->
+			</nav>	
+			<div class="container ">
+				<div class="d-flex">
+					<div class="user_card">
+						<div class="d-flex justify-content-center">
+							<div class="brand_logo_container">
+								<img src="./assets/images/pup logo.png" alt="Logo">
+							</div>
+						</div>
+					<div class="d-flex justify-content-center form_container">
+						<form method="POST">
+							<div class="input-group mb-3">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+							</div>
+							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								<input type="password" name="password" class="form-control input_pass" value="" placeholder="password">
+							</div>
+							<div class="form-group">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customControlInline">
+									<label class="custom-control-label" for="customControlInline">Remember me</label>
+								</div>
+							</div>
+							
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+								<input type='submit' type="button" name="bLogin" class="btn login_btn" value="Login">
+							</div>
+						</form>
+
+						
+					</div>
+					<div>
+						<?php
+					// IF BUTTON IS CLICKED
+							if (isset($_POST['bLogin'])){
+
+								$username = htmlentities($_POST['username']);
+								$password = htmlentities($_POST['password']);
+
+								// Select from SQL
+								$sql = "SELECT * FROM useraccounts WHERE username='$username'";
+								$result = $conn->query($sql);
+
+								// IF MAY RESULTS
+								if ($result->num_rows > 0) {
+									$row = $result->fetch_assoc();
+									
+									// verify hash password
+									$checkHashPass = password_verify($password, $row['password']);
+									if($row["password"]!=$checkHashPass){
+											echo "Wrong Password!";
+											return;
+									}
+										
+									// USERTYPE CHECKER
+									$_SESSION['username']=$username;
+									$_SESSION['name']=$row['firstname']." ".$row['lastname'];
+
+									if($row["usertype"]==="admin"){
+										$_SESSION['usertype']='admin';
+										header('Location: admin\admin_logs\admin-logs.php');
+									}
+									elseif($row["usertype"]==="faculty"){
+										$_SESSION['usertype']='faculty';
+										header('Location: faculty/faculty-dashboard.php');
+									}
+									else{
+										
+										$_SESSION['usertype']='student';
+										header('Location: student/student-index.php');
+									}
+									
+								} else { 
+									echo "Username doesn't exist!";
+								}
+							}
+						?>
+					</div>
+					<div class="mt-4">
+						<div class="links d-flex justify-content-center ">
+							Don't have an account? <a href="register.php" class="ml-2">Sign Up</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
