@@ -83,8 +83,9 @@
                                 <label class="form-label">Room Type</label>
                                 <select name="room_type" class="form-control" value="<?php echo $row['room_type']?>" REQUIRED>
                                     <option value="">--Select Option--</option>
-                                    <option value="lecture_room">Lecture Room</option>
-                                    <option value="computer_room">Computer Room</option>
+                                    <option value="Lecture Room">Lecture Room</option>
+                                    <option value="Computer Room">Computer Room</option>
+                                    <option value="Miscelaneous Room">Miscelaneous Room</option>
                                 </select>
                             </div>
                             <!-- Seat Count -->
