@@ -20,38 +20,12 @@
     <hr>
     <!-- calendar and timeslot-->
     <!-- <div class="date_time">
-        <div class="row">
-            <div class="col-6 px-0">
-                <div class="calendar_title">Calendar</div>
-                calendar goes here
+            <div class="calendar_title">Calendar</label>
             </div>
-            <div class="col-1 px-0"></div>
-            for time slots
-            <div class="col-5 px-0" style="">
-                <div class="time_title">Time Slots</div>
-                <div class="row mx-auto" id="time_slots">
-                    <div class="col-6 px-0">
-                        <button>07:00 AM - 08:00 AM</button>
-                        <button>08:00 AM - 09:00 AM</button>
-                        <button>09:00 AM - 10:00 AM</button>
-                        <button>10:00 AM - 11:00 AM</button>
-                        <button>11:00 AM - 12:00 PM</button>
-                        <button>12:00 PM - 01:00 PM</button>
-                        <button>01:00 PM - 02:00 PM</button>
-                    </div>
-                    <div class="col-6 px-0">
-                        <button>02:00 PM - 03:00 PM</button>
-                        <button>03:00 PM - 04:00 PM</button>
-                        <button>04:00 PM - 05:00 PM</button>
-                        <button>05:00 PM - 06:00 PM</button>
-                        <button>06:00 PM - 07:00 PM</button>
-                        <button>07:00 PM - 08:00 PM</button>
-                        <button>08:00 PM - 09:00 PM</button>
-                    </div>
-                </div>
+            <div>
+                <input type="date" id="calendar" name="calendar">
             </div>
         </div>
-    </div>
     <hr> -->
     Available Rooms for Reservation
     <div class="accordion accordion-flush" id="rooms">
