@@ -105,8 +105,8 @@
 									<TD><?php echo $row['date']?></TD>
 									<TD><?php echo $row['time_start'] ."-". $row['time_end']?></TD>
 									<TD>
-										<A class="btn btn-primary" HREF='borrow-action.php?id=".$row["id"]."&action=Approved'><i class="fa-solid fa-check"></i> Approve</A>
-										<A class="btn btn-danger" HREF='borrow-action.php?id=".$row["id"]."&action=Declined'><i class="fa-solid fa-ban"></i> Decline</A>
+										<A class="btn btn-primary" HREF='borrow-action.php?id=<?php echo $row["id"]?> &action=Approved'><i class="fa-solid fa-check"></i> Approve</A>
+										<A class="btn btn-danger" HREF='borrow-action.php?id=<?php echo $row["id"]?> &action=Declined'><i class="fa-solid fa-ban"></i> Decline</A>
 									</TD>
 								</TR>
 								<?php
