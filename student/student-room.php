@@ -1,16 +1,21 @@
-<!-- <?php
+<?php
     include '../connections.php';
     include 'sessions.php';
     include 'includes/room-functions.php';
-?> -->
+?>
 
 <!-- Room Reservation -->
 <div class="student_rooms">
     <!-- Page header -->
-    <nav class="navbar">
-        <span class="navbar-text">
-            Room Reservation
-        </span>
+    <nav class="navbar navbar-expand-lg">
+        <span class="navbar-text">Room Reservation</span>
+        <a class="instruction fa fa-question-circle-o" data-bs-toggle="popover"  
+			title="Room Reservation" 
+			data-bs-content="This page shows the current day's room reservations. 
+            Click each room to see its availability and to create a reservation. 
+            To create a reservation, click the Reserve button.
+            Click the icon again to close this information.">
+		</a>
     </nav>
     <hr>
     <!-- calendar and timeslot-->
@@ -48,8 +53,8 @@
         </div>
     </div>
     <hr> -->
-    Current Day Room Reservation
-    <div class="accordion" id="rooms">
+    Available Rooms for Reservation
+    <div class="accordion accordion-flush" id="rooms">
         <?php
 
             $sql = "SELECT * FROM rooms";
@@ -63,15 +68,16 @@
                     $room_name_display = $row["room_type"];
                     $room_status = $row["room_status"];
                     
-                    echo "<div class='accordion-item'>
+                    echo "
+                    <div class='accordion-item'>
                         <h2 class='accordion-header' id='roomDescription'>
-                            <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
+                            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne'>
                                 <strong>$room_no_display</strong>&nbsp $room_name_display&nbsp $room_status
                             </button>
                         </h2>
-                        <div id='collapseOne' class='accordion-collapse collapse show' aria-labelledby='headingOne' data-bs-parent='#accordionExample'>
+                        <div id='flush-collapseOne' class='accordion-collapse collapse' aria-labelledby='roomDescription' data-bs-parent='#rooms'>
                             <div class='accordion-body'>
-                                <h4>Reserved Rooms</h4>
+                                <h4>Current day reservations</h4>
                                     <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
                         echo "</ul>
@@ -82,7 +88,19 @@
                 }
             }
         ?>
-    </div>
+    </div>.
+
+    <!--<div id="accordion">
+        <div class="card">
+            <div class="card-header" id="room">
+                <h5 class="mb-0">
+                    <button>
+
+                    </button>
+                </h5>
+            </div>
+        </div>
+    </div>-->
     
     <!-- <hr> -->
     <!-- Table for Rooms -->
@@ -127,3 +145,9 @@
 		</div>
 	</div>  -->
 </div>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+	$(document).ready(function(){
+		$('[data-bs-toggle="popover"]').popover()
+	})
+</script>

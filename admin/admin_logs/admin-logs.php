@@ -51,6 +51,48 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
+
+		<script>
+			$(document).ready(function(){
+				$("#myInput").on("keyup", function() {
+					var value = $(this).val().toLowerCase();
+					$("#myTable tr").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+					});
+				});
+			});			
+
+			$(document).on("click", "table thead tr th:not(.no-sort)", function() {
+				var table = $(this).parents("table");
+				var rows = $(this).parents("table").find("tbody tr").toArray().sort(TableComparer($(this).index()));
+				var dir = ($(this).hasClass("sort-asc")) ? "desc" : "asc";
+
+				if (dir == "desc") {
+					rows = rows.reverse();
+				}
+
+				for (var i = 0; i < rows.length; i++) {
+					table.append(rows[i]);
+				}
+
+				table.find("thead tr th").removeClass("sort-asc").removeClass("sort-desc");
+				$(this).removeClass("sort-asc").removeClass("sort-desc") .addClass("sort-" + dir);
+			});
+
+			function TableComparer(index) {
+				return function(a, b) {
+					var val_a = TableCellValue(a, index);
+					var val_b = TableCellValue(b, index);
+					var result = ($.isNumeric(val_a) && $.isNumeric(val_b)) ? val_a - val_b : val_a.toString().localeCompare(val_b);
+
+					return result;
+				}
+			}	
+
+			function TableCellValue(row, index) {
+				return $(row).children("td").eq(index).text();
+			}
+		</script>
 	</head>
 	
 	<BODY>
@@ -67,18 +109,21 @@
 					</H1>
 				</DIV>
 				<DIV class="container" style="padding-left:24px; padding-right:24px;">
-					<a href="x" download="down.xls" id="btnExport">
-							Export Table data into Excel
-							</a>
+					<a href="x" download="down.xls" id="btnExport" class="btn btn-dark mb-3">
+					Export Table
+					</a>
+					
+					<script>
+						$("#btnExport").click(function (e) {
+							$(this).attr({
+								'download': "admin-logs.xls",
+									'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
+							})
+						});
+					</script>
 
-							<script>
-								$("#btnExport").click(function (e) {
-									$(this).attr({
-										'download': "admin-logs.xls",
-											'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
-									})
-								});
-							</script>
+					<input id="myInput" type="text" placeholder="Search..">
+
 					<DIV id='dvData'>
 						<TABLE id="admin-logs" class="table table-hover text-center">
 							<thead class="table-dark">
@@ -94,7 +139,7 @@
 									<TH SCOPE="COL">Time</TH>
 								</TR>
 							</thead>
-							<tbody>
+							<tbody id="myTable">
 								<?php while ($row = mysqli_fetch_array($result)) { ?>
 									<tr>
 										<td><?= $row['id']; ?></td>
