@@ -27,7 +27,7 @@
 	$total_pages = ceil($total_records / $record_per_page);
 
 	// sql query
-	$sql = "SELECT * FROM room_man LIMIT $offset , $record_per_page";
+	$sql = "SELECT * FROM eq_man WHERE status= 'Pending' LIMIT $offset , $record_per_page";
 	// result
 	$result = $conn->query($sql);
 ?>
@@ -102,7 +102,7 @@
 			</DIV>
 			<div class="col-9 px-0">
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">Equipment Reservations</H1>
+					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">Equipment Reservations</H1>
 				</DIV>
 			<DIV class="containe" style="padding-left:24px; padding-right:24px;">
 			<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
@@ -120,9 +120,6 @@
 					</thead>
 					<tbody id="myTable">
 					<?php
-						$sql = "SELECT * FROM eq_man WHERE status= 'Pending'";
-						$result = $conn->query($sql);
-
 						if ($result->num_rows > 0) {
 							// output data of each row
 							while($row = $result->fetch_assoc()) { ?>
@@ -142,17 +139,17 @@
 							}
 						} else {
 							echo "<TR><TD COLSPAN=7>No borrower needs equipment right now.</TD></TR>";
-						}
-					?>
+						}?>
 					</tbody>
 				</TABLE>
 				<!-- Pagination -->
-				<nav aria-label="Page navigation example">
+				<div style="position: fixed;  bottom: 0;">
+					<nav aria-label="Page navigation example">
 						<ul class="pagination">
-						<!-- Previous -->
-						<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-						<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-						<!-- Page Numbers -->
+							<!-- Previous -->
+							<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+							<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+							<!-- Page Numbers -->
 							<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
 								<?php if($page_no != $counter) { ?>
 									<li class="page-item"><a class="page-link" href="?page_no=<?=
@@ -162,16 +159,16 @@
 									</a></li>
 								<?php } ?>
 							<?php } ?>
-
 							<!-- Next -->
 							<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
 							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
 						</ul>
 					</nav>
-					<!-- Page navigation -->
-					<div class="p-10">
+					<!-- Page Navigation -->
+					<div class="p-10 mb-5" >
 						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 					</div>
+				</div>
 			</DIV>
 			</div>
 		</div>
