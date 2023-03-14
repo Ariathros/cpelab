@@ -94,7 +94,7 @@
 						</div>						
 						<div class="input-group mb-3">
 							<div class="input-title">Date:</div>
-							<div  class="input"><INPUT NAME="date" id="dateInput" TYPE='DATE' REQUIRED></div>
+							<div  class="input"><INPUT NAME="date" TYPE='DATE' REQUIRED></div>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-title">Time:</div>
@@ -126,6 +126,8 @@
 	
 							if ($conn->query($sql) === TRUE) {
 								header('Location: student-index.php');
+							} else {
+								echo "Error: " . $sql . "<br>" . $conn->error;
 							}
 						}
 					}

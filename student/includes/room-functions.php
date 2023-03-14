@@ -30,9 +30,3 @@
                 ";
         }
     }
-
-    function unavailableDisable($room_status, $row_id){
-        if ($room_status!='Unavailable'){
-            echo "<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row_id."'>Reserve</A>";
-        };
-    }

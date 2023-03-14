@@ -6,7 +6,7 @@
 <div class="dashboard">
 	<nav class="navbar navbar-expand-lg">
         <span class="navbar-text">Dashboard</span>
-		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
+		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" 
 			title="Dashboard" 
 			data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation. Click the icon again to close this information.">
 		</a>

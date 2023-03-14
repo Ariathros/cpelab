@@ -144,6 +144,7 @@
 							} else {
 								echo "<TR><TD COLSPAN=7>No borrower needs equipment right now.</TD></TR>";
 							}
+<<<<<<< HEAD
 						?>
 						</tbody>
 					</TABLE>
@@ -174,6 +175,15 @@
 						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 					</div>
 				</DIV>
+=======
+						} else {
+							echo "<TR><TD>No borrower needs equipment right now.</TD></TR>";
+						}
+					?>
+					</tbody>
+				</TABLE>
+			</DIV>
+>>>>>>> parent of 1b011be (Merge branch 'main' into khalid)
 			</div>
 		</div>
 
