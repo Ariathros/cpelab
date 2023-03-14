@@ -56,24 +56,24 @@
                     </H1>
                 </DIV>
 
-                <div class="container" style="padding-left:24px; padding-right:24px;">
-                    <div class="text-center mb-4">
-                        <h3>Add New Room</h3>
-                        <p class="text-muted">Complete the form below to add new room</p>
-                    </div>
+        <div class="container">
+            <div class="text-center mb-4">
+                <h3>Add New Room</h3>
+                <p class="text-muted">Complete the form below to add new room</p>
+            </div>
 
-                    <div class="container d-flex justify-content-center">
-                        <form action="" method="post" style="width:50vw; min-width:300px;">
-                            <!-- Room No. -->
-                            <div class="mb-3">
-                                <label class="form-label">Room No.:</label>
-                                <input type="text" class="form-control" name="room_no" placeholder="">
-                            </div>
+            <div class="container d-flex justify-content-center">
+                <form action="" method="post" style="width:50vw; min-width:300px;">
+					<!-- Room No. -->
+                    <div class="mb-3">
+                        <label class="form-label">Room No.:</label>
+                        <input type="text" class="form-control" name="room_no" placeholder="" REQUIRED>
+                    </div>
 
                             <!-- Room Type -->
                             <div class="mb-3">
                                 <label class="form-label">Room Type</label>
-                                <select name="room_type" class="form-control">
+                                <select name="room_type" class="form-control" REQUIRED>
                                     <option value="">--Select Option--</option>
                                     <option value="Lecture Room">Lecture Room</option>
                                     <option value="Computer Room">Computer Room</option>                            
@@ -84,17 +84,17 @@
                             <!-- Seat Count -->
                             <div class="mb-3">
                                 <label class="form-label">Seat Count:</label>
-                                <input type="number" max="50" min="1"class="form-control" name="seat_count" placeholder="max: 50, min: 1">
+                                <input type="number" max="50" min="1"class="form-control" name="seat_count" placeholder="max: 50, min: 1" REQUIRED>
                             </div>
 
                             <!-- Room Status -->
                             <div class="form-group mb-3">
                                 <label>Room Status:</label> &nbsp; <!-- select indication -->
-                                <input type="radio" class="form-check-input" name="room_status" id="Available" value="Available">
+                                <input type="radio" class="form-check-input" name="room_status" id="Available" value="Available" REQUIRED>
                                 <label for="available" class="form-input-label">Available</label> &nbsp;
-                                <input type="radio" class="form-check-input" name="room_status" id="Unavailable" value="Unavailable">
+                                <input type="radio" class="form-check-input" name="room_status" id="Unavailable" value="Unavailable" REQUIRED>
                                 <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
-                                <input type="radio" class="form-check-input" name="room_status" id="Reserved" value="Reserved">
+                                <input type="radio" class="form-check-input" name="room_status" id="Reserved" value="Reserved" REQUIRED>
                                 <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                             </div>
 

@@ -76,34 +76,35 @@
                             <div class="row mb-3">
                                 <label for="form-label">Room No.:</label>
                                 <input type="text" class="form-control" name="room_no" 
-                                value="<?php echo $row['room_no']?>">
+                                value="<?php echo $row['room_no']?>" REQUIRED>
                             </div>
                             <!-- Room Type -->
                             <div class="mb-3">
                                 <label class="form-label">Room Type</label>
-                                <select name="room_type" class="form-control" value="<?php echo $row['room_type']?>">
+                                <select name="room_type" class="form-control" value="<?php echo $row['room_type']?>" REQUIRED>
                                     <option value="">--Select Option--</option>
-                                    <option value="lecture_room">Lecture Room</option>
-                                    <option value="computer_room">Computer Room</option>
+                                    <option value="Lecture Room">Lecture Room</option>
+                                    <option value="Computer Room">Computer Room</option>
+                                    <option value="Miscelaneous Room">Miscelaneous Room</option>
                                 </select>
                             </div>
                             <!-- Seat Count -->
                             <div class="mb-3">
                                 <label class="form-label">Seat Count:</label>
                                 <input type="number" class="form-control" name="seat_count" 
-                                value="<?php echo $row['seat_count']?>">
+                                value="<?php echo $row['seat_count']?>" REQUIRED>
                             </div>
                             <!-- Room Status -->
                             <div class="form-group mb-3">
                                 <label>Room Status:</label> &nbsp; <!-- select indication -->
                                 <input type="radio" class="form-check-input" name="room_status" id="available" value="Available" 
-                                <?php echo ($row['room_status']=='available')?"checked":"";?>>
+                                <?php echo ($row['room_status']=='available')?"checked":"";?> REQUIRED>
                                 <label for="available" class="form-input-label">Available</label> &nbsp;
                                 <input type="radio" class="form-check-input" name="room_status" id="unavailable" value="Unavailable"
-                                <?php echo ($row['room_status']=='unavailable')?"checked":"";?>>
+                                <?php echo ($row['room_status']=='unavailable')?"checked":"";?> REQUIRED>
                                 <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
                                 <input type="radio" class="form-check-input" name="room_status" id="reserved" value="Reserved"
-                                <?php echo ($row['room_status']=='reserved')?"checked":"";?>>
+                                <?php echo ($row['room_status']=='reserved')?"checked":"";?> REQUIRED>
                                 <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                             </div>
 

@@ -114,7 +114,7 @@
 					<script>
 						$("#btnExport").click(function (e) {
 							$(this).attr({
-								'download': "admin-logs.xls",
+								'download': "admin-archives.xls",
 									'href': 'data:application/csv;charset=utf-8,' + encodeURIComponent( $('#dvData').html())
 							})
 						});
