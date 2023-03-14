@@ -420,7 +420,6 @@ table thead tr th{
 
     cursor: pointer;
 }
-<<<<<<< HEAD
 /* accordion */
 .accordion:after {
     content: "<?php echo $room_status ?>";
@@ -432,5 +431,3 @@ table thead tr th{
 .wew{
     display: none;
 }
-=======
->>>>>>> parent of 1b011be (Merge branch 'main' into khalid)

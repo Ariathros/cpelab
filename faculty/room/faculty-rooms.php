@@ -1,6 +1,8 @@
 <?php
 	include '../../connections.php';	
 	include '../sessions.php';
+	
+	include '../../student/includes/room-functions.php';
 
 	// get page number
 	if (isset($_GET['page_no']) && $_GET['page_no'] !== "") {
@@ -18,7 +20,7 @@
 	// get nxt page
 	$nextpage = $page_no + 1;
 	// get the total count of records
-	$record_count = mysqli_query($conn, "SELECT COUNT(*) AS total_records FROM logs") or die(mysqli_error($conn));
+	$record_count = mysqli_query($conn, "SELECT COUNT(*) AS total_records FROM room_man") or die(mysqli_error($conn));
 	// total records
 	$records = mysqli_fetch_array($record_count);
 	// store total records to a variable
@@ -27,27 +29,21 @@
 	$total_pages = ceil($total_records / $record_per_page);
 
 	// sql query
-	$sql = "SELECT * FROM logs LIMIT $offset , $record_per_page";
+	$sql = "SELECT * FROM room_man LIMIT $offset , $record_per_page";
 	// result
 	$result = $conn->query($sql);
 ?>
 
 <HTML>
 	<HEAD>
-<<<<<<< HEAD
 		
-=======
-	<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Bootstrap -->
->>>>>>> parent of 1b011be (Merge branch 'main' into khalid)
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-		<!-- Font Awesome -->
+		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" 
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
 
 		<TITLE>Room Reservations - CPE Lab Room and Equipment Management System</TITLE>
 
@@ -193,7 +189,8 @@
 						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 					</div>
 				</DIV>
-			</div>
+			
+				</div>
 		</div>
 	</BODY>
 </HTML>

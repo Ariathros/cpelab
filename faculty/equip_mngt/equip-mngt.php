@@ -18,7 +18,7 @@
 	// get nxt page
 	$nextpage = $page_no + 1;
 	// get the total count of records
-	$record_count = mysqli_query($conn, "SELECT COUNT(*) AS total_records FROM logs") or die(mysqli_error($conn));
+	$record_count = mysqli_query($conn, "SELECT COUNT(*) AS total_records FROM equipments") or die(mysqli_error($conn));
 	// total records
 	$records = mysqli_fetch_array($record_count);
 	// store total records to a variable
@@ -27,7 +27,7 @@
 	$total_pages = ceil($total_records / $record_per_page);
 
 	// sql query
-	$sql = "SELECT * FROM logs LIMIT $offset , $record_per_page";
+	$sql = "SELECT * FROM equipments LIMIT $offset , $record_per_page";
 	// result
 	$result = $conn->query($sql);
 ?>
