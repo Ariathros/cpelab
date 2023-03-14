@@ -7,7 +7,7 @@
 <!-- accordion style -->
 <style>
     .accordion {
-        background-color: #eee;
+        background-color: #D0D2D4;
         color: #444;
         cursor: pointer;
         padding: 18px;
@@ -53,7 +53,7 @@
     }
 </style>
 <!-- Room Reservation -->
-<div class="student_rooms">
+<div class="student_rooms mb-5">
     <!-- Page header -->
     <nav class="navbar navbar-expand-lg">
         <span class="navbar-text">Room Reservation</span>
