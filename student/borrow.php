@@ -77,7 +77,7 @@
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-title">Quantity:</div>
-							<div  class="input"><INPUT NAME="qty" TYPE='NUMBER'></div>
+							<div  class="input"><INPUT NAME="qty" TYPE='NUMBER' min="1"></div>
 						</div>						
 						<div class="input-group mb-3">
 							<div class="input-title">Date:</div>
