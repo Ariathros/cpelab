@@ -1,4 +1,3 @@
-
 <div class="sidebar"  style="color:white;">
     <div class="side-header">
         <img src="../../assets/images/pup logo.png" width="120px" height="120px">
