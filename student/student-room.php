@@ -61,8 +61,7 @@
 			title="Room Reservation" 
 			data-bs-content="This page shows the current day's room reservations. 
             Click each room to see its availability and to create a reservation. 
-            To create a reservation, click the Reserve button.
-            Click the icon again to close this information.">
+            To create a reservation, click the Reserve button.">
 		</a>
     </nav>
     <hr>

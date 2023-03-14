@@ -116,8 +116,14 @@
 						<div class="input-group mb-3">
 							<div class="input-title">Time:</div>
 							<div class="input"><INPUT NAME="time_start" TYPE='TIME' min="07:00" max="21:00" REQUIRED > - 
-							<INPUT NAME="time_end" TYPE='TIME' min="07:00" max="21:00" REQUIRED>
-							<span class="error" style="color: red"><?php echo $timeErr;?></span></div>
+								<INPUT NAME="time_end" TYPE='TIME' min="07:00" max="21:00" REQUIRED>
+								<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
+									title="24-hour time format" 
+									data-bs-content="Time slider is set to 24-hour format. Ex. 1:00 pm is 13:00 and so on">
+								</a>
+								<span class="error" style="color: red"><?php echo $timeErr;?></span>
+							</div>
+						</div>
 						<div class="input-group mb-3">
 							<div class="input-title">Reason:</div>
 							<div  class="input"><INPUT NAME="reason" TYPE='TEXT'></div>
@@ -144,5 +150,11 @@
 				?>
 			</div>
 		</div>
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
+		</script>
 	</BODY>
 </HTML>
