@@ -61,6 +61,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 
+		<link rel="stylesheet" href="../../assets/css/mediaquery.css">
+
 		<script>
 			$(document).ready(function(){
 				$("#myInput").on("keyup", function() {
@@ -111,7 +113,8 @@
 		<?php
 			include "../sidebar.php";
 		?>
-		</DIV>
+
+		</div>
 		<div class="col-9 px-0">
 		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">

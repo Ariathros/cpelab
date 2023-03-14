@@ -1,0 +1,86 @@
+/* media queries for max-width: 700px */
+
+@media screen and (max-width: 1400px){
+    .menu_icon{
+        font-size: 25px;
+    }
+
+    .menu_text{
+        font-size: 25px;
+
+    }
+}
+@media screen and (max-width: 980px) {
+    .sidebar {
+        display: none;
+    }
+
+    .sidebarMobile{
+        display: block;
+    }
+    .sidebarMobile{
+        background-color: #800000;  
+        width:110px;
+        height: 100%;
+        position: fixed;
+    }
+
+    .sidebarMobile .side-header{
+        text-align: center;
+    }
+    .side-header .user{
+        margin-top: 10%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .sidebarMobile .menu{
+        display: flexbox;
+        padding-top: 30px;
+        text-align: center;
+    }
+    .sidebarMobile .menu .btn{
+        font-size: 30px;
+        display: inline-flex;
+        text-align: justify;
+        width: 100%;
+        padding-left: 40px;
+    }
+    .menu_icon i{
+        margin-top: 20%;
+        width: 40px;
+        color: white;
+    }
+    .menu_text{
+        margin-left: 20px;
+        color: white;
+    }
+    .sidebarMobile .menu .btn:hover{
+        background-color: #CC3D3D;
+        color: black;
+        font-weight: bold;
+    }
+    .logout{
+        padding-top: 100%;
+        padding-bottom: 20%;
+        margin-top: 135px;
+        text-align: center;
+    }
+    .logout .btn{
+        font-size: 20px;
+        display: inline-flex;
+        text-align: justify;
+        width: 100%;
+        padding-left: 40px;
+    }
+    
+    .side-header img{
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+    .coolkid{
+        margin-top: 135px;
+    }
+
+}
