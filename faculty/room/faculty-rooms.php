@@ -29,7 +29,7 @@
 	$total_pages = ceil($total_records / $record_per_page);
 
 	// sql query
-	$sql = "SELECT * FROM room_man LIMIT $offset , $record_per_page";
+	$sql = "SELECT * FROM room_man WHERE status= 'Pending' LIMIT $offset , $record_per_page";
 	// result
 	$result = $conn->query($sql);
 ?>

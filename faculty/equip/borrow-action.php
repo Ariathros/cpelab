@@ -11,7 +11,7 @@
     WHERE id=$id";
     
     if ($conn->query($sql)) {
-      // echo "Record updated successfully";
+      echo "Record updated successfully";
     } else {
       echo "Error updating record: " . mysqli_error($conn);
     }    

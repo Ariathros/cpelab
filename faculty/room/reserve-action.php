@@ -41,7 +41,7 @@
     $sql = "INSERT INTO logs (name, type, category, action, faculty, student, date, time_start, time_end) 
     VALUES ('$room_no', 'room', '$room_type', '$status', '$faculty', '$student_name', '$date', '$time_start', '$time_end')";
     $conn->query($sql);
-
+    
     // ALERT ACTION
     // echo "<script>alert('Room $status.');</script>";
 
