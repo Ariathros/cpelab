@@ -51,6 +51,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 		<link rel="stylesheet" href="../../assets/css/mediaquery.css"></link>
+		<link rel="icon" href="../../assets/images/pup logo.png" type="image/x-icon">
 
 		<script>
 			$(document).ready(function(){
@@ -104,7 +105,7 @@
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">Equipment Reservations</H1>
 				</DIV>
-			<DIV class="containe" style="padding-left:24px; padding-right:24px;">
+			<DIV class="container" style="padding-left:24px; padding-right:24px;">
 			<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
 					<TABLE class="table table-hover text-center">
 						<thead class="table-dark">
@@ -174,6 +175,7 @@
 					</div>
 			</DIV>
 			</div>
+
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 

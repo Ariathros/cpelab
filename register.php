@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/style.css"></link>
+		<link rel="icon" href="./assets/images/pup logo.png" type="image/x-icon">
 		
 		<style>.error{ color:#FF0000 }</style>
 	</HEAD>
@@ -23,7 +24,7 @@
 				<img src="assets/images/register.png">
 				<p>Already have an account?</p>
 				<a href="index.php">
-					<input type="submit" name="back_login" value="Login"/>
+					<input class="submitReg" type="submit" name="back_login" value="Login"/>
 				</a>
 			</div>
 			<div class="col-md-7 register-right">

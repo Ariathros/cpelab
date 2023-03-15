@@ -31,3 +31,31 @@
         </a>
     </div>
 </div>
+
+<div class="sidebarMobile"  style="color:white;">
+    <div class="side-header">
+        <img src="../assets/images/pup logo.png" width="120px" height="120px">
+    </div>
+    <div class="menu">
+        <div>
+            <a class="btn" onclick="dashboard()">
+                <div class="menu_icon"><i class='fas fa-layer-group'></i></div>
+            </a>
+        </div>
+        <div>
+            <a class="btn" onclick="student_room()">
+                <div class="menu_icon"><i class='fas fa-door-open'></i></div>
+            </a>
+        </div>
+        <div>
+            <a class="btn" onclick="student_equipment()">
+                <div class="menu_icon"><i class='fas fa-tools'></i></div>
+            </a>
+        </div>
+    </div>
+    <div class="logout">
+        <a href="../logout.php" class="btn">
+            <div class="menu_icon"><i class='fas fa-sign-out-alt'></i></div>
+        </a>
+    </div>
+</div>
