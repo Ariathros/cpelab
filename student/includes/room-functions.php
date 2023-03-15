@@ -31,8 +31,33 @@
         }
     }
 
-    function unavailableDisable($room_status, $row_id){
+    function unavailableDisable($room_status, $row_id, $room_no){
         if ($room_status!='Unavailable'){
-            echo "<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row_id."'>Reserve</A>";
+            // echo "<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row_id."'>Reserve</A>";
+        ?>
+        
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#room_<?php echo $room_no;?>">
+        Reserve
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="room_<?php echo $room_no;?>" tabindex="-1" aria-labelledby="modal<?php echo $room_no;?>" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal<?php echo $room_no;?>"><?php echo "Room ".$room_no;?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <?php
         };
     }

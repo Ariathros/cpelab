@@ -77,7 +77,7 @@
     <hr> -->
     Available Rooms for Reservation
     <?php
-        $sql = "SELECT * FROM rooms";
+        $sql = "SELECT * FROM rooms ORDER BY room_no";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -95,7 +95,7 @@
                     <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
                         echo "</ul>";
-                        unavailableDisable($room_status, $row["id"]);
+                        unavailableDisable($room_status, $row["id"],$room_no_display);
                         echo "
                 </div>";
             }
