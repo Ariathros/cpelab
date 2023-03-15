@@ -66,15 +66,6 @@
 		</a>
     </nav>
     <hr>
-    <!-- calendar and timeslot-->
-    <!-- <div class="date_time">
-            <div class="calendar_title">Calendar</label>
-            </div>
-            <div>
-                <input type="date" id="calendar" name="calendar">
-            </div>
-        </div>
-    <hr> -->
     Available Rooms for Reservation
     <?php
         $sql = "SELECT * FROM rooms ORDER BY room_no";
