@@ -1,7 +1,7 @@
 body,html{
     overflow-x: hidden;
     height: 100%;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Arial';
 }
 
 /* index and login */
@@ -19,9 +19,11 @@ body,html{
 .index nav a{
     font-size: 40px;
     font-weight: bold;
-    font-family: 'Merriweather', serif;
+    font-family: Arial;
     text-shadow: 0px 0px 5px #D9D9D9;
 }
+
+
 /* login in index*/
 .index .container{
     margin-top: 100px;
@@ -69,6 +71,11 @@ body,html{
 .login_btn:focus {
     box-shadow: none !important;
     outline: 0px !important;
+}
+.login_btn:hover {
+    background: #CC3D3D !important;
+    color: white !important;
+    transition: .5s;
 }
 .login_container {
     padding: 0 2rem;
@@ -137,6 +144,7 @@ body,html{
 .register-heading{
     margin-top: 4%;
     color: black;
+    font-weight: bold;
 }
 .register-right form{
     padding-top: 4%;
@@ -160,6 +168,11 @@ body,html{
     color: #fff;
     font-weight: 600;
     cursor: pointer;
+}
+.btnRegister:hover{
+    background: #CC3D3D;
+    color: #fff;
+    transition: .5s;
 }
 /* Buttons */
 
@@ -427,4 +440,9 @@ table thead tr th{
 
 .sidebar2{
     display: none;
+}
+
+.submitReg:hover{
+    background-color: #adaaaa;
+    transition: .75s;
 }
