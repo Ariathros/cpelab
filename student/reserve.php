@@ -24,12 +24,6 @@
 	</HEAD>
 	
 	<BODY style="background-color:#F5F5F5">
-		<div class="row">
-			<DIV class="col-3 px-2">
-				<?php 
-					include 'sidebar.php'; 
-				?>
-			</DIV>
 			<div class="col-9 px-0">
 				
 				<div class="reservation_form container allContent-section" style="background-color: #F5F5F5">
