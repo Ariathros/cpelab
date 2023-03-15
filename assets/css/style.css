@@ -428,3 +428,33 @@ table thead tr th{
     background-color: #adaaaa;
     transition: .75s;
 }
+
+.statusAvailable{
+    background-color:green;
+    color:white;
+    padding:2px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    
+
+}
+.statusUnavailable{
+    background-color:rgb(150, 32, 32);
+    color:white;
+    padding:2px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    
+
+}
+.statusReserved{
+    background-color: #e97f1c;
+    color:white;
+    padding:2px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    
+}
