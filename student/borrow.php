@@ -1,26 +1,6 @@
 <?php
 	include '../connections.php';	
 	include 'sessions.php';
-	// Variables for validation
-	$timeErr = '';
-	$hasErr = false;
-	// Executed if no error from validation
-	if($hasErr) {
-		if (isset($_POST['bBorrow'])){
-			// Add quantity column
-			$qty = htmlentities($_POST['qty']);						
-			$date = htmlentities($_POST['date']);
-			$time_start = htmlentities($_POST['time_start']);
-			$time_end = htmlentities($_POST['time_end']);
-			$reason = htmlentities($_POST['reason']);
-			// Insert to SQL
-			$sql = "INSERT INTO eq_man (name, category, qty, borrower, reason, date, time_start, time_end, status)
-				VALUES ('$equip_name', '$category', '$qty', '".$_SESSION['username']."', '$reason', '$date', '$time_start', '$time_end', 'Pending')";
-			if ($conn->query($sql) === TRUE) {
-				header('Location: /cpelab/student/student-index.php');
-			}
-		}
-	}
 ?>
 
 <HTML>
@@ -69,7 +49,8 @@
 						$total = intval($row['total']);
 						$available = intval($row['available']);
 						
-						
+						$timeErr = '';
+						$hasErr = false;
 						// condition to check if start time is greater than end time
 						if($_SERVER['REQUEST_METHOD'] == 'POST') {
 							if($_POST["time_start"] > $_POST["time_end"]) {
@@ -128,7 +109,7 @@
 						<INPUT class="btn" NAME="bBorrow" TYPE='SUBMIT'>
 					</FORM>
 				</div>
-				<!-- <?php
+				<?php
 					if($hasErr) {
 						if (isset($_POST['bBorrow'])){
 
@@ -148,7 +129,7 @@
 							}
 						}
 					}
-				?> -->
+				?>
 			</div>
 		</div>
 		<script src="https://unpkg.com/@popperjs/core@2"></script>
