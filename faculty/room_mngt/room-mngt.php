@@ -104,87 +104,89 @@
 				?>
 			</DIV>
 			<div class="col-9 px-0">
-		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-			Room Management
-			</H1>
-		</DIV>
+				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
+					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
+					Room Management
+					</H1>
+				</DIV>
 
-		<div class="container">
-			<?php
-				if(isset($_GET['msg'])) {
-					$msg = $_GET['msg'];
-					echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-					'.$msg.'
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				  </div>';
-				}
-			?>
-
-			<a href="create.php" class="btn btn-dark mb-3">Add New</a>
-			<input id="myInput" type="text" placeholder="Search.." style="float:right">
-			<table class="table table-hover text-center">
-				<thead class="table-dark">
-					<tr>
-					<TH SCOPE="COL">ID</TH>
-					<TH SCOPE="COL">Room Number</TH>
-					<TH SCOPE="COL">Type</TH>
-					<TH SCOPE="COL">Seat Count</TH>
-					<TH SCOPE="COL">Status</TH>
-					<TH SCOPE="COL">Action</TH>
-					</tr>
-				</thead>
-				<tbody id="myTable">
+				<div class="container" style="padding-left:24px; padding-right:24px;">
 					<?php
-
-						$sql = "SELECT * FROM rooms";
-						$result = mysqli_query($conn, $sql);
-						// This will get all data from our database
-						while ($row = mysqli_fetch_assoc($result)) {
-							?>
-							<tr>
-								<td><?php echo $row['id']?></td>
-								<td><?php echo $row['room_no']?></td>
-								<td><?php echo $row['room_type']?></td>
-								<td><?php echo $row['seat_count']?></td>
-								<td><?php echo $row['room_status']?></td>
-								<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
-									<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
-							</tr>
-							<?php
+						if(isset($_GET['msg'])) {
+							$msg = $_GET['msg'];
+							echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							'.$msg.'
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>';
 						}
 					?>
-				</tbody>
-			</table>
-			<!-- Pagination -->
-		<nav aria-label="Page navigation example">
-			<ul class="pagination">
-			<!-- Previous -->
-			<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-			<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-			<!-- Page Numbers -->
-				<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-					<?php if($page_no != $counter) { ?>
-						<li class="page-item"><a class="page-link" href="?page_no=<?=
-						$counter; ?>"><?= $counter; ?></a></li>
-					<?php } else { ?>
-						<li class="page-item"><a class="page-link active"><?= $counter; ?>
-						</a></li>
-					<?php } ?>
-				<?php } ?>
 
-				<!-- Next -->
-				<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
-				<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
-			</ul>
-		</nav>
-		<div class="p-10">
-			<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+					<a href="create.php" class="btn btn-success">Add New</a>
+					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
+					<table class="table table-hover text-center">
+						<thead class="table-dark">
+							<tr>
+							<TH SCOPE="COL">ID</TH>
+							<TH SCOPE="COL">Room Number</TH>
+							<TH SCOPE="COL">Type</TH>
+							<TH SCOPE="COL">Seat Count</TH>
+							<TH SCOPE="COL">Status</TH>
+							<TH SCOPE="COL">Action</TH>
+							</tr>
+						</thead>
+						<tbody id="myTable">
+							<?php
+								if ($result->num_rows > 0) {
+									// This will get all data from our database
+									while ($row = mysqli_fetch_assoc($result)) {
+										?>
+										<tr>
+											<td><?php echo $row['id']?></td>
+											<td><?php echo $row['room_no']?></td>
+											<td><?php echo $row['room_type']?></td>
+											<td><?php echo $row['seat_count']?></td>
+											<td><?php echo $row['room_status']?></td>
+											<td><a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square me-3"></i></a> <!--From fontawesome plugin-->
+												<a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a></td>
+										</tr>
+										<?php
+									}
+								} else {
+										echo "<TR><TD COLSPAN=6>Room list is empty. Add one by pressing the add button at the top.</TD></TR>";
+								}
+							?>
+						</tbody>
+					</table>
+					<!-- Pagination -->
+					<div style="position: fixed;  bottom: 0;">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<!-- Previous -->
+								<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+								<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+								<!-- Page Numbers -->
+								<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+									<?php if($page_no != $counter) { ?>
+										<li class="page-item"><a class="page-link" href="?page_no=<?=
+										$counter; ?>"><?= $counter; ?></a></li>
+									<?php } else { ?>
+										<li class="page-item"><a class="page-link active"><?= $counter; ?>
+										</a></li>
+									<?php } ?>
+								<?php } ?>
+								<!-- Next -->
+								<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
+								<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
+							</ul>
+						</nav>
+						<!-- Page Navigation -->
+						<div class="p-10 mb-5" >
+							<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		</div>
-		</div>
-		</div>
-		
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

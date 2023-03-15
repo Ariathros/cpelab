@@ -23,12 +23,11 @@
 	
 	<BODY>
 		<div class="index">
-			<img class="bg" src="./assets/images/index.png">
+			<img class="bg" src="./assets/images/index2.png">
 			<nav class="navbar justify-content-between">
 				<a class="navbar-brand">
-					Computer Engineering Rooms and Equipment Management System
+					Computer Engineering Lab <br> Rooms and Equipment Reservation System
 				</a>
-				<!-- <button class="btn" type="submit">Register</button> -->
 			</nav>	
 			<div class="container ">
 				<div class="d-flex">

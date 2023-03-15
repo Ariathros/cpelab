@@ -12,7 +12,7 @@
 	// count of records to display per page
 	$record_per_page = 10;
 	// page offset for LIMIT query
-	$offset = ($page_no -1) * $record_per_page;
+	$offset = ($page_no - 1) * $record_per_page;
 	// get previous page
 	$previous_page = $page_no - 1;
 	// get nxt page
@@ -110,7 +110,11 @@
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-						Account Management
+						<span>Account Management</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Account Management" 
+							data-bs-content="Contains all existing account in the system. You can also add, edit, and delete a particular account.">
+						</a>
 					</H1>
 				</DIV>
 
@@ -144,25 +148,18 @@
 						<table class="table table-hover text-center">
 							<thead class="table-dark">
 								<tr>
-								<th scope="col">ID</th>
-								<th scope="col">First Name</th>
-								<th scope="col">Last Name</th>
-								<th scope="col">Username</th>
-								<th scope="col">Id No.</th>
-								<th scope="col">Email</th>
-								<th scope="col">User Type</th>
-								<th scope="col">Action</th>
+									<th scope="col">ID</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Username</th>
+									<th scope="col">Id No.</th>
+									<th scope="col">Email</th>
+									<th scope="col">User Type</th>
+									<th scope="col">Action</th>
 								</tr>
 							</thead>
 							<tbody id="myTable">
 								<?php
-
-									// Search Conditions
-									
-									// Get and show selected data from our database
-									$sql = "SELECT * FROM useraccounts ";
-									$result = mysqli_query($conn, $sql);
-
 									while ($row = mysqli_fetch_assoc($result)) { ?>
 										<tr>
 											<td><?php echo $row['id']?></td>
@@ -174,40 +171,39 @@
 											<td><?php echo $row['usertype']?></td>
 											<td><a  href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
 											<button type="button" class="btn btn-danger deletebtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash fs-5"></i> Delete</button>
-											
 											</td>
 										</tr>
 									<?php } ?>
 							</tbody>
 						</table>
+						<!-- Pagination -->
+						<div style="position: fixed;  bottom: 0;">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+									<!-- Previous -->
+									<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+									<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+									<!-- Page Numbers -->
+									<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+										<?php if($page_no != $counter) { ?>
+											<li class="page-item"><a class="page-link" href="?page_no=<?=
+											$counter; ?>"><?= $counter; ?></a></li>
+										<?php } else { ?>
+											<li class="page-item"><a class="page-link active"><?= $counter; ?>
+											</a></li>
+										<?php } ?>
+									<?php } ?>
+									<!-- Next -->
+									<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
+									<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
+								</ul>
+							</nav>
+							<!-- Page Navigation -->
+							<div class="p-10 mb-5" >
+								<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+							</div>
+						</div>
 					</DIV>
-					
-					<!-- Pagination -->
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-						<!-- Previous -->
-						<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-						<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-						<!-- Page Numbers -->
-							<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-								<?php if($page_no != $counter) { ?>
-									<li class="page-item"><a class="page-link" href="?page_no=<?=
-									$counter; ?>"><?= $counter; ?></a></li>
-								<?php } else { ?>
-									<li class="page-item"><a class="page-link active"><?= $counter; ?>
-									</a></li>
-								<?php } ?>
-							<?php } ?>
-
-							<!-- Next -->
-							<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
-							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
-						</ul>
-					</nav>
-					<!-- Page Navigation -->
-					<div class="p-10">
-						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
-					</div>
 					<section>
 						<!-- Delete Warning (Bootstrap Modal) -->
 						<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -242,6 +238,13 @@
 				</div>
 			</div>
 		</div>
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
+		</script>
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

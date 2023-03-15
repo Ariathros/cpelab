@@ -120,7 +120,7 @@
                                 <label for="admin" class="form-input-label">Admin</label> &nbsp;
                             </div>
 
-                            <div>
+                            <div class="mb-3">
                                 <a href="change-password.php?id=<?php echo $id ?>">Change Password</a>
                             </div>
 

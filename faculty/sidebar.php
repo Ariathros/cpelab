@@ -1,5 +1,5 @@
 
-<div class="sidebar"  style="color:white;">
+<div class="sidebar"  style="color:white; background-color: #800000;">
     <div class="side-header">
         <img src="../../assets/images/pup logo.png" width="120px" height="120px">
         <div class="user">Hello <?php echo $_SESSION['name']; ?>!</div>
@@ -28,15 +28,15 @@
                 <div class="menu_icon"><i class='fas fa-screwdriver-wrench'></i></div>
                 <div class="menu_text">Equipment</div>
             </a>
-        </div class="barSide">
-		<div>
+        </div>
+		<div class="barSide">
 			<a class="btn" HREF='../equip_mngt/equip-mngt.php'>
 				<div class="menu_icon"><i class='fa-solid fa-toolbox'></i></div>
 				<div class="menu_text">Equipment Mgnt.</div>
 			</a>
 		</div>
     </div>
-    <div class="logout">
+    <div class="logout" style="position: fixed;  bottom: 0;">
         <a href="../../logout.php" class="btn">
             <div class="menu_icon"><i class='fas fa-sign-out-alt'></i></div>
             <div class="menu_text">Logout</div>

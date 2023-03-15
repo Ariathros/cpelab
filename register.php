@@ -20,7 +20,7 @@
 	<body id="register">
 		<div class="row">
 			<div class="col-md-5  register-left">
-				<h3>Computer Engineering Rooms and Equipment Management System</h3>
+				<h3>Computer Engineering Lab <br> Rooms and Equipment Reservation System</h3>
 				<img src="assets/images/register.png">
 				<p>Already have an account?</p>
 				<a href="index.php">

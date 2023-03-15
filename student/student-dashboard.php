@@ -4,13 +4,15 @@
 ?> -->
 
 <div class="dashboard">
-	<nav class="navbar navbar-expand-lg">
-        <span class="navbar-text">Dashboard</span>
-		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
-			title="Dashboard" 
-			data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation. Click the icon again to close this information.">
-		</a>
-    </nav>
+	<DIV style="padding-top:24px;">
+		<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #952D2D; color: white;">
+			<span>Student Dashboard</span>
+			<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
+				title="Dashboard" 
+				data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation.">
+			</a>
+		</H1>
+	</DIV>
 	<hr>
 	<div class="reservations">
 		<div class="table-holder">
@@ -52,7 +54,7 @@
 										</TR>";
 								}
 							} else {
-								echo "<TR><TD>No reservations found.</TD></TR>";
+								echo "<TR><TD>Your room reservation is empty</TD></TR>";
 							}
 						?>
 					</thead>
@@ -100,7 +102,7 @@
 									</TR>";
 								}
 							} else {
-								echo "<TR><TD>No records of borrowed equipments.</TD></TR>";
+								echo "<TR><TD>Your equipment reservation is empty</TD></TR>";
 							}
 						?>
 					</thead>
@@ -111,6 +113,7 @@
 		</div>
 	</div>
 </div>
+<!-- Hover effect -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script>
 	$(document).ready(function(){

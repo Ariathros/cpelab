@@ -7,7 +7,7 @@
 <!-- accordion style -->
 <style>
     .accordion {
-        background-color: #eee;
+        background-color: #D0D2D4;
         color: #444;
         cursor: pointer;
         padding: 18px;
@@ -53,7 +53,7 @@
     }
 </style>
 <!-- Room Reservation -->
-<div class="student_rooms">
+<div class="student_rooms mb-5">
     <!-- Page header -->
     <nav class="navbar navbar-expand-lg">
         <span class="navbar-text">Room Reservation</span>
@@ -61,8 +61,7 @@
 			title="Room Reservation" 
 			data-bs-content="This page shows the current day's room reservations. 
             Click each room to see its availability and to create a reservation. 
-            To create a reservation, click the Reserve button.
-            Click the icon again to close this information.">
+            To create a reservation, click the Reserve button.">
 		</a>
     </nav>
     <hr>
