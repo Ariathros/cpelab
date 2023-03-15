@@ -103,7 +103,8 @@
 			</DIV>
 			<div class="col-9 px-0">
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">Equipment Reservations</H1>
+					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
+					Equipment Reservations</H1>
 				</DIV>
 			<DIV class="container" style="padding-left:24px; padding-right:24px;">
 			<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">

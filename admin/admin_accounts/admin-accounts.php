@@ -177,7 +177,7 @@
 							</tbody>
 						</table>
 						<!-- Pagination -->
-						<div style="position: fixed;  bottom: 0;">
+						<div style="position: bottom: 0;" class="mt-3">
 							<nav aria-label="Page navigation example">
 								<ul class="pagination">
 									<!-- Previous -->
