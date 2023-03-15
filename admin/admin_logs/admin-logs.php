@@ -105,7 +105,12 @@
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-						Logs
+						<span>Logs</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Logs" 
+							data-bs-content="Contains list of actions, approved and declined reservation, inside the application 
+							and their corresponding details.">
+						</a>
 					</H1>
 				</DIV>
 				<DIV class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
@@ -172,34 +177,42 @@
 						</TABLE>
 					</DIV>
 					<!-- Pagination -->
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-						<!-- Previous -->
-						<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-						<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-						<!-- Page Numbers -->
-							<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-								<?php if($page_no != $counter) { ?>
-									<li class="page-item"><a class="page-link" href="?page_no=<?=
-									$counter; ?>"><?= $counter; ?></a></li>
-								<?php } else { ?>
-									<li class="page-item"><a class="page-link active"><?= $counter; ?>
-									</a></li>
+					<div style="position: fixed;  bottom: 0;">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<!-- Previous -->
+								<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+								<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+								<!-- Page Numbers -->
+								<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+									<?php if($page_no != $counter) { ?>
+										<li class="page-item"><a class="page-link" href="?page_no=<?=
+										$counter; ?>"><?= $counter; ?></a></li>
+									<?php } else { ?>
+										<li class="page-item"><a class="page-link active"><?= $counter; ?>
+										</a></li>
+									<?php } ?>
 								<?php } ?>
-							<?php } ?>
-
-							<!-- Next -->
-							<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
-							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
-						</ul>
-					</nav>
-					<div class="p-10">
-						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+								<!-- Next -->
+								<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
+								<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
+							</ul>
+						</nav>
+						<!-- Page Navigation -->
+						<div class="p-10 mb-5" >
+							<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+						</div>
 					</div>
 				</DIV>
 			</div>
 		</div>
-		
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
+		</script>
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

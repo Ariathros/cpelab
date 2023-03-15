@@ -109,7 +109,11 @@
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-						Account Management
+						<span>Account Management</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Account Management" 
+							data-bs-content="Contains all existing account in the system. You can also add, edit, and delete a particular account.">
+						</a>
 					</H1>
 				</DIV>
 
@@ -233,6 +237,13 @@
 				</div>
 			</div>
 		</div>
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
+		</script>
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

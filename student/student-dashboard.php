@@ -8,9 +8,9 @@
 		<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #952D2D; color: white;">
 			<span>Student Dashboard</span>
 			<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
-			title="Dashboard" 
-			data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation.">
-		</a>
+				title="Dashboard" 
+				data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation.">
+			</a>
 		</H1>
 	</DIV>
 	<hr>
@@ -113,6 +113,7 @@
 		</div>
 	</div>
 </div>
+<!-- Hover effect -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script>
 	$(document).ready(function(){
