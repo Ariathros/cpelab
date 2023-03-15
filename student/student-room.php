@@ -95,7 +95,7 @@
                     <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
                         echo "</ul>";
-                        unavailableDisable($room_status, $row["id"],$room_no_display);
+                        unavailableDisable($conn, $room_status, $row['id']);
                         echo "
                 </div>";
             }

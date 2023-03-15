@@ -31,9 +31,18 @@
         }
     }
 
-    function unavailableDisable($room_status, $row_id, $room_no){
+    function unavailableDisable($conn, $room_status, $room_id){
         if ($room_status!='Unavailable'){
-            // echo "<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$row_id."'>Reserve</A>";
+            // echo "<A class='btn btn-primary' type='button' style='background-color:green; border:0px;' HREF='reserve.php?id=".$room_id."'>Reserve</A>";
+
+            $sql = "SELECT * FROM rooms
+            WHERE id='$room_id'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $room_no = $row['room_no'];
+            $room_type = $row['room_type'];
+            $seat_count = $row['seat_count'];
+            $status = $row['room_status'];
         ?>
         
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#room_<?php echo $room_no;?>">
@@ -49,11 +58,40 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+            
+                <FORM METHOD="POST">
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-title">Room No.: <?php echo $room_no;?></div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-title">Room Type: <?php echo $room_type;?></div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-title">Seat Count: <?php echo $seat_count;?></div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-title">Status: <?php echo $status;?></div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-title">Date: </div>
+                        <div  class="input"><INPUT NAME="date" TYPE='DATE' REQUIRED></div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-title">Time: </div>
+                        <div class="input"><INPUT NAME="time_start" TYPE='TIME' min="07:00" max="21:00" REQUIRED > - 
+                        <INPUT NAME="time_end" TYPE='TIME' min="07:00" max="21:00" REQUIRED></div>
+                        <span class="error" style="color: red"></span></div>
+                    <div class="input-group mb-3">
+                        <div class="input-title">Reason: </div>
+                        <div  class="input"><INPUT NAME="reason" TYPE='TEXT'></div>
+                    </div>
+                    
+                </FORM>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-primary">Reserve</button>
             </div>
             </div>
         </div>
