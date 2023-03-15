@@ -79,7 +79,10 @@
                 $room_status = $row["room_status"];
                 
                 echo "
-                <button class='accordion'><strong>$room_no_display</strong>&nbsp $room_name_display</button>
+                <button class='accordion'><strong>$room_no_display</strong>
+                    &nbsp $room_name_display
+                    <label class='status$room_status'>$room_status</label>
+                </button>
                 <div class='panel'>
                     <h4>Current day reservations</h4>
                     <ul class='nav justify-content-center'>";
