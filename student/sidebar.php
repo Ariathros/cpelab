@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="sidebar"  style="color:white; background-color: #952D2D">
+<div class="sidebar"  style="color:white">
     <div class="side-header">
         <img src="../assets/images/pup logo.png" width="120px" height="120px">
         <div class="user">Hello <?php echo $_SESSION['name']; ?>!</div>

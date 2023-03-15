@@ -4,15 +4,14 @@
 ?> -->
 
 <div class="dashboard">
-	<DIV style="padding-top:24px;">
-		<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #952D2D; color: white;">
-			<span>Student Dashboard</span>
-			<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
+<nav class="navbar navbar-expand-lg">
+        <span class="navbar-text">Room Reservation</span>
+		<a class="instruction fa fa-question-circle-o" data-bs-toggle="popover" data-bs-trigger="hover"
 				title="Dashboard" 
 				data-bs-content="This page shows tables for all the reservations made for reserving rooms and borrowing equipment. The tables are the summary of all the requests made. If you wish to create a reservation, look at the left side and choose the category you want to create a reservation.">
 			</a>
-		</H1>
-	</DIV>
+    </nav>
+
 	<hr>
 	<div class="reservations">
 		<div class="table-holder">

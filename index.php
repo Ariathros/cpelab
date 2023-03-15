@@ -19,11 +19,12 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./assets/css/style.css"></link>
 		<link rel="icon" href="./assets/images/pup logo.png" type="image/x-icon">
+		<link rel="stylesheet" href="./assets/css/background.css"></link>
+		
 	</HEAD>
 	
 	<BODY>
 		<div class="index">
-			<img class="bg" src="./assets/images/index2.png">
 			<nav class="navbar justify-content-between">
 				<a class="navbar-brand">
 					Computer Engineering Lab <br> Rooms and Equipment Reservation System

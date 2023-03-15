@@ -179,23 +179,7 @@ body,html{
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
-/* for login pages */
-/* form{
-    width: 350px;
-}
-input.form-control{
-    width: 350px;
-}
-.col-md-4 form button{
-    width: 350px;
-    font-weight: bold;
-}
-#forgotPass{
-    color:red; 
-    padding-top: 10px; 
-    font-weight: bold; 
-    font-size: smaller;
-}*/
+
 
 /* for header */
 .header{
@@ -256,7 +240,6 @@ hr{
 .sidebar .menu .btn:hover{
     background-color: #CC3D3D;
     color: black;
-    font-weight: bold;
 }
 .logout{
     padding-top: 20%;
@@ -273,7 +256,6 @@ hr{
 .logout .btn:hover{
     background-color: #CC3D3D;
     color:black;
-    font-weight: bold;
 }
 .logout .btn .menu_icon{
     width: 20px;
