@@ -27,7 +27,7 @@
 		<div class="index">
 			<nav class="navbar justify-content-between">
 				<a class="navbar-brand">
-					Computer Engineering Lab <br> Rooms and Equipment Reservation System
+					Rooms and Equipment Reservation System
 				</a>
 			</nav>	
 			<div class="container ">
