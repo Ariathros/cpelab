@@ -121,11 +121,11 @@
 							$reason = htmlentities($_POST['reason']);
 	
 							// Insert to SQL
-							$sql_add_equip = "INSERT INTO eq_man (name, category, qty, borrower, reason, date, time_start, time_end, status)
+							$sql = "INSERT INTO eq_man (name, category, qty, borrower, reason, date, time_start, time_end, status)
 								VALUES ('$equip_name', '$category', '$qty', '".$_SESSION['username']."', '$reason', '$date', '$time_start', '$time_end', 'Pending')";
-			 				$result_add_equip = mysqli_query($conn, $sql_add_equip);
-							if ($result_add_equip) {
-								header("Location: student-dashboard.php");
+	
+							if ($conn->query($sql) === TRUE) {
+								header('Location: student-index.php');
 							}
 						}
 					}

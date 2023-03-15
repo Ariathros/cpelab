@@ -144,9 +144,7 @@
 							$sql = "INSERT INTO room_man (room_no, room_type, borrower, reason, date, time_start, time_end, status)
 								VALUES ('$room_no', '$room_type', '".$_SESSION['username']."', '$reason', '$date', '$time_start', '$time_end', 'Pending')";
 							$conn->query($sql);
-							if ($conn->query($sql) === TRUE) {
-								header('Location: student-index.php');
-							}
+							header('Location: student-index.php');
 						}
 					}
 				?>
