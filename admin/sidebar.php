@@ -11,7 +11,6 @@
         <div class="sidebar"  style="color:white; background-color: #4D0000;">
             <div class="side-header">
                 <img src="../../assets/images/pup logo.png" width="120px" height="120px">
-                <div class="user">Hello <?php echo $_SESSION['name']; ?>!</div>
             </div>
             <div class="menu">
                 <div>
