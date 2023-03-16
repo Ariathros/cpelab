@@ -142,7 +142,7 @@
 								</tr>
 							<?php }
 							} else {
-								echo "<TR><TD COLSPAN=7>No borrower needs equipment right now.</TD></TR>";
+								echo "<TR><TD COLSPAN=7>You have no activity logs right now.</TD></TR>";
 							}
 							mysqli_close($conn); ?>
 						</tbody>
