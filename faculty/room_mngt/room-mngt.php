@@ -50,6 +50,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 		<link rel="stylesheet" href="../../assets/css/mediaquery.css"></link>
+		<link rel="icon" href="../../assets/images/pup logo.png" type="image/x-icon">
 
 		<script>
 			$(document).ready(function(){
@@ -147,6 +148,7 @@
 											<td><?php echo $row['room_status']?></td>
 											<td><a  href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
 												<button type="button" class="btn btn-danger deletebtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash fs-5"></i> Delete</button>
+											</td>
 										</tr>
 										<?php
 									}

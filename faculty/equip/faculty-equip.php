@@ -18,7 +18,7 @@
 	// get nxt page
 	$nextpage = $page_no + 1;
 	// get the total count of records
-	$record_count = mysqli_query($conn, "SELECT COUNT(*) AS total_records FROM eq_man") or die(mysqli_error($conn));
+	$record_count = mysqli_query($conn, "SELECT COUNT(*) AS total_records FROM eq_man WHERE status= 'Pending' " ) or die(mysqli_error($conn));
 	// total records
 	$records = mysqli_fetch_array($record_count);
 	// store total records to a variable
@@ -51,6 +51,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 		<link rel="stylesheet" href="../../assets/css/mediaquery.css"></link>
+		<link rel="icon" href="../../assets/images/pup logo.png" type="image/x-icon">
 
 		<script>
 			$(document).ready(function(){
@@ -105,7 +106,7 @@
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
 					Equipment Reservations</H1>
 				</DIV>
-			<DIV class="containe" style="padding-left:24px; padding-right:24px;">
+			<DIV class="container" style="padding-left:24px; padding-right:24px;">
 			<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
 					<TABLE class="table table-hover text-center">
 						<thead class="table-dark">
@@ -172,6 +173,7 @@
 				</div>
 			</DIV>
 			</div>
+
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 

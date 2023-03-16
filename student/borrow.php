@@ -25,12 +25,7 @@
 	
 	<BODY style="background-color:#F5F5F5">
 		<div class="row">
-			<DIV class="col-3 px-2">
-				<?php 
-					include 'sidebar.php'; 
-				?>
-			</DIV>
-			<div class="col-9 px-0">
+			<div>
 				<div class="reservation_form container allContent-section" style="background-color: #F5F5F5">
 					<div class="reservation_title">
 						<u >Borrow Equipment</u>
@@ -105,8 +100,9 @@
 						<div class="input-group mb-3">
 							<div class="input-title">Reason:</div>
 							<div  class="input"><INPUT NAME="reason" TYPE='TEXT'></div>
-						</div>
-						<INPUT class="btn" NAME="bBorrow" TYPE='SUBMIT'>
+						</div>						
+						<A class="btn" HREF="student-index.php">Back </A>
+						<INPUT class="btn" NAME="bBorrow" TYPE='SUBMIT' value="Reserve">
 					</FORM>
 				</div>
 				<?php

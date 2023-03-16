@@ -1,7 +1,7 @@
 body,html{
     overflow-x: hidden;
     height: 100%;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Arial';
 }
 
 /* index and login */
@@ -19,9 +19,11 @@ body,html{
 .index nav a{
     font-size: 40px;
     font-weight: bold;
-    font-family: 'Merriweather', serif;
+    font-family: Arial;
     text-shadow: 0px 0px 5px #D9D9D9;
 }
+
+
 /* login in index*/
 .index .container{
     margin-top: 100px;
@@ -69,6 +71,11 @@ body,html{
 .login_btn:focus {
     box-shadow: none !important;
     outline: 0px !important;
+}
+.login_btn:hover {
+    background: #CC3D3D !important;
+    color: white !important;
+    transition: .5s;
 }
 .login_container {
     padding: 0 2rem;
@@ -137,6 +144,7 @@ body,html{
 .register-heading{
     margin-top: 4%;
     color: black;
+    font-weight: bold;
 }
 .register-right form{
     padding-top: 4%;
@@ -161,28 +169,17 @@ body,html{
     font-weight: 600;
     cursor: pointer;
 }
+.btnRegister:hover{
+    background: #CC3D3D;
+    color: #fff;
+    transition: .5s;
+}
 /* Buttons */
 
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
-/* for login pages */
-/* form{
-    width: 350px;
-}
-input.form-control{
-    width: 350px;
-}
-.col-md-4 form button{
-    width: 350px;
-    font-weight: bold;
-}
-#forgotPass{
-    color:red; 
-    padding-top: 10px; 
-    font-weight: bold; 
-    font-size: smaller;
-}*/
+
 
 /* for header */
 .header{
@@ -243,7 +240,6 @@ hr{
 .sidebar .menu .btn:hover{
     background-color: #CC3D3D;
     color: black;
-    font-weight: bold;
 }
 .logout{
     padding-top: 20%;
@@ -260,7 +256,6 @@ hr{
 .logout .btn:hover{
     background-color: #CC3D3D;
     color:black;
-    font-weight: bold;
 }
 .logout .btn .menu_icon{
     width: 20px;
@@ -428,6 +423,38 @@ table thead tr th{
 .sidebar2{
     display: none;
 }
-.wew{
-    display: none;
+
+.submitReg:hover{
+    background-color: #adaaaa;
+    transition: .75s;
+}
+
+.statusAvailable{
+    background-color:green;
+    color:white;
+    padding:2px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    
+
+}
+.statusUnavailable{
+    background-color:rgb(150, 32, 32);
+    color:white;
+    padding:2px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    
+
+}
+.statusReserved{
+    background-color: #e97f1c;
+    color:white;
+    padding:2px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-left: 1rem;
+    
 }

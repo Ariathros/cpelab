@@ -6,31 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sidebar</title>
 
-        <style>
-            * {
-            box-sizing: border-box;
-            }
-
-            .column {
-            float: left;
-            width: 33.33%;
-            padding: 5px;
-            }
-
-            /* Clearfix (clear floats) */
-            .row::after {
-            content: "";
-            clear: both;
-            display: table;
-            }
-
-            /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-            @media screen and (max-width: 500px) {
-            .column {
-                width: 100%;
-            }
-            }
-        </style>
     </head>
     <body>
         <div class="sidebar"  style="color:white; background-color: #4D0000;">
@@ -52,18 +27,18 @@
                     </a>
                 </div>
             </div>
-            <div class="row" style="position: fixed;  bottom: 0;">
+            <div class="row" style="position: fixed; margin-top:15%">
                 <div class="logout">
-                    <div class="column">
-                        <a href="../../logout.php" class="btn">
-                            <div class="menu_icon"><i class='fas fa-sign-out-alt'></i></div>
-                            <div class="menu_text">Logout</div>
-                        </a>
-                    </div>
-                    <div class="column">
+                    <div>
                         <a href="/cpelab/admin/admin_logs/logs-archive.php" class="btn">
                             <div class="menu_icon"><i class='fa-sharp fa-solid fa-file-zipper'></i></div>
                             <div class="menu_text">Archives</div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="../../logout.php" class="btn">
+                            <div class="menu_icon"><i class='fas fa-sign-out-alt'></i></div>
+                            <div class="menu_text">Logout</div>
                         </a>
                     </div>
                 </div>

@@ -25,13 +25,7 @@
 	
 	<BODY style="background-color:#F5F5F5">
 		<div class="row">
-			<DIV class="col-3 px-2">
-				<?php 
-					include 'sidebar.php'; 
-				?>
-			</DIV>
-			<div class="col-9 px-0">
-				
+			<div>
 				<div class="reservation_form container allContent-section" style="background-color: #F5F5F5">
 					<div class="reservation_title">
 						<u >Reservation Form</u>
@@ -128,10 +122,15 @@
 							<div class="input-title">Reason:</div>
 							<div  class="input"><INPUT NAME="reason" TYPE='TEXT'></div>
 						</div>
-						<INPUT class="btn" NAME="bReserve" TYPE='SUBMIT'>
+						<A class="btn" HREF="student-index.php">Back</A>
+						<INPUT class="btn" NAME="bReserve" TYPE='SUBMIT' value="Reserve">
 					</FORM>
 				</div>
 				<?php
+					if (isset($_POST['bReserve'])){
+						header('Location: student-index.php');
+					}
+
 					if($hasErr) {
 						if (isset($_POST['bReserve'])){
 

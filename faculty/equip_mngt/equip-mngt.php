@@ -51,6 +51,7 @@
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 
 		<link rel="stylesheet" href="../../assets/css/mediaquery.css">
+		<link rel="icon" href="../../assets/images/pup logo.png" type="image/x-icon">
 
 		<script>
 			$(document).ready(function(){

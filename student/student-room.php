@@ -65,18 +65,9 @@
 		</a>
     </nav>
     <hr>
-    <!-- calendar and timeslot-->
-    <!-- <div class="date_time">
-            <div class="calendar_title">Calendar</label>
-            </div>
-            <div>
-                <input type="date" id="calendar" name="calendar">
-            </div>
-        </div>
-    <hr> -->
     Available Rooms for Reservation
     <?php
-        $sql = "SELECT * FROM rooms";
+        $sql = "SELECT * FROM rooms ORDER BY room_no";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -88,13 +79,16 @@
                 $room_status = $row["room_status"];
                 
                 echo "
-                <button class='accordion'><strong>$room_no_display</strong>&nbsp $room_name_display</button>
+                <button class='accordion'><strong>$room_no_display</strong>
+                    &nbsp $room_name_display
+                    <label class='status$room_status'>$room_status</label>
+                </button>
                 <div class='panel'>
                     <h4>Current day reservations</h4>
                     <ul class='nav justify-content-center'>";
                         getTimeReservations($conn, $room_no_display);
                         echo "</ul>";
-                        unavailableDisable($room_status, $row["id"]);
+                        unavailableDisable($conn, $room_status, $row['id']);
                         echo "
                 </div>";
             }

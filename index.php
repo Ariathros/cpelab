@@ -18,11 +18,13 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./assets/css/style.css"></link>
+		<link rel="icon" href="./assets/images/pup logo.png" type="image/x-icon">
+		<link rel="stylesheet" href="./assets/css/background.css"></link>
+		
 	</HEAD>
 	
 	<BODY>
 		<div class="index">
-			<img class="bg" src="./assets/images/index2.png">
 			<nav class="navbar justify-content-between">
 				<a class="navbar-brand">
 					Computer Engineering Lab <br> Rooms and Equipment Reservation System
