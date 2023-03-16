@@ -2,13 +2,13 @@
 	include '../../connections.php';
 	include '../sessions.php';
 
+	// Pagination
 	// get page number
 	if (isset($_GET['page_no']) && $_GET['page_no'] !== "") {
 		$page_no = $_GET['page_no'];
 	}else {
 		$page_no = 1;
 	}
-	// These are all required for pagination implementation
 	// count of records to display per page
 	$record_per_page = 10;
 	// page offset for LIMIT query
@@ -28,7 +28,6 @@
 
 	// sql query
 	$sql = "SELECT * FROM logs LIMIT $offset , $record_per_page";
-	// result
 	$result = $conn->query($sql);
 ?>
 
@@ -62,6 +61,7 @@
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 		<link rel="icon" href="../../assets/images/pup logo.png" type="image/x-icon">
 
+		<!-- Search function -->
 		<script>
 			$(document).ready(function(){
 				$("#myInput").on("keyup", function() {
@@ -107,14 +107,16 @@
 	
 	<BODY>
 		<div class="row">
+			<!-- Sidebar -->
 			<DIV class="col-3 px-2">
 				<?php
 					include '../sidebar.php';
 				?>
 			</DIV>
+			<!-- Main content -->
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+					<H1 class="navbar navbar-light justify-content-center fs-3" style="background-color: #4D0000; color: white;">
 						<span>Logs</span>
 						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
 							title="Logs" 
@@ -123,7 +125,8 @@
 						</a>
 					</H1>
 				</DIV>
-				<DIV class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
+				<DIV class="container" style="padding-top:16px; padding-left:24px; padding-right:24px;">
+					<!-- Export Button -->
 					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
 					<script>
 						$("#btnExport").click(function (e) {
@@ -133,10 +136,10 @@
 							})
 						});
 					</script>
-
+					<!-- Search bar -->
 					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
-
 					<DIV id='dvData'>
+						<!-- Table -->
 						<TABLE id="admin-logs" class="table table-hover text-center">
 							<thead class="table-dark">
 								<TR>
@@ -152,6 +155,7 @@
 								</TR>
 							</thead>
 							<tbody id="myTable">
+								<!-- Get data in a row from SQL query -->
 								<?php while ($row = mysqli_fetch_array($result)) { ?>
 									<tr>
 										<td><?= $row['id']; ?></td>
@@ -163,7 +167,8 @@
 										<td><?= $row['student']; ?></td>
 										<td><?= $row['date']; ?></td>
 										<td><?= $row['time_start'] . "-" . $row['time_end']; ?></td>
-
+								<!-- Archive function
+									- move data from logs to archive after 5 months -->
 								<?php
 									// Set record overdue to creation date + 5 months
 									$startDate = strtotime($row['date']. '+5 months');
@@ -183,7 +188,6 @@
 								<?php }
 								mysqli_close($conn); ?>
 							</tbody>
-							   
 						</TABLE>
 					</DIV>
 					<!-- Pagination -->

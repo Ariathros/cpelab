@@ -18,7 +18,7 @@ Student Assistant
 - Room reservations - approve or decline room reservations with corresponding details
 - Room management - CRUD operation for rooms
 - Equipment reservations - approve or decline equipment reservations with corresponding details
-- Equipment management - CRUd operation for equipment
+- Equipment management - CRUD operation for equipment
 
 Student
 - Dashboard - view all reservations (approved or declined)

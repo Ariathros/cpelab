@@ -27,7 +27,7 @@
                     </a>
                 </div>
             </div>
-            <div class="row" style="position: fixed; margin-top:15%">
+            <div class="row" style="position: fixed; bottom:0; margin-top:15%">
                 <div class="logout">
                     <div>
                         <a href="/cpelab/admin/admin_logs/logs-archive.php" class="btn">
