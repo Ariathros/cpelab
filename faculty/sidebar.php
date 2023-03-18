@@ -8,7 +8,7 @@
         <div class="barSide">
             <a class="btn" HREF='../dashboard/faculty-dashboard.php'>
                 <div class="menu_icon"><i class='fas fa-layer-group'></i></div>
-                <div class="menu_text">Dashboard</div>
+                <div class="menu_text">Logs</div>
             </a>
         </div>
         <div class="barSide">
@@ -36,7 +36,7 @@
 			</a>
 		</div>
     </div>
-    <div class="logout" style="position: fixed;  bottom: 0;">
+    <div class="logout" style="position: absolute;  bottom: 0;">
         <a href="../../logout.php" class="btn">
             <div class="menu_icon"><i class='fas fa-sign-out-alt'></i></div>
             <div class="menu_text">Logout</div>

@@ -115,7 +115,11 @@
 			<div class="col-9 px-0">
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
-					Room Reservations
+						<span>Room Reservations</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Room Reservations" 
+							data-bs-content="This is where you can take action on pending student reservations.">
+						</a>
 					</H1>
 				</DIV>
 				
@@ -186,5 +190,12 @@
 				</DIV>
 			</div>
 		</div>
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
+		</script>
 	</BODY>
 </HTML>

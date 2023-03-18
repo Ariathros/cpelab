@@ -104,80 +104,91 @@
 			<div class="col-9 px-0">
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
-					Equipment Reservations</H1>
+						<span>Equipment Reservation</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Equipment Reservation" 
+							data-bs-content="This is where you can take action on pending student reservations.">
+						</a>
+					</H1>
 				</DIV>
-			<DIV class="container" style="padding-left:24px; padding-right:24px;">
-			<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
-					<TABLE class="table table-hover text-center">
-						<thead class="table-dark">
-						<TR>
-							<TH SCOPE="COL">Item Code</TH>
-							<TH SCOPE="COL">Category</TH>					
-							<TH SCOPE="COL">Quantity</TH>
-							<TH SCOPE="COL">Borrower</TH>
-							<TH SCOPE="COL">Date</TH>
-							<TH SCOPE="COL">Time</TH>
-							<TH SCOPE="COL">Actions</TH>
-						</TR>
-					</thead>
-					<tbody id="myTable">
-					<?php
-						if ($result->num_rows > 0) {
-							// output data of each row
-							while($row = $result->fetch_assoc()) { ?>
-								<TR>
-									<TD><?php echo $row['name']?></TD>
-									<TD><?php echo $row['category']?></TD>
-									<TD><?php echo $row['qty']?></TD>
-									<TD><?php echo $row['borrower']?></TD>
-									<TD><?php echo $row['date']?></TD>
-									<TD><?php echo $row['time_start'] ."-". $row['time_end']?></TD>
-									<TD>
-										<A class="btn btn-primary" HREF='borrow-action.php?id=<?php echo $row["id"]?> &action=Approved'><i class="fa-solid fa-check"></i> Approve</A>
-										<A class="btn btn-danger" HREF='borrow-action.php?id=<?php echo $row["id"]?> &action=Declined'><i class="fa-solid fa-ban"></i> Decline</A>
-									</TD>
-								</TR>
-								<?php
-							}
-						} else {
-							echo "<TR><TD COLSPAN=7>No borrower needs equipment right now.</TD></TR>";
-						}?>
-					</tbody>
-				</TABLE>
-				<!-- Pagination -->
-				<div style="position: fixed;  bottom: 0;">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<!-- Previous -->
-							<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-							<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-							<!-- Page Numbers -->
-							<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-								<?php if($page_no != $counter) { ?>
-									<li class="page-item"><a class="page-link" href="?page_no=<?=
-									$counter; ?>"><?= $counter; ?></a></li>
-								<?php } else { ?>
-									<li class="page-item"><a class="page-link active"><?= $counter; ?>
-									</a></li>
+				<DIV class="container" style="padding-left:24px; padding-right:24px;">
+				<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
+						<TABLE class="table table-hover text-center">
+							<thead class="table-dark">
+							<TR>
+								<TH SCOPE="COL">Item Code</TH>
+								<TH SCOPE="COL">Category</TH>					
+								<TH SCOPE="COL">Quantity</TH>
+								<TH SCOPE="COL">Borrower</TH>
+								<TH SCOPE="COL">Date</TH>
+								<TH SCOPE="COL">Time</TH>
+								<TH SCOPE="COL">Actions</TH>
+							</TR>
+						</thead>
+						<tbody id="myTable">
+						<?php
+							if ($result->num_rows > 0) {
+								// output data of each row
+								while($row = $result->fetch_assoc()) { ?>
+									<TR>
+										<TD><?php echo $row['name']?></TD>
+										<TD><?php echo $row['category']?></TD>
+										<TD><?php echo $row['qty']?></TD>
+										<TD><?php echo $row['borrower']?></TD>
+										<TD><?php echo $row['date']?></TD>
+										<TD><?php echo $row['time_start'] ."-". $row['time_end']?></TD>
+										<TD>
+											<A class="btn btn-primary" HREF='borrow-action.php?id=<?php echo $row["id"]?> &action=Approved'><i class="fa-solid fa-check"></i> Approve</A>
+											<A class="btn btn-danger" HREF='borrow-action.php?id=<?php echo $row["id"]?> &action=Declined'><i class="fa-solid fa-ban"></i> Decline</A>
+										</TD>
+									</TR>
+									<?php
+								}
+							} else {
+								echo "<TR><TD COLSPAN=7>No borrower needs equipment right now.</TD></TR>";
+							}?>
+						</tbody>
+					</TABLE>
+					<!-- Pagination -->
+					<div style="position: fixed;  bottom: 0;">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<!-- Previous -->
+								<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+								<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+								<!-- Page Numbers -->
+								<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+									<?php if($page_no != $counter) { ?>
+										<li class="page-item"><a class="page-link" href="?page_no=<?=
+										$counter; ?>"><?= $counter; ?></a></li>
+									<?php } else { ?>
+										<li class="page-item"><a class="page-link active"><?= $counter; ?>
+										</a></li>
+									<?php } ?>
 								<?php } ?>
-							<?php } ?>
-							<!-- Next -->
-							<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
-							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
-						</ul>
-					</nav>
-					<!-- Page Navigation -->
-					<div class="p-10 mb-5" >
-						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+								<!-- Next -->
+								<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
+								<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
+							</ul>
+						</nav>
+						<!-- Page Navigation -->
+						<div class="p-10 mb-5" >
+							<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+						</div>
 					</div>
-				</div>
-			</DIV>
+				</DIV>
 			</div>
-
 		</div>
-
+		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
 		</script>
 	</BODY>
 </HTML>
