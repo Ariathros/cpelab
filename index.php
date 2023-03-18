@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./assets/css/style.css"></link>
 		<link rel="icon" href="./assets/images/pup logo.png" type="image/x-icon">
-		<link rel="stylesheet" href="./assets/css/background.css"></link>
+		<link rel="stylesheet" href="./assets/css/backgrounds.css"></link>
 		
 	</HEAD>
 	
@@ -27,7 +27,7 @@
 		<div class="index">
 			<nav class="navbar justify-content-between">
 				<a class="navbar-brand">
-					Computer Engineering Lab <br> Rooms and Equipment Reservation System
+					Rooms and Equipment <br>Reservation System
 				</a>
 			</nav>	
 			<div class="container ">
@@ -113,6 +113,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- Background image attribution -->
+		<div style="position: absolute; bottom: 0;">
+			Backgrounf image by <a href="https://www.freepik.com/free-photo/high-angle-office-interior-design_31124717.htm#query=computer%20lab%203d&position=0&from_view=search&track=ais">Freepik</a>
 		</div>
 	</BODY>
 </HTML>
