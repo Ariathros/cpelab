@@ -2,13 +2,13 @@
 	include '../../connections.php';
 	include '../sessions.php';
 
+	// Pagination
 	// get page number
 	if (isset($_GET['page_no']) && $_GET['page_no'] !== "") {
 		$page_no = $_GET['page_no'];
 	}else {
 		$page_no = 1;
 	}
-	// These are all required for pagination implementation
 	// count of records to display per page
 	$record_per_page = 10;
 	// page offset for LIMIT query
@@ -34,7 +34,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<TITLE>Admin Account Management - CPE Lab Room and Equipment Management System</TITLE>
 
@@ -55,7 +54,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../../assets/css/style.css"></link>
 		<link rel="icon" href="../../assets/images/pup logo.png" type="image/x-icon">
-
+		<!-- Search function -->
 		<script>
 			$(document).ready(function(){
 				$("#myInput").on("keyup", function() {
@@ -97,16 +96,17 @@
 				return $(row).children("td").eq(index).text();
 			}
 		</script>
-
 	</head>
 
 	<body>
 		<div class="row">
+			<!-- Sidebar -->
 			<div class="col-3 px-2">
 				<?php
 					include "../sidebar.php";
 				?>
 			</div>
+			<!-- Main content -->
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
@@ -117,8 +117,8 @@
 						</a>
 					</H1>
 				</DIV>
-
 				<div class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
+					<!-- Alert message for CRUD operation -->
 					<?php
 						if(isset($_GET['msg'])) {
 							$msg = $_GET['msg'];
@@ -128,11 +128,11 @@
 						</div>';
 						}
 					?>
-
+					<!-- Add button -->
 					<a href="create.php" class="btn btn-success mb-3 button2 :hover">Add New</a>&emsp;
-
+					<!-- Export button -->
 					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
-
+					<!-- Export function -->
 					<script>
 						$("#btnExport").click(function (e) {
 							$(this).attr({
@@ -141,9 +141,9 @@
 							})
 						});
 					</script>
-
+					<!-- Search bar -->
 					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
-
+					<!-- Table -->
 					<DIV id='dvData'>
 						<table class="table table-hover text-center">
 							<thead class="table-dark">
@@ -159,6 +159,7 @@
 								</tr>
 							</thead>
 							<tbody id="myTable">
+								<!-- Get data in a row from SQL query -->
 								<?php
 									while ($row = mysqli_fetch_assoc($result)) { ?>
 										<tr>
@@ -216,7 +217,6 @@
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
-
 									<form action="delete.php" method="POST">
 
 										<div class="modal-body">
@@ -230,7 +230,6 @@
 											<button type="submit" name="deletedata" class="btn btn-danger"> Delete </button>
 										</div>
 									</form>
-
 								</div>
 							</div>
 						</div>

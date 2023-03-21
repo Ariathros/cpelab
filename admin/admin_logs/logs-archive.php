@@ -2,13 +2,13 @@
 	include '../../connections.php';
 	include '../sessions.php';
 
+	// Pagination
 	// get page number
 	if (isset($_GET['page_no']) && $_GET['page_no'] !== "") {
 		$page_no = $_GET['page_no'];
 	}else {
 		$page_no = 1;
 	}
-	// These are all required for pagination implementation
 	// count of records to display per page
 	$record_per_page = 10;
 	// page offset for LIMIT query
@@ -97,20 +97,27 @@
 	
 	<BODY>
 		<div class="row">
+			<!-- Sidebar -->
 			<DIV class="col-3 px-2">
 				<?php
 					include '../sidebar.php';
 				?>
 			</DIV>
+			<!-- Main Content -->
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
-						Logs Archive
+						<span>Logs Archive</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Logs Archive" 
+							data-bs-content="Activity log will direct here after 5 months of creation to avoid overcrowding in the main log. You can backtrack
+							transactions by ustilizing the search bar.">
+						</a>
 					</H1>
 				</DIV>
 				<DIV class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
-				<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
-					
+					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
+					<!-- Export button -->
 					<script>
 						$("#btnExport").click(function (e) {
 							$(this).attr({
@@ -119,9 +126,9 @@
 							})
 						});
 					</script>
-
+					<!-- Search bar -->
 					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
-
+					<!-- Table -->
 					<DIV id='dvData'>
 						<TABLE id="admin-logs" class="table table-hover text-center">
 							<thead class="table-dark">
@@ -149,27 +156,10 @@
 										<td><?= $row['student']; ?></td>
 										<td><?= $row['date']; ?></td>
 										<td><?= $row['time_start'] . "-" . $row['time_end']; ?></td>
-
-								<!-- <?php
-									// Set record overdue to creation date + 5 months
-									$startDate = strtotime($row['date']. '+5 months');
-									// get the current date
-									$archiveDate = strtotime(date('y-m-d'));
-									// Check if record is overdue
-									if($startDate < $archiveDate) {
-										// Insert overdue record to 'archive' table
-										mysqli_query($conn, "INSERT INTO `archive`(`archive_id`,`id`, `name`, `type`, `category`, `action`, `faculty`, 
-										`student`, `time_start`, `time_end`, `date`) VALUES ('','$row[id]',
-										'$row[name]','$row[type]','$row[category]','$row[action]','$row[faculty]','$row[student]',
-										'$row[time_start]','$row[time_end]','$row[date]')");
-										// Delete record from logs table, it will generate new record to archive if not deleted
-										mysqli_query($conn, "DELETE FROM `logs` WHERE '$row[id]'='$row[id]'");
-									};?> -->
 									</tr>
 								<?php }
 								mysqli_close($conn); ?>
 							</tbody>
-							   
 						</TABLE>
 					</DIV>
 					<!-- Pagination -->
@@ -200,10 +190,16 @@
 				</DIV>
 			</div>
 		</div>
-		
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
 		</script>
 	</BODY>
 </HTML>

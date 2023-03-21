@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="./assets/css/style.css"></link>
 		<link rel="icon" href="./assets/images/pup logo.png" type="image/x-icon">
-		<link rel="stylesheet" href="./assets/css/background.css"></link>
+		<link rel="stylesheet" href="./assets/css/backgrounds.css"></link>
 		
 	</HEAD>
 	
@@ -27,7 +27,7 @@
 		<div class="index">
 			<nav class="navbar justify-content-between">
 				<a class="navbar-brand">
-					Rooms and Equipment Reservation System
+					Rooms and Equipment <br>Reservation System
 				</a>
 			</nav>	
 			<div class="container ">
@@ -38,27 +38,25 @@
 								<img src="./assets/images/pup logo.png" alt="Logo">
 							</div>
 						</div>
-					<div class="d-flex justify-content-center form_container">
-						<form method="POST">
-							<div class="input-group mb-3">
-								<div class="input-group-append">
-									<span class="input-group-text"><i class="fas fa-user"></i></span>
+						<div class="d-flex justify-content-center form_container">
+							<form method="POST">
+								<div class="input-group mb-3">
+									<div class="input-group-append">
+										<span class="input-group-text"><i class="fas fa-user"></i></span>
+									</div>
+									<input type="text" name="username" class="form-control input_user" placeholder="Username">
 								</div>
-								<input type="text" name="username" class="form-control input_user" placeholder="Username">
-							</div>
-							<div class="input-group mb-2">
-								<div class="input-group-append">
-									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								<div class="input-group mb-2">
+									<div class="input-group-append">
+										<span class="input-group-text"><i class="fas fa-key"></i></span>
+									</div>
+									<input type="password" name="password" class="form-control input_pass" placeholder="Password">
 								</div>
-								<input type="password" name="password" class="form-control input_pass" placeholder="Password">
-							</div>
-
-							<div class="d-flex justify-content-center mt-3 login_container">
-								<input type='submit' type="button" name="bLogin" class="btn login_btn" value="Login">
-							</div>
-						</form>
-
-					</div>
+								<div class="d-flex justify-content-center mt-3 login_container">
+									<input type='submit' type="button" name="bLogin" class="btn login_btn" value="Login">
+								</div>
+							</form>
+						</div>
 					<div>
 						<?php
 					// IF BUTTON IS CLICKED
@@ -113,6 +111,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- Background image attribution -->
+		<div style="position: absolute; bottom: 0;">
+			Backgrounf image by <a href="https://www.freepik.com/free-photo/high-angle-office-interior-design_31124717.htm#query=computer%20lab%203d&position=0&from_view=search&track=ais">Freepik</a>
 		</div>
 	</BODY>
 </HTML>

@@ -148,14 +148,14 @@
 						<div class="input-group-append">
 							<span class="input-group-text">Password</span>
 						</div>
-						<input type="password" name="password" class="form-control input_user" placeholder="Password" REQUIRED>
+						<input type="password" name="password" class="form-control input_user" placeholder="at least 8 characters" REQUIRED>
 					</div>
 
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text">Confirm Password</span>
 						</div>
-						<input type="password" name="confirmPassword" class="form-control input_user" placeholder="Confirm Password" REQUIRED>
+						<input type="password" name="confirmPassword" class="form-control input_user" placeholder="should match Password" REQUIRED>
 					</div>
 					<input name="submit" type="submit" class="btnRegister"  value="Register"></button>
 				</form>

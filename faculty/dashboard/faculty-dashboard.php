@@ -39,7 +39,7 @@
 <!DOCTYPE html>
 <HTML lang="en">
 	<head>
-		<TITLE>Faculty Dashboard - CPE Lab Room and Equipment Management System</TITLE>
+		<TITLE>Faculty Logs - CPE Lab Room and Equipment Management System</TITLE>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
@@ -111,7 +111,12 @@
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
 					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
-						Dashboard
+						<span>Logs</span>
+						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+							title="Logs" 
+							data-bs-content="Contains your activity in the system with corresponding record. Take note that after 5 months from creation
+							your logs will be moved to admin archive.">
+						</a>
 					</H1>
 				</DIV>
 				<DIV class="container" style="padding-left:24px; padding-right:24px;">
@@ -143,7 +148,7 @@
 								</tr>
 							<?php }
 							} else {
-								echo "<TR><TD COLSPAN=7>No borrower needs equipment right now.</TD></TR>";
+								echo "<TR><TD COLSPAN=7>You have no activity logs right now.</TD></TR>";
 							}
 							mysqli_close($conn); ?>
 						</tbody>
@@ -178,12 +183,16 @@
 				</DIV>
 			</div>
 		</div>
-		
-		
-		
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+		</script>
+		<!-- Hover effect -->
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="popover"]').popover()
+			})
 		</script>
 	</BODY>
 </HTML>

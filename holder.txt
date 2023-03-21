@@ -1,45 +1,5 @@
-<div class="container register">
-	<div class="row">
-		<div class="col-md-3 register-left">
-			<h3>Welcome</h3>
-			<p><!-- write something here --></p>
-			<a href="index.php">
-				<input type="submit" name="back_login" value="Login"/>
-			</a>
-			<br/>
-		</div>
-		<div class="col-md-9 register-right">
-			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<h3 class="register-heading">Register your account</h3>
-					<div class="row register-form">
-						<div class="">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="First Name *" value="" />
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Last Name *" value="" />
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="User Name *" value="" />
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="ID No. *" value="" />
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email *" value="" />
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password *" value="" />
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-							</div>
-							<input type="submit" class="btnRegister"  value="Register"/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+This txt file pnly serves as a clipdboard for code that can be used later.
+
+Attribute for index background images
+computer: <a href="https://www.freepik.com/free-photo/3d-render-code-testing-functional-test-usability_34727540.htm#query=computer%20engineer%203d&position=1&from_view=search&track=ais">Image by upklyak</a> on Freepik
+isometric: Image by <a href="https://www.freepik.com/free-photo/high-angle-office-interior-design_31124717.htm#query=computer%20lab%203d&position=0&from_view=search&track=ais">Freepik</a>
