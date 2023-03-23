@@ -117,7 +117,7 @@
 						</a>
 					</H1>
 				</DIV>
-				<div class="container" style="padding-top:24px; padding-left:24px; padding-right:24px;">
+				<div class="container" style="padding-top:16px; padding-left:24px; padding-right:24px;">
 					<!-- Alert message for CRUD operation -->
 					<?php
 						if(isset($_GET['msg'])) {
