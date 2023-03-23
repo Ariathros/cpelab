@@ -109,7 +109,7 @@
 			<!-- Main content -->
 			<div class="col-9 px-0" >
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #4D0000; color: white;">
+					<H1 class="navbar navbar-light justify-content-center fs-3" style="background-color: #4D0000; color: white;">
 						<span>Account Management</span>
 						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
 							title="Account Management" 
@@ -128,10 +128,20 @@
 						</div>';
 						}
 					?>
+					<!-- Alert message for invalid file uplaod -->
+					<?php
+						if(isset($_GET['err'])) {
+							$err = $_GET['err'];
+							echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+							'.$err.'
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>';
+						}
+					?>
 					<!-- Add button -->
 					<a href="create.php" class="btn btn-success mb-3 button2 :hover">Add New</a>&emsp;
 					<!-- Export button -->
-					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>
+					<a href="x" download="down.xls" class="btn btn-warning mb-3 button2 :hover" id="btnExport"><i class="fa-solid fa-file-excel"></i> Export Table</a>&emsp;
 					<!-- Export function -->
 					<script>
 						$("#btnExport").click(function (e) {
@@ -141,6 +151,10 @@
 							})
 						});
 					</script>
+					<!-- Import button modal -->
+					<button type="button" class="btn btn-info mb-3 button2 :hover" data-bs-toggle="modal" data-bs-target="#importModal">
+						<i class="fa-solid fa-file-import"></i> Import Table
+					</button>
 					<!-- Search bar -->
 					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
 					<!-- Table -->
@@ -178,7 +192,7 @@
 							</tbody>
 						</table>
 						<!-- Pagination -->
-						<div style="position: bottom: 0;" class="mt-3">
+						<div style="position: fixed; bottom: 0;" class="mt-3">
 							<nav aria-label="Page navigation example">
 								<ul class="pagination">
 									<!-- Previous -->
@@ -205,6 +219,29 @@
 							</div>
 						</div>
 					</DIV>
+					<!-- Import Modal -->
+					<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Choose a file to upload</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<p>Note: Your table should have a column header in the following order <br>
+										First Name | Last Name | Id No. | Username | Email | Password | Usertype.
+									</p>
+									<form action="import-table.php" method="POST" enctype="multipart/form-data">
+										<input type="file" name="import_file" class="form-control" />
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+											<button type="submit" name="save_excel_data" class="btn btn-info">Import</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 					<section>
 						<!-- Delete Warning (Bootstrap Modal) -->
 						<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
