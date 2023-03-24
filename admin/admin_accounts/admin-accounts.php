@@ -44,7 +44,7 @@
     <body>
         <!-- Page Content -->
         <div class="row">
- 
+
             <!-- Sidebar -->
             <div class="col-3 px-2">
                 <?php
@@ -127,7 +127,7 @@
                                 <?php } ?>
                             </tbody>
                         </table>
-
+                        
                         <!-- Import Modal -->
                         <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -156,7 +156,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Delete Warning Modal -->
                         <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
