@@ -44,7 +44,7 @@
     <body>
         <!-- Page Content -->
         <div class="row">
-
+ 
             <!-- Sidebar -->
             <div class="col-3 px-2">
                 <?php
