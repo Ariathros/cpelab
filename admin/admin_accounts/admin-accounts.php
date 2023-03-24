@@ -231,10 +231,10 @@
 									<b>Guidelines for your table</b>
 									<p>1. Your table should have a column header in the following order <br>
 									&emsp;&emsp;<strong>First Name | Last Name | Id No. | Username | Email | Password | Usertype </strong> <br>
-									2. First Name, Last Name, Username: must not contain special characters <br>
-									3. Id No.: &emsp;ex. 2023-000000-AB-0 <br>
-									4. Email: &emsp;ex. example@email.com<br>
-									5. Usertype:&ensp;Admin | Faculty | Student <br>
+									2. <b>First Name, Last Name, Username:</b> must not contain special characters <br>
+									3. <b>Id No.:</b> ex. 2023-000000-AB-0 <br>
+									4. <b>Email:</b> ex. example@email.com<br>
+									5. <b>Usertype:</b> Admin | Faculty | Student <br>
 									</p>
 									<form action="import-table.php" method="POST" enctype="multipart/form-data">
 										<input type="file" name="import_file" class="form-control" />

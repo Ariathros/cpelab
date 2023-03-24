@@ -103,7 +103,7 @@
 			</DIV>
 			<div class="col-9 px-0">
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
+					<H1 class="navbar navbar-light justify-content-center fs-3" style="background-color: #800000; color: white;">
 						<span>Equipment Reservation</span>
 						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
 							title="Equipment Reservation" 

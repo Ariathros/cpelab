@@ -98,131 +98,179 @@
 		<title>Faculty Equipment Management - CPE Lab Room and Equipment Management System</title>
 	</head>
 	<body>
-	<div class="row">
-		<DIV class="col-3 px-2">
-		<?php
-			include "../sidebar.php";
-		?>
-
-		</div>
-		<div class="col-9 px-0">
-		<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-			<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
-			Equipment Management
-				<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
-					title="Equipment Management" 
-					data-bs-content="Contains all existing equipment in the system. You can also add, edit, and delete a particular equipment.">
-				</a>
-			</H1>
-		</DIV>
-		<div class="container" style="padding-left:24px; padding-right:24px;">
-			<?php
-				if(isset($_GET['msg'])) {
-					$msg = $_GET['msg'];
-					echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-					'.$msg.'
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				  </div>';
-				}
-			?>
-
-			<a href="create.php" class="btn btn-success">Add New</a>
-			<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
-			<table class="table table-hover text-center">
-				<thead class="table-dark">
-					<tr>
-					<TH SCOPE="COL">ID</TH>
-					<TH SCOPE="COL">Code</TH>
-					<TH SCOPE="COL">Name</TH>
-					<TH SCOPE="COL">Category</TH>
-					<TH SCOPE="COL">Total</TH>
-					<TH SCOPE="COL">Available</TH>
-					<TH SCOPE="COL">Action</TH>
-					</tr>
-				</thead>
-				<tbody id="myTable">
-					<?php
-						if ($result->num_rows > 0) {
-							// This will get all data from our database
-							while ($row = mysqli_fetch_assoc($result)) {
-								?>
-								<tr>
-									<td><?php echo $row['id']?></td>
-									<td><?php echo $row['equip_code']?></td>
-									<td><?php echo $row['equip_name']?></td>
-									<td><?php echo $row['category']?></td>
-									<td><?php echo $row['total']?></td>
-									<td><?php echo $row['available']?></td>
-									<td><a  href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-										<button type="button" class="btn btn-danger deletebtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash fs-5"></i> Delete</button>
-									</td>
-								</tr>
-								<?php
-							}
-						} else {
-								echo "<TR><TD COLSPAN=7>Equipment list is empty. Add one by pressing the add button at the top</TD></TR>";
-						}
-					?>
-				</tbody>
-			</table>
-			<!-- Pagination -->
-			<div style="position: fixed;  bottom: 0;">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination">
-						<!-- Previous -->
-						<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
-						<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
-						<!-- Page Numbers -->
-						<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
-							<?php if($page_no != $counter) { ?>
-								<li class="page-item"><a class="page-link" href="?page_no=<?=
-								$counter; ?>"><?= $counter; ?></a></li>
-							<?php } else { ?>
-								<li class="page-item"><a class="page-link active"><?= $counter; ?>
-								</a></li>
-							<?php } ?>
-						<?php } ?>
-						<!-- Next -->
-						<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
-						<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
-					</ul>
-				</nav>
-				<!-- Page Navigation -->
-				<div class="p-10 mb-5" >
-					<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
-				</div>
+		<div class="row">
+			<DIV class="col-3 px-2">
+				<?php
+					include "../sidebar.php";
+				?>
 			</div>
-			<section>
-				<!-- Delete Warning (Bootstrap Modal) -->
-				<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-					aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered" role="document">
+			<!-- Main Content -->
+			<div class="col-9 px-0">
+			<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
+				<H1 class="navbar navbar-light justify-content-center fs-3" style="background-color: #800000; color: white;">
+				Equipment Management
+					<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
+						title="Equipment Management" 
+						data-bs-content="Contains all existing equipment in the system. You can also add, edit, and delete a particular equipment.">
+					</a>
+				</H1>
+			</DIV>
+			<div class="container" style="padding-top:16px; padding-left:24px; padding-right:24px;">
+				<!-- Alert Message for CRUD Operation -->
+				<?php
+					if(isset($_GET['msg'])) {
+						$msg = $_GET['msg'];
+						echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						'.$msg.'
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>';
+					}
+				?>
+				<!-- Alert message for invalid file uplaod -->
+				<?php
+					if(isset($_GET['err'])) {
+						$err = $_GET['err'];
+						echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						'.$err.'
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>';
+					}
+				?>
+				<!-- Add button -->
+				<a href="create.php" class="btn btn-success mb-3 button2 :hover">Add New</a> &emsp;
+				<!-- Import button modal -->
+				<button type="button" class="btn btn-info mb-3 button2 :hover" data-bs-toggle="modal" data-bs-target="#importModal">
+					<i class="fa-solid fa-file-import"></i> Import Table
+				</button>
+				<!-- Search bar -->
+				<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
+				<!-- Table -->
+				<table class="table table-hover text-center">
+					<thead class="table-dark">
+						<tr>
+						<TH SCOPE="COL">ID</TH>
+						<TH SCOPE="COL">Code</TH>
+						<TH SCOPE="COL">Name</TH>
+						<TH SCOPE="COL">Category</TH>
+						<TH SCOPE="COL">Total</TH>
+						<TH SCOPE="COL">Available</TH>
+						<TH SCOPE="COL">Action</TH>
+						</tr>
+					</thead>
+					<tbody id="myTable">
+						<?php
+							if ($result->num_rows > 0) {
+								// This will get all data from our database
+								while ($row = mysqli_fetch_assoc($result)) {
+									?>
+									<tr>
+										<td><?php echo $row['id']?></td>
+										<td><?php echo $row['equip_code']?></td>
+										<td><?php echo $row['equip_name']?></td>
+										<td><?php echo $row['category']?></td>
+										<td><?php echo $row['total']?></td>
+										<td><?php echo $row['available']?></td>
+										<td><a  href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+											<button type="button" class="btn btn-danger deletebtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash fs-5"></i> Delete</button>
+										</td>
+									</tr>
+									<?php
+								}
+							} else {
+									echo "<TR><TD COLSPAN=7>Equipment list is empty. Add one by pressing the add button at the top</TD></TR>";
+							}
+						?>
+					</tbody>
+				</table>
+				<!-- Pagination -->
+				<div style="position: fixed;  bottom: 0;">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<!-- Previous -->
+							<li class="page-item"><a class="page-link <?= ($page_no <= 1) ? 'disabled' : ''; ?>"
+							<?= ($page_no > 1) ? 'href=?page_no=' . $previous_page : ''; ?>>Previous</a></li>
+							<!-- Page Numbers -->
+							<?php for($counter = 1; $counter <= $total_pages; $counter++) { ?>
+								<?php if($page_no != $counter) { ?>
+									<li class="page-item"><a class="page-link" href="?page_no=<?=
+									$counter; ?>"><?= $counter; ?></a></li>
+								<?php } else { ?>
+									<li class="page-item"><a class="page-link active"><?= $counter; ?>
+									</a></li>
+								<?php } ?>
+							<?php } ?>
+							<!-- Next -->
+							<li class="page-item"><a class="page-link <?= ($page_no >= $total_pages) ? 'disabled' : ''; ?>"
+							<?= ($page_no < $total_pages) ? 'href=?page_no=' . $nextpage : ''; ?>>Next</a></li>
+						</ul>
+					</nav>
+					<!-- Page Navigation -->
+					<div class="p-10 mb-5" >
+						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+					</div>
+				</div>
+				<!-- Import Modal -->
+				<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"> Delete Equipment Data </h5>
-								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+								<h5 class="modal-title" id="exampleModalLabel"><b>Import Equipment Table</b></h5> <b></b>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
-
-							<form action="delete.php" method="POST">
-
-								<div class="modal-body">
-
-									<input type="hidden" name="delete_id" id="delete_id">
-
-									<p> Are you sure you want to delete this equipment? </p>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
-									<button type="submit" name="deletedata" class="btn btn-danger"> Delete </button>
-								</div>
-							</form>
-
+							<div class="modal-body">
+								<b>Guidelines for your table</b> <br>
+								<p>1. Your table should have a column header in the following order <br>
+								&emsp;&emsp;<strong>Equip Code | Equip Name | Category | Description | Total | Available | Image </strong> <br>
+								2. <b>Equip Code:</b>&emsp;&emsp;ex. pjt001 <br>
+								3. <b>Equip Name:</b> &emsp;ex. Projector <br>
+								4. <b>Category:</b> &emsp;Devices | Electronics | Hardware/Computer Parts | Others <br>
+								5. <b>Description:</b>&ensp;a short detail of the equipment <br>
+								6. <b>Total:</b> &emsp;Min = 0 | Max = 50 <br>
+								7. <b>Available:</b> &emsp;Min = 0 | Max = 50 | current available for use<br>
+								8. <b>Image:</b> &emsp;only write the file name ex. cpe_logo.jpg<br>
+								</p>
+								<form action="import-table.php" method="POST" enctype="multipart/form-data">
+									<input type="file" name="import_file" class="form-control" />
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+										<button type="submit" name="save_excel_data" class="btn btn-info">Import</button>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+				<section>
+					<!-- Delete Warning (Bootstrap Modal) -->
+					<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel"> Delete Equipment Data </h5>
+									<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+
+								<form action="delete.php" method="POST">
+
+									<div class="modal-body">
+
+										<input type="hidden" name="delete_id" id="delete_id">
+
+										<p> Are you sure you want to delete this equipment? </p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+										<button type="submit" name="deletedata" class="btn btn-danger"> Delete </button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
 		</div>
 		<!-- Bootstrap -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
