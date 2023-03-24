@@ -28,19 +28,17 @@ if(isset($_POST['save_excel_data']))
             if($count > 0)
             {   
                 // get the values on each row
-                $firstName = $row['0'];
-                $lastName = $row['1'];
-                $id_num = $row['2'];
-                $username = $row['3'];
-                $email = $row['4'];
-                $password = $row['5'];
-                $usertype = $row['6'];
+                $room_no = $row['0'];
+                $room_type = $row['1'];
+                $seat_count = $row['2'];
+                $room_status = $row['3'];
+                
                 // INSERT Query
-                $userQuery = "INSERT INTO useraccounts (firstname,lastname,id_num,username, email, password, usertype) 
-                VALUES ('$firstName','$lastName','$id_num','$username','$email','$password','$usertype')";
-                $result = mysqli_query($conn, $userQuery);
+                $roomQuery = "INSERT INTO rooms (room_no, room_type, seat_count, room_status) 
+                VALUES ('$room_no','$room_type','$seat_count','$room_status')";
+                $result = mysqli_query($conn, $roomQuery);
                 if($result) {
-                    header("Location: admin-accounts.php?msg=New Record Created Succesfully");
+                    header("Location: room-mngt.php?msg=New Records Created Succesfully");
                 }
                 else {
                     echo "Failed: " . mysqli_error($conn); 
@@ -56,7 +54,7 @@ if(isset($_POST['save_excel_data']))
     // redirect with error flash message
     else
     {
-        header("Location: admin-accounts.php?err=Invalid file format. Only accepts 'xls','csv','xlsx' file.");
+        header("Location: room-mngt.php?err=Invalid file format. Only accepts 'xls','csv','xlsx' file.");
     }
 }
 ?>

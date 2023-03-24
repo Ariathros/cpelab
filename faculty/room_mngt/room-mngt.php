@@ -103,9 +103,10 @@
 					include "../sidebar.php";
 				?>
 			</DIV>
+			<!-- Main Content -->
 			<div class="col-9 px-0">
 				<DIV style="padding-top:24px; padding-left:24px; padding-right:24px;">
-					<H1 class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #800000; color: white;">
+					<H1 class="navbar navbar-light justify-content-center fs-3" style="background-color: #800000; color: white;">
 						<span>Room Management</span>
 						<a class="instruction fa fa-question-circle-o" style="color: white;" data-bs-toggle="popover" data-bs-trigger="hover"
 							title="Room Management" 
@@ -114,19 +115,36 @@
 					</H1>
 				</DIV>
 
-				<div class="container" style="padding-left:24px; padding-right:24px;">
+				<div class="container" style="padding-top:16px; padding-left:24px; padding-right:24px;">
+					<!-- Alert Message for CRUD operation -->
 					<?php
 						if(isset($_GET['msg'])) {
 							$msg = $_GET['msg'];
-							echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
 							'.$msg.'
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>';
 						}
 					?>
-
-					<a href="create.php" class="btn btn-success">Add New</a>
-					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;" class="mb-3">
+					<!-- Alert message for invalid file uplaod -->
+					<?php
+						if(isset($_GET['err'])) {
+							$err = $_GET['err'];
+							echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+							'.$err.'
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>';
+						}
+					?>
+					<!-- Add button -->
+					<a href="create.php" class="btn btn-success mb-3 button2 :hover">Add New</a>&emsp;
+					<!-- Import button modal -->
+					<button type="button" class="btn btn-info mb-3 button2 :hover" data-bs-toggle="modal" data-bs-target="#importModal">
+						<i class="fa-solid fa-file-import"></i> Import Table
+					</button>
+					<!-- Search bar -->
+					<input id="myInput" type="text" placeholder="Search.." style="float:right; border: 2px solid black;">
+					<!-- Table -->
 					<table class="table table-hover text-center">
 						<thead class="table-dark">
 							<tr>
@@ -187,6 +205,34 @@
 						<!-- Page Navigation -->
 						<div class="p-10 mb-5" >
 							<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
+						</div>
+					</div>
+					<!-- Import Modal -->
+					<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel"><b>Import Room Table</b></h5> <b></b>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<b>Guidelines for your table</b> <br>
+									<p>1. Your table should have a column header in the following order <br>
+									 &emsp;&emsp;<strong>Room No. | Room Type | Seat Count | Room Status </strong> <br>
+									 2. Room No.&emsp;&emsp;ex. 302 <br>
+									 3. Room Type: &emsp;Lecture Room | Computer Room | Miscellaneous Room <br>
+									 4. Seat Count: &emsp;Min = 1 | Max = 50 <br>
+									 5. Room Status:&ensp;Available | Unavalibale | Reserved <br>
+									</p>
+									<form action="import-table.php" method="POST" enctype="multipart/form-data">
+										<input type="file" name="import_file" class="form-control" />
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+											<button type="submit" name="save_excel_data" class="btn btn-info">Import</button>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 					<section>

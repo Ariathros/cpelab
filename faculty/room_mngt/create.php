@@ -77,7 +77,7 @@
                                     <option value="">--Select Option--</option>
                                     <option value="Lecture Room">Lecture Room</option>
                                     <option value="Computer Room">Computer Room</option>                            
-                                    <option value="Miscelaneous Room">Miscelaneous Room</option>
+                                    <option value="Miscelaneous Room">Miscellaneous Room</option>
                                 </select>
                             </div>
 

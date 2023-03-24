@@ -221,15 +221,20 @@
 					</DIV>
 					<!-- Import Modal -->
 					<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-dialog modal-dialog-centered modal-lg">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Choose a file to upload</h5>
+									<h5 class="modal-title" id="exampleModalLabel">Import User Accounts Table </h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<p>Note: Your table should have a column header in the following order <br>
-										First Name | Last Name | Id No. | Username | Email | Password | Usertype.
+									<b>Guidelines for your table</b>
+									<p>1. Your table should have a column header in the following order <br>
+									&emsp;&emsp;<strong>First Name | Last Name | Id No. | Username | Email | Password | Usertype </strong> <br>
+									2. First Name, Last Name, Username: must not contain special characters <br>
+									3. Id No.: &emsp;ex. 2023-000000-AB-0 <br>
+									4. Email: &emsp;ex. example@email.com<br>
+									5. Usertype:&ensp;Admin | Faculty | Student <br>
 									</p>
 									<form action="import-table.php" method="POST" enctype="multipart/form-data">
 										<input type="file" name="import_file" class="form-control" />
