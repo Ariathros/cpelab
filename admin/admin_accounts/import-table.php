@@ -34,10 +34,11 @@ if(isset($_POST['save_excel_data']))
                 $username = $row['3'];
                 $email = $row['4'];
                 $password = $row['5'];
+                $hashPass = password_hash($password, PASSWORD_DEFAULT);
                 $usertype = $row['6'];
                 // INSERT Query
                 $userQuery = "INSERT INTO useraccounts (firstname,lastname,id_num,username, email, password, usertype) 
-                VALUES ('$firstName','$lastName','$id_num','$username','$email','$password','$usertype')";
+                VALUES ('$firstName','$lastName','$id_num','$username','$email','$hashPass','$usertype')";
                 $result = mysqli_query($conn, $userQuery);
                 if($result) {
                     header("Location: admin-accounts.php?msg=New Record Created Succesfully");
