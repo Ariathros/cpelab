@@ -114,7 +114,7 @@
 		</div>
 		<!-- Background image attribution -->
 		<div style="position: absolute; bottom: 0;">
-			Backgrounf image by <a href="https://www.freepik.com/free-photo/high-angle-office-interior-design_31124717.htm#query=computer%20lab%203d&position=0&from_view=search&track=ais">Freepik</a>
+			<a href="https://www.freepik.com/free-photo/3d-render-code-testing-functional-test-usability_34727540.htm#query=computer%20engineer%203d&position=1&from_view=search&track=ais">Image by upklyak</a> on Freepik
 		</div>
 	</BODY>
 </HTML>
