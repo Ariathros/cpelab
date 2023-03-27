@@ -205,7 +205,7 @@
 						</ul>
 					</nav>
 					<!-- Page Navigation -->
-					<div class="p-10 mb-5" >
+					<div class="p-10 mb-2" >
 						<strong>Page <?= $page_no; ?> of <?= $total_pages; ?></strong>
 					</div>
 				</div>
