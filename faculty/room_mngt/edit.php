@@ -103,9 +103,6 @@
                                 <input type="radio" class="form-check-input" name="room_status" id="unavailable" value="Unavailable"
                                 <?php echo ($row['room_status']=='unavailable')?"checked":"";?> REQUIRED>
                                 <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
-                                <input type="radio" class="form-check-input" name="room_status" id="reserved" value="Reserved"
-                                <?php echo ($row['room_status']=='reserved')?"checked":"";?> REQUIRED>
-                                <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                             </div>
 
                             <div class="mb-5">

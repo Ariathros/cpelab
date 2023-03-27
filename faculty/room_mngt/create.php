@@ -94,8 +94,6 @@
                                 <label for="available" class="form-input-label">Available</label> &nbsp;
                                 <input type="radio" class="form-check-input" name="room_status" id="Unavailable" value="Unavailable" REQUIRED>
                                 <label for="unavailable" class="form-input-label">Unavailable</label> &nbsp;
-                                <input type="radio" class="form-check-input" name="room_status" id="Reserved" value="Reserved" REQUIRED>
-                                <label for="reserved" class="form-input-label">Reserved</label> &nbsp;
                             </div>
 
                             <div class="mb-5">

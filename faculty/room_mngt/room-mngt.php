@@ -222,7 +222,7 @@
 									 2. <b>Room No.</b>&emsp;&emsp;ex. 302 <br>
 									 3. <b>Room Type</b> &emsp;Lecture Room | Computer Room | Miscellaneous Room <br>
 									 4. <b>Seat Count:</b> &emsp;Min = 1 | Max = 50 <br>
-									 5. <b>Room Status:</b>&ensp;Available | Unavalibale | Reserved <br>
+									 5. <b>Room Status:</b>&ensp;Available | Unavailable <br>
 									</p>
 									<form action="import-table.php" method="POST" enctype="multipart/form-data">
 										<input type="file" name="import_file" class="form-control" />
