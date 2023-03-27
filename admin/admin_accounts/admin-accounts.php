@@ -91,7 +91,7 @@
                         <i class="fa-solid fa-file-import"></i> Import Table
                     </button>
 
-                    <!-- Data table filters -->
+                    <!-- Data table utilities -->
                     <div class="data_table ">
                         <!-- Table content -->
                         <table id="example" class="table table-striped table-bordered">
