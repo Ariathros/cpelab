@@ -35,6 +35,8 @@ if(isset($_POST['save_excel_data']))
                 $total = $row['4'];
                 $available = $row['5'];
                 $p_img = $row['6'];
+                // $target = "../../assets/images/".basename($p_img);
+                // $image_upload = $p_img;
                 
                 // INSERT Query
                 $equipQuery = "INSERT INTO equipments (equip_code, equip_name, category, description, total, available, p_img) 
@@ -46,6 +48,10 @@ if(isset($_POST['save_excel_data']))
                 else {
                     echo "Failed: " . mysqli_error($conn); 
                 }
+
+                // if(move_uploaded_file($p_img, $target)){
+                //     echo "Image uploaded successfully";
+                // }
             }
             // increment count to start getting data on the 2nd row
             else

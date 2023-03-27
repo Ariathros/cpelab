@@ -112,11 +112,11 @@
                             </div>
                             <!-- Image update -->
                             <!-- Tanggalin pag di na kaya XD -->
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                             <label class="form-label">Choose Image:</label>
                                 <input type="file"  name="p_img" accept="image/png, image/jpg, image/jpeg, image/PNG"?>">
                             
-                            </div>
+                            </div> -->
                             <!-- Total -->
                             <div class="mb-3">
                                 <label class="form-label">Total:</label>
